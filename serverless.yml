@@ -1,0 +1,119 @@
+service: cognito-email-guard
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: eu-west-1
+  stage: ${opt:stage, 'dev'}
+  environment:
+    DB_HOST: ${env:DB_HOST}
+    DB_PORT: ${env:DB_PORT, '3306'}
+    DB_USER: ${env:DB_USER}
+    DB_PASSWORD: ${env:DB_PASSWORD}
+    DB_NAME: ${env:DB_NAME}
+    USER_POOL_ID: ${env:USER_POOL_ID} # Récupéré après premier déploiement, ou on peut laisser serverless l’exporter via outputs
+  iam:
+    role:
+      statements:
+        # Autoriser Cognito Update côté admin pour l’endpoint de changement d'email
+        - Effect: Allow
+          Action:
+            - cognito-idp:AdminUpdateUserAttributes
+            - cognito-idp:AdminGetUser
+          Resource:
+            - arn:aws:cognito-idp:${self:provider.region}:*:userpool/${env:USER_POOL_ID}
+
+functions:
+  preSignUp:
+    handler: src/triggers/preSignUp.handler
+
+  changeEmail:
+    handler: src/api/changeEmail.handler
+    events:
+      - httpApi:
+          path: /user/email
+          method: POST
+          authorizer:
+            type: jwt
+            identitySource: "$request.header.Authorization"
+            issuerUrl: https://cognito-idp.${self:provider.region}.amazonaws.com/${env:USER_POOL_ID}
+            audience:
+              - ${env:USER_POOL_CLIENT_ID}
+
+resources:
+  Resources:
+    UserPool:
+      Type: AWS::Cognito::UserPool
+      Properties:
+        UserPoolName: ${self:service}-${self:provider.stage}
+        UsernameAttributes:
+          - email
+        AutoVerifiedAttributes:
+          - email
+        Policies:
+          PasswordPolicy:
+            MinimumLength: 8
+            RequireLowercase: true
+            RequireNumbers: true
+            RequireSymbols: false
+            RequireUppercase: true
+        LambdaConfig:
+          PreSignUp:
+            Fn::GetAtt: [ PreSignUpLambdaFunction, Arn ]  # nom logique auto-généré: <FunctionName>LambdaFunction
+    # Autoriser Cognito à invoquer la Lambda de preSignUp
+    PreSignUpPermission:
+      Type: AWS::Lambda::Permission
+      Properties:
+        FunctionName:
+          Fn::GetAtt: [ PreSignUpLambdaFunction, Arn ]
+        Action: lambda:InvokeFunction
+        Principal: cognito-idp.amazonaws.com
+        SourceArn:
+          Ref: UserPool
+
+    UserPoolClient:
+      Type: AWS::Cognito::UserPoolClient
+      Properties:
+        ClientName: ${self:service}-${self:provider.stage}-client
+        UserPoolId: !Ref UserPool
+        GenerateSecret: false
+        ExplicitAuthFlows:
+          - ALLOW_USER_PASSWORD_AUTH
+          - ALLOW_REFRESH_TOKEN_AUTH
+          - ALLOW_USER_SRP_AUTH
+        SupportedIdentityProviders: [ COGNITO ]
+        PreventUserExistenceErrors: ENABLED
+        CallbackURLs:
+          - https://example.com/callback     # adapte
+        LogoutURLs:
+          - https://example.com/logout       # adapte
+        AllowedOAuthFlowsUserPoolClient: false
+
+  Outputs:
+    UserPoolId:
+      Value: !Ref UserPool
+      Export:
+        Name: ${self:service}-${self:provider.stage}-UserPoolId
+    UserPoolClientId:
+      Value: !Ref UserPoolClient
+      Export:
+        Name: ${self:service}-${self:provider.stage}-UserPoolClientId
+
+plugins:
+  - serverless-esbuild
+  - serverless-dotenv-plugin
+  - serverless-offline
+
+custom:
+  dotenv:
+    path: .env
+  esbuild:
+    bundle: true
+    minify: true
+    sourcemap: true
+    target: node20
+    platform: node
+    concurrency: 10
+    external:
+      - mysql2

@@ -1,0 +1,22 @@
+{
+  "name": "cognito-email-guard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "serverless deploy",
+    "remove": "serverless remove",
+    "dev": "serverless offline"
+  },
+  "dependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.624.0",
+    "mysql2": "^3.11.3"
+  },
+  "devDependencies": {
+    "serverless": "^3.39.0",
+    "serverless-dotenv-plugin": "^6.0.0",
+    "serverless-esbuild": "^1.54.1",
+    "serverless-offline": "^14.4.0",
+    "typescript": "^5.5.4"
+  }
+}
