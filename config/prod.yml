@@ -1,0 +1,17 @@
+esbuild:
+  bundle: true
+  minify: true
+  sourcemap: true
+  target: node20
+  platform: node
+  concurrency: 10
+  external:
+    - mysql2
+
+serverlessTerminationProtection:
+  stages:
+    - prod
+
+prune:
+  automatic: true
+  number: 3

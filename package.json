@@ -10,13 +10,17 @@
   },
   "dependencies": {
     "@aws-sdk/client-cognito-identity-provider": "^3.624.0",
+    "@planetscale/database": "^1.19.0",
     "mysql2": "^3.11.3"
   },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.152",
+    "@types/node": "^24.5.2",
     "serverless": "^3.39.0",
-    "serverless-dotenv-plugin": "^6.0.0",
     "serverless-esbuild": "^1.54.1",
     "serverless-offline": "^14.4.0",
+    "serverless-prune-plugin": "^2.1.0",
+    "serverless-stack-termination-protection": "^2.0.2",
     "typescript": "^5.5.4"
   }
 }

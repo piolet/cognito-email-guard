@@ -1,12 +1,12 @@
 {
   "version": "1",
-  "region": "eu-west-1",
-  "userPoolId": "eu-west-1_mock",
+  "region": "eu-west-3",
+  "userPoolId": "eu-west-3_mock",
   "userName": "some-username",
   "triggerSource": "PreSignUp_SignUp",
   "request": {
     "userAttributes": {
-      "email": "mon-email+spam@gmail.com"
+      "email": "writer111+spam@gmail.com"
     }
   },
   "response": {}

@@ -1,45 +1,40 @@
 service: cognito-email-guard
 frameworkVersion: "3"
 
+useDotenv: true
+
 provider:
   name: aws
   runtime: nodejs20.x
   region: eu-west-1
   stage: ${opt:stage, 'dev'}
   environment:
-    DB_HOST: ${env:DB_HOST}
-    DB_PORT: ${env:DB_PORT, '3306'}
-    DB_USER: ${env:DB_USER}
-    DB_PASSWORD: ${env:DB_PASSWORD}
-    DB_NAME: ${env:DB_NAME}
-    USER_POOL_ID: ${env:USER_POOL_ID} # Récupéré après premier déploiement, ou on peut laisser serverless l’exporter via outputs
+    DATABASE_URL: ${env:DATABASE_URL, ssm:/heustach-${sls:stage}/database-url}
+#    DB_PORT: ${env:DB_PORT, '3306'}
+#    DB_USER: ${env:DB_USER}
+#    DB_PASSWORD: ${env:DB_PASSWORD}
+#    DB_NAME: ${env:DB_NAME}
   iam:
     role:
       statements:
-        # Autoriser Cognito Update côté admin pour l’endpoint de changement d'email
         - Effect: Allow
           Action:
-            - cognito-idp:AdminUpdateUserAttributes
-            - cognito-idp:AdminGetUser
-          Resource:
-            - arn:aws:cognito-idp:${self:provider.region}:*:userpool/${env:USER_POOL_ID}
+            - logs:CreateLogGroup
+            - logs:CreateLogStream
+            - logs:PutLogEvents
+          Resource: "*"
+#      statements:
+#        # Autoriser Cognito Update côté admin pour l’endpoint de changement d'email
+#        - Effect: Allow
+#          Action:
+#            - cognito-idp:AdminUpdateUserAttributes
+#            - cognito-idp:AdminGetUser
+#          Resource:
+#            - arn:aws:cognito-idp:${self:provider.region}:*:userpool/${env:USER_POOL_ID}
 
 functions:
   preSignUp:
     handler: src/triggers/preSignUp.handler
-
-  changeEmail:
-    handler: src/api/changeEmail.handler
-    events:
-      - httpApi:
-          path: /user/email
-          method: POST
-          authorizer:
-            type: jwt
-            identitySource: "$request.header.Authorization"
-            issuerUrl: https://cognito-idp.${self:provider.region}.amazonaws.com/${env:USER_POOL_ID}
-            audience:
-              - ${env:USER_POOL_CLIENT_ID}
 
 resources:
   Resources:
@@ -70,7 +65,7 @@ resources:
         Action: lambda:InvokeFunction
         Principal: cognito-idp.amazonaws.com
         SourceArn:
-          Ref: UserPool
+          Fn::GetAtt: [ UserPool, Arn ]
 
     UserPoolClient:
       Type: AWS::Cognito::UserPoolClient
@@ -102,18 +97,8 @@ resources:
 
 plugins:
   - serverless-esbuild
-  - serverless-dotenv-plugin
+  - serverless-prune-plugin
+  - serverless-stack-termination-protection
   - serverless-offline
 
-custom:
-  dotenv:
-    path: .env
-  esbuild:
-    bundle: true
-    minify: true
-    sourcemap: true
-    target: node20
-    platform: node
-    concurrency: 10
-    external:
-      - mysql2
+custom: ${file(./config/${opt:stage, 'dev'}.yml)}
