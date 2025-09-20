@@ -33,8 +33,15 @@ provider:
 #            - arn:aws:cognito-idp:${self:provider.region}:*:userpool/${env:USER_POOL_ID}
 
 functions:
+  customMessage:
+    handler: src/triggers/customMessage.handler
+    description: Personnalise tous les e-mails Cognito (signup, resend, forgot, etc.)
+    memorySize: 256
+    timeout: 5
   preSignUp:
     handler: src/triggers/preSignUp.handler
+    memorySize: 256
+    timeout: 5
 
 resources:
   Resources:
@@ -46,6 +53,21 @@ resources:
           - email
         AutoVerifiedAttributes:
           - email
+        LambdaConfig:
+          PreSignUp:
+            Fn::GetAtt: [ PreSignUpLambdaFunction, Arn ]  # nom logique auto-généré: <FunctionName>LambdaFunction
+          CustomMessage: !GetAtt CustomMessageLambdaFunction.Arn
+        EmailConfiguration:
+          # Active l'envoi via ton compte SES (prérequis: domaine/adresse vérifiés dans SES)
+          EmailSendingAccount: DEVELOPER
+          From: "Heustach 🥸 <no-reply@${self:custom.email-domain}>"
+          SourceArn: arn:aws:ses:${aws:region}:${aws:accountId}:identity/${self:custom.email-domain}
+        # Message "par défaut" (backup) si le trigger est désactivé
+        VerificationMessageTemplate:
+          DefaultEmailOption: CONFIRM_WITH_CODE
+          EmailSubject: "Votre code Heustach"
+          EmailMessage: "Voici votre code: {####}"
+          EmailMessageByLink: "Cliquez pour confirmer votre adresse: {##Click Here##}"
         Policies:
           PasswordPolicy:
             MinimumLength: 8
@@ -53,9 +75,6 @@ resources:
             RequireNumbers: true
             RequireSymbols: false
             RequireUppercase: true
-        LambdaConfig:
-          PreSignUp:
-            Fn::GetAtt: [ PreSignUpLambdaFunction, Arn ]  # nom logique auto-généré: <FunctionName>LambdaFunction
     # Autoriser Cognito à invoquer la Lambda de preSignUp
     PreSignUpPermission:
       Type: AWS::Lambda::Permission

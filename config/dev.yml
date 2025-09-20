@@ -1,3 +1,5 @@
+email-domain: heustach.fr
+domain: dev.heustach.fr
 esbuild:
   bundle: true
   minify: true
