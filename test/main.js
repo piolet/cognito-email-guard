@@ -89,3 +89,15 @@ document.getElementById("signup-form")
         //     log("Inscription OK: " + result.user.getUsername());
         // });
     });
+
+document.getElementById('resend-form')
+    .addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('rs-email').value.trim();
+    try {
+        const res = await resendSignUpCode({ username: email });
+        log('Code renvoyé avec succès:', res);
+    } catch (err) {
+        log('Erreur renvoi code:', { message: err?.message });
+    }
+});
