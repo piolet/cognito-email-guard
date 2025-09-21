@@ -1,4 +1,4 @@
-import { emailExists } from "../lib/db2";
+import { emailExists } from "../lib/db";
 import type {
     PreSignUpTriggerEvent,
     PreSignUpTriggerHandler,

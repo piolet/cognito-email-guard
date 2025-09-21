@@ -38,8 +38,14 @@ functions:
     description: Personnalise tous les e-mails Cognito (signup, resend, forgot, etc.)
     memorySize: 256
     timeout: 5
+  preTokenGen:
+    handler: src/triggers/preTokenGen.handler
+    description: Ajoute des attributs personnalisés dans le token JWT
+    memorySize: 256
+    timeout: 5
   preSignUp:
     handler: src/triggers/preSignUp.handler
+    description: Vérifie l'unicité de l'adresse e-mail avant inscription (spam email)
     memorySize: 256
     timeout: 5
 
@@ -87,12 +93,23 @@ resources:
             RequireNumbers: true
             RequireSymbols: false
             RequireUppercase: true
+
     # Autoriser Cognito à invoquer la Lambda de preSignUp
     PreSignUpPermission:
       Type: AWS::Lambda::Permission
       Properties:
         FunctionName:
           Fn::GetAtt: [ PreSignUpLambdaFunction, Arn ]
+        Action: lambda:InvokeFunction
+        Principal: cognito-idp.amazonaws.com
+        SourceArn:
+          Fn::GetAtt: [ UserPool, Arn ]
+    # Autoriser Cognito à invoquer la Lambda de preTokenGen
+    PreTokenGenPermission:
+      Type: AWS::Lambda::Permission
+      Properties:
+        FunctionName:
+          Fn::GetAtt: [ PreTokenGenLambdaFunction, Arn ]
         Action: lambda:InvokeFunction
         Principal: cognito-idp.amazonaws.com
         SourceArn:
@@ -104,21 +121,21 @@ resources:
         ClientName: ${self:service}-${self:provider.stage}-client
         UserPoolId: !Ref UserPool
         GenerateSecret: false
-        ReadAttributes:
-          - email
-          - given_name
-          - family_name
-          - phone_number
-          - custom:usr_id
-          - custom:roles
-          - custom:firstName
-          - custom:lastName
-        WriteAttributes:
-          - email
-          - custom:usr_id
-          - custom:roles
-          - custom:firstName
-          - custom:lastName
+#        ReadAttributes:
+#          - email
+#          - given_name
+#          - family_name
+#          - phone_number
+#          - custom:usr_id
+#          - custom:roles
+#          - custom:firstName
+#          - custom:lastName
+#        WriteAttributes:
+#          - email
+#          - custom:usr_id
+#          - custom:roles
+#          - custom:firstName
+#          - custom:lastName
         ExplicitAuthFlows:
           - ALLOW_USER_PASSWORD_AUTH
           - ALLOW_REFRESH_TOKEN_AUTH
