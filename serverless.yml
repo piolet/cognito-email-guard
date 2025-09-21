@@ -49,10 +49,22 @@ resources:
       Type: AWS::Cognito::UserPool
       Properties:
         UserPoolName: ${self:service}-${self:provider.stage}
-        UsernameAttributes:
-          - email
-        AutoVerifiedAttributes:
-          - email
+        UsernameAttributes: [ email ]
+        AutoVerifiedAttributes: [ email ]
+        Schema:
+          - Name: usr_id
+            AttributeDataType: Number
+            Mutable: true
+          - Name: roles
+            AttributeDataType: String
+            Mutable: true
+            StringAttributeConstraints: { MaxLength: "2048" } # pour JSON
+          - Name: firstName
+            AttributeDataType: String
+            Mutable: true
+          - Name: lastName
+            AttributeDataType: String
+            Mutable: true
         LambdaConfig:
           PreSignUp:
             Fn::GetAtt: [ PreSignUpLambdaFunction, Arn ]  # nom logique auto-généré: <FunctionName>LambdaFunction
@@ -92,6 +104,21 @@ resources:
         ClientName: ${self:service}-${self:provider.stage}-client
         UserPoolId: !Ref UserPool
         GenerateSecret: false
+        ReadAttributes:
+          - email
+          - given_name
+          - family_name
+          - phone_number
+          - custom:usr_id
+          - custom:roles
+          - custom:firstName
+          - custom:lastName
+        WriteAttributes:
+          - email
+          - custom:usr_id
+          - custom:roles
+          - custom:firstName
+          - custom:lastName
         ExplicitAuthFlows:
           - ALLOW_USER_PASSWORD_AUTH
           - ALLOW_REFRESH_TOKEN_AUTH
