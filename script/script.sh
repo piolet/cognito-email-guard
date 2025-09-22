@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # email-formatter-call.sh
-## To call :  ./script.sh --key test --payload '{"emailId":"registration-customer", "content":{"to":"lbuisson26@gmail.com"} }'
+## To call :
+# ./script.sh --key test --payload '{"emailId":"registration-customer", "content":{"to":"lbuisson26@gmail.com"} }'
+# ./script.sh --key test --payload '{"emailId":"update-email-code", "content":{"to":"lbuisson26@gmail.com","code":"{##Clicke Here##}"} }'
 set -euo pipefail
 
 # --- Options (ENV ou flags) ---

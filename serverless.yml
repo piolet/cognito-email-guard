@@ -6,7 +6,9 @@ useDotenv: true
 provider:
   name: aws
   runtime: nodejs20.x
-  region: eu-west-1
+  architecture: arm64
+  logRetentionInDays: 14
+  region: eu-west-3
   stage: ${opt:stage, 'dev'}
   environment:
     DATABASE_URL: ${env:DATABASE_URL, ssm:/heustach-${sls:stage}/database-url}
@@ -72,8 +74,8 @@ resources:
             AttributeDataType: String
             Mutable: true
         LambdaConfig:
-          PreSignUp:
-            Fn::GetAtt: [ PreSignUpLambdaFunction, Arn ]  # nom logique auto-généré: <FunctionName>LambdaFunction
+          PreSignUp: !GetAtt PreSignUpLambdaFunction.Arn  # nom logique auto-généré: <FunctionName>LambdaFunction
+          PreTokenGeneration: !GetAtt PreTokenGenLambdaFunction.Arn
           CustomMessage: !GetAtt CustomMessageLambdaFunction.Arn
         EmailConfiguration:
           # Active l'envoi via ton compte SES (prérequis: domaine/adresse vérifiés dans SES)
