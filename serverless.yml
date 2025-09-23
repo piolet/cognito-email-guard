@@ -25,6 +25,13 @@ provider:
             - logs:CreateLogStream
             - logs:PutLogEvents
           Resource: "*"
+        - Effect: Allow
+          Action:
+            - ssm:GetParameter
+            - ssm:GetParameters
+          Resource:
+            - arn:aws:ssm:${self:provider.region}:${aws:accountId}:*
+#            - arn:aws:ssm:${self:provider.region}:${aws:accountId}:parameter/cognito-email-guard/${sls:stage}/message/*
 #      statements:
 #        # Autoriser Cognito Update côté admin pour l’endpoint de changement d'email
 #        - Effect: Allow
