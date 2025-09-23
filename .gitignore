@@ -5,3 +5,4 @@
 /.esbuild
 /.serverless
 /test/node_modules
+/robots.txt
