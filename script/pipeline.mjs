@@ -11,7 +11,7 @@ import path from "node:path";
 
 // ---------- config ----------
 const STAGE = process.env.STAGE || "dev";
-const AWS_REGION = process.env.AWS_REGION || process.env.AWS_DEFAULT_REGION || "eu-west-1";
+const AWS_REGION = process.env.AWS_REGION || process.env.AWS_DEFAULT_REGION || "eu-west-3";
 const ENV_FILE = ".env.local";
 
 // Liste des paramètres à récupérer => [ssmPathSuffix, ENV_KEY, {quote?: boolean}]

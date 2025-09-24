@@ -31,17 +31,17 @@ const args = Object.fromEntries(
         .filter(Boolean)
 );
 
-const stage      = args.stage || 'dev';                     // ex: dev
-const prefix     = args.prefix;                     // ex: myapp/templates/email
-const messageId  = args["message-id"];              // ex: email-registration
-const url        = args.url || 'https://email-formatter.heustach.fr';
+const stage = args.stage || 'dev';                     // ex: dev
+const prefix = args.prefix;                     // ex: myapp/templates/email
+const messageId = args["message-id"];              // ex: email-registration
+const url = args.url || 'https://email-formatter.heustach.fr';
 const authEnvVar = args["auth-env"] || "HEUSTACH_API_KEY";
-const chunkSize  = parseInt(args["chunk-size"] || "3500", 10);
-const version    = args.version || String(Date.now());
-const type       = args.secure ? "SecureString" : "String";
-const kmsId      = args["kms-id"] || null;
-const region     = process.env.AWS_REGION || args.region || "eu-west-3";
-const doMinify   = args["no-minify"] ? false : true;
+const chunkSize = parseInt(args["chunk-size"] || "3500", 10);
+const version = args.version || String(Date.now());
+const type = args.secure ? "SecureString" : "String";
+const kmsId = args["kms-id"] || null;
+const region = process.env.AWS_REGION || args.region || "eu-west-3";
+const doMinify = args["no-minify"] ? false : true;
 
 if (!prefix || !messageId || !url) {
     console.error("Usage: --prefix <ssm/path> --message-id <id> --url <endpoint> [--method POST|GET] [--secure] [--kms-id ...]");
@@ -111,7 +111,7 @@ async function putParam(name, value) {
 
 // ---- main
 (async () => {
-    const {html} = await fetchTemplate();
+    const {html, ...rest } = await fetchTemplate();
 
     if (!html || html.length < 20)
         throw new Error("Template HTML vide ou trop court");
@@ -132,7 +132,7 @@ async function putParam(name, value) {
         : html;
     console.log(`Template HTML ${html.length} chars vers ${doMinify ? "minifié" : "non minifié"} ${htmlToZip.length} chars`);
     // gzip + base64
-    const gz = zlib.gzipSync(Buffer.from(htmlToZip, "utf8"));
+    const gz = zlib.gzipSync(Buffer.from(JSON.stringify({htmlToZip, ...rest}), "utf8"));
     const b64 = gz.toString("base64");
     const sha256 = crypto.createHash("sha256").update(b64).digest("hex");
 

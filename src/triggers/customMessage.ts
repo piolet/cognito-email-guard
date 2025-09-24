@@ -1,30 +1,31 @@
 // src/customMessage.ts
-import { SSMClient, GetParameterCommand } from "@aws-sdk/client-ssm";
+// import { SSMClient, GetParameterCommand } from "@aws-sdk/client-ssm";
 import { loadTemplate } from "../lib/template";
+import { STAGE } from "../config";
 
-const ssm = new SSMClient({});
+// const ssm = new SSMClient({});
+//
+// type TemplateKeys =
+//     | "signup.subject" | "signup.html" | "signup.text"
+//     | "resend.subject" | "resend.html" | "resend.text"
+//     | "forgot.subject" | "forgot.html" | "forgot.text"
+//     | "verifyattr.subject" | "verifyattr.html" | "verifyattr.text"
+//     | "admincreate.subject" | "admincreate.html" | "admincreate.text";
 
-type TemplateKeys =
-    | "signup.subject" | "signup.html" | "signup.text"
-    | "resend.subject" | "resend.html" | "resend.text"
-    | "forgot.subject" | "forgot.html" | "forgot.text"
-    | "verifyattr.subject" | "verifyattr.html" | "verifyattr.text"
-    | "admincreate.subject" | "admincreate.html" | "admincreate.text";
-
-const NAMESPACE = process.env.TEMPLATE_NAMESPACE || "/heustach/cognito/email-templates";
+// const NAMESPACE = process.env.TEMPLATE_NAMESPACE || "/heustach/cognito/email-templates";
 const BRAND = process.env.DEFAULT_BRAND || "Heustach";
 
 async function getParam(key: string) {
     try {
         // const name = `${NAMESPACE}/${key}`;
-        const name = `/cognito-email-guard/dev/message/update-email-code`;
+        const name = `/cognito-email-guard/${STAGE}/message/update-email-code`;
         const result = loadTemplate(`${name}/manifest`);
         console.log(`Load template ${key} from ${name} => ${result}`);
         return result;
         // const out = await ssm.send(new GetParameterCommand({ Name: name, WithDecryption: false }));
         // return out.Parameter?.Value || "";
     } catch {
-        return "";
+        return null;
     }
 }
 
@@ -40,8 +41,8 @@ export const handler = async (event: any) => {
     const username = event.userName || "";
 
     // détermine le jeu de templates
-    let base: { subjectKey: TemplateKeys; htmlKey: TemplateKeys; textKey: TemplateKeys };
-    let baseHtml: string = ''
+    // let base: { subjectKey: TemplateKeys; htmlKey: TemplateKeys; textKey: TemplateKeys };
+    let template: { html: string, text: string, subject: string, to: string, from: string } | null = null
     switch (trigger) {
         case "CustomMessage_SignUp":
             // base = { subjectKey: "signup.subject", htmlKey: "signup.html", textKey: "signup.text" };
@@ -61,15 +62,15 @@ export const handler = async (event: any) => {
         default:
             // fallback général → réutilise signup
             // base = { subjectKey: "signup.subject", htmlKey: "signup.html", textKey: "signup.text" };
-            baseHtml = await getParam("cognito-email-guard/dev/message")
+            template = await getParam(`cognito-email-guard/${STAGE}/message`)
     }
 
     // charge les templates (SSM → modifiables sans redeploy)
-    const [subjectTpl, htmlTpl, textTpl] = await Promise.all([
-        getParam(base.subjectKey),
-        getParam(base.htmlKey),
-        getParam(base.textKey),
-    ]);
+    // const [subjectTpl, htmlTpl, textTpl] = await Promise.all([
+    //     getParam(base.subjectKey),
+    //     getParam(base.htmlKey),
+    //     getParam(base.textKey),
+    // ]);
 
     const vars = {
         BRAND,
@@ -80,8 +81,8 @@ export const handler = async (event: any) => {
     };
 
     // si pas de template défini en SSM, propose un défaut lisible
-    const subject = (subjectTpl || "{{BRAND}} – Votre code").trim();
-    const html = (baseHtml || `
+    const subject = (template?.subject || "{{BRAND}} – Votre code").trim();
+    const html = (template?.html || `
     <div style="font-family:system-ui,Segoe UI,Roboto,Arial">
       <h1>{{BRAND}}</h1>
       <p>Bonjour {{USERNAME}},</p>
@@ -90,7 +91,7 @@ export const handler = async (event: any) => {
       <p style="color:#666">Si vous n'êtes pas à l'origine de cette demande, ignorez ce message.</p>
     </div>
   `).trim();
-    const text = (textTpl || `
+    const text = (template?.text || `
     ${BRAND}
     Bonjour ${username},
     Code: ${code}

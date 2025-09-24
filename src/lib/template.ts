@@ -12,9 +12,9 @@ type Manifest = {
     updatedAt: string;
 };
 
-let cache: { version: string; text: string } | null = null;
+let cache: { version: string; template:  {html: string, text: string, subject: string, to: string, from: string} } | null = null;
 
-export async function loadTemplate(manifestPath: string): Promise<string> {
+export async function loadTemplate(manifestPath: string): Promise< {html: string, text: string, subject: string, to: string, from: string}> {
     // 1) Manifest
     const manParam = await ssm.send(new GetParameterCommand({
         Name: manifestPath, WithDecryption: true
@@ -23,7 +23,7 @@ export async function loadTemplate(manifestPath: string): Promise<string> {
     const manifest: Manifest = JSON.parse(manParam.Parameter.Value);
 
     // Si déjà en cache pour cette version → retourne
-    if (cache && cache.version === manifest.version) return cache.text;
+    if (cache && cache.version === manifest.version) return cache.template;
 
     // 2) Lire les parts en batch (10 max par appel)
     const names: string[] = [];
@@ -56,7 +56,9 @@ export async function loadTemplate(manifestPath: string): Promise<string> {
     const buf = zlib.gunzipSync(gz);
     const text = buf.toString("utf8");
 
+    const template: {html: string, text: string, subject: string, to: string, from: string} = JSON.parse(text);
+
     // 4) Cache mémoire (container-scoped)
-    cache = { version: manifest.version, text };
-    return text;
+    cache = { version: manifest.version, template };
+    return template;
 }

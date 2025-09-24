@@ -11,6 +11,7 @@ provider:
   region: eu-west-3
   stage: ${opt:stage, 'dev'}
   environment:
+    STAGE: ${sls:stage}
     DATABASE_URL: ${env:DATABASE_URL, ssm:/heustach-${sls:stage}/database-url}
 #    DB_PORT: ${env:DB_PORT, '3306'}
 #    DB_USER: ${env:DB_USER}
