@@ -19,7 +19,7 @@ async function getParam(key: string) {
     try {
         // const name = `${NAMESPACE}/${key}`;
         const name = `/cognito-email-guard/${STAGE}/message/update-email-code`;
-        const result = loadTemplate(`${name}/manifest`);
+        const result = await loadTemplate(`${name}/manifest`);
         console.log(`Load template ${key} from ${name} => ${result}`);
         return result;
         // const out = await ssm.send(new GetParameterCommand({ Name: name, WithDecryption: false }));
@@ -99,6 +99,7 @@ export const handler = async (event: any) => {
     Si vous n'êtes pas à l'origine de cette demande, ignorez ce message.
   `).trim();
 
+    console.log("Generated email:", template?.html, html)
     // alimente la réponse Cognito (pas besoin d'appeler SES ici)
     event.response.emailSubject = fill(subject, vars);
     event.response.emailMessage = fill(html, vars);     // HTML accepté

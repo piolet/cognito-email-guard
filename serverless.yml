@@ -31,8 +31,8 @@ provider:
             - ssm:GetParameter
             - ssm:GetParameters
           Resource:
-            - arn:aws:ssm:${self:provider.region}:${aws:accountId}:*
-#            - arn:aws:ssm:${self:provider.region}:${aws:accountId}:parameter/cognito-email-guard/${sls:stage}/message/*
+#            - arn:aws:ssm:${self:provider.region}:${aws:accountId}:*
+            - arn:aws:ssm:${self:provider.region}:${aws:accountId}:parameter/cognito-email-guard/${sls:stage}/message/*
 #      statements:
 #        # Autoriser Cognito Update côté admin pour l’endpoint de changement d'email
 #        - Effect: Allow
@@ -108,22 +108,26 @@ resources:
     PreSignUpPermission:
       Type: AWS::Lambda::Permission
       Properties:
-        FunctionName:
-          Fn::GetAtt: [ PreSignUpLambdaFunction, Arn ]
+        FunctionName: !GetAtt PreSignUpLambdaFunction.Arn
         Action: lambda:InvokeFunction
         Principal: cognito-idp.amazonaws.com
-        SourceArn:
-          Fn::GetAtt: [ UserPool, Arn ]
+        SourceArn: !GetAtt UserPool.Arn
     # Autoriser Cognito à invoquer la Lambda de preTokenGen
     PreTokenGenPermission:
       Type: AWS::Lambda::Permission
       Properties:
-        FunctionName:
-          Fn::GetAtt: [ PreTokenGenLambdaFunction, Arn ]
+        FunctionName: !GetAtt PreTokenGenLambdaFunction.Arn
         Action: lambda:InvokeFunction
         Principal: cognito-idp.amazonaws.com
-        SourceArn:
-          Fn::GetAtt: [ UserPool, Arn ]
+        SourceArn: !GetAtt UserPool.Arn
+    # Autoriser Cognito à invoquer la Lambda de customisation des messages
+    CustomMessagePermission:
+      Type: AWS::Lambda::Permission
+      Properties:
+        FunctionName: !GetAtt CustomMessageLambdaFunction.Arn
+        Action: lambda:InvokeFunction
+        Principal: cognito-idp.amazonaws.com
+        SourceArn: !GetAtt UserPool.Arn
 
     UserPoolClient:
       Type: AWS::Cognito::UserPoolClient

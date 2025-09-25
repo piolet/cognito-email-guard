@@ -27,10 +27,10 @@ export const handler: (
     const exists = await emailExists(email);
     if (exists) {
         // Le message est renvoyé au client Cognito (UserExists côté app)
-        const err = new Error("EMAIL_ALREADY_USED");
-        err.name = "EmailExists";
-        callback(err, event);
-        return
+        // const err = new Error("EMAIL_ALREADY_USED");
+        // err.name = "EmailExists";
+        // callback(err, event);
+        // return
     }
 
     // Optionnel: auto-confirm/auto-verify si tu veux

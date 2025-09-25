@@ -81,7 +81,7 @@ async function fetchTemplate() {
     const body = JSON.stringify({
         emailId: messageId,
         content: {
-            code: "A2C4",
+            code: "{####}",
         }
     });
     const res = await fetch(`${baseUrl}api/format`, { method: 'POST', headers, body });
@@ -132,7 +132,7 @@ async function putParam(name, value) {
         : html;
     console.log(`Template HTML ${html.length} chars vers ${doMinify ? "minifié" : "non minifié"} ${htmlToZip.length} chars`);
     // gzip + base64
-    const gz = zlib.gzipSync(Buffer.from(JSON.stringify({htmlToZip, ...rest}), "utf8"));
+    const gz = zlib.gzipSync(Buffer.from(JSON.stringify({html: htmlToZip, ...rest}), "utf8"));
     const b64 = gz.toString("base64");
     const sha256 = crypto.createHash("sha256").update(b64).digest("hex");
 

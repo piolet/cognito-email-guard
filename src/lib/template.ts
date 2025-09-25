@@ -2,7 +2,7 @@ import { SSMClient, GetParameterCommand, GetParametersCommand } from "@aws-sdk/c
 import crypto from "crypto";
 import zlib from "zlib";
 
-const ssm = new SSMClient({});
+const ssm = new SSMClient({region: process.env.AWS_REGION || "eu-west-3"});
 type Manifest = {
     prefix: string;   // ex: "/myapp/templates/email"
     version: string;
