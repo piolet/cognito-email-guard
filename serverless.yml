@@ -58,6 +58,11 @@ functions:
     description: Vérifie l'unicité de l'adresse e-mail avant inscription (spam email)
     memorySize: 256
     timeout: 5
+  userMigration:
+    handler: src/triggers/userMigration.handler
+    description: Migration à la volée des utilisateurs (auth/forgot)
+    memorySize: 256
+    timeout: 5
 
 resources:
   Resources:
@@ -85,6 +90,7 @@ resources:
           PreSignUp: !GetAtt PreSignUpLambdaFunction.Arn  # nom logique auto-généré: <FunctionName>LambdaFunction
           PreTokenGeneration: !GetAtt PreTokenGenLambdaFunction.Arn
           CustomMessage: !GetAtt CustomMessageLambdaFunction.Arn
+          UserMigration: !GetAtt UserMigrationLambdaFunction.Arn
         EmailConfiguration:
           # Active l'envoi via ton compte SES (prérequis: domaine/adresse vérifiés dans SES)
           EmailSendingAccount: DEVELOPER
@@ -125,6 +131,13 @@ resources:
       Type: AWS::Lambda::Permission
       Properties:
         FunctionName: !GetAtt CustomMessageLambdaFunction.Arn
+        Action: lambda:InvokeFunction
+        Principal: cognito-idp.amazonaws.com
+        SourceArn: !GetAtt UserPool.Arn
+    UserMigrationPermission:
+      Type: AWS::Lambda::Permission
+      Properties:
+        FunctionName: !GetAtt UserMigrationLambdaFunction.Arn
         Action: lambda:InvokeFunction
         Principal: cognito-idp.amazonaws.com
         SourceArn: !GetAtt UserPool.Arn

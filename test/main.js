@@ -4,7 +4,8 @@ import {
     confirmSignUp,
     signIn,
     fetchAuthSession,
-    signOut
+    signOut,
+    resendSignUpCode
 } from 'aws-amplify/auth';
 
 // ⚠️ Remplace par tes valeurs
@@ -34,7 +35,13 @@ document.getElementById("login-form")
         console.log(email, password);
 
         try {
-            const res = await signIn({ username: email, password });
+            const res = await signIn({
+                username: email,
+                password,
+                options: {
+                    authFlowType: 'USER_PASSWORD_AUTH'   // 👈 important pour User Migration
+                }
+            });
             log('Connexion OK. Étape suivante:', res.nextStep);
         } catch (err) {
             console.log('erreur', err);

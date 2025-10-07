@@ -1,5 +1,6 @@
 import type { DBClient } from "./types";
 import { createDbClient } from "./functions";
+import {RowDataPacket} from "mysql2/promise";
 
 /** Singleton lazy */
 let _client: DBClient | null = null;
@@ -28,4 +29,22 @@ export async function emailExists(normalEmail: string): Promise<boolean> {
         [normalEmail, normalEmail]
     );
     return rows.length > 0;
+}
+
+export type UserRow = RowDataPacket & {
+    usr_id: number;
+    usr_email: string;
+    usr_roles: string;      // JSON string (ex: ["ROLE_USER"])
+    usr_password: string;   // hash bcrypt/argon2
+    usr_first_name: string;
+    usr_last_name: string;
+    usr_phone?: string | null;
+};
+
+export async function findUserByEmail(normalEmail: string): Promise<UserRow | null> {
+    const rows = await dbExecute<UserRow[]>(
+        `SELECT usr_id, usr_email, usr_roles, usr_password, usr_first_name, usr_last_name, usr_phone FROM heustach.usr_user WHERE usr_email_normal = concat_ws('@', substring_index(substring_index(?, '@', 1), '+', 1), substring_index(?, '@', -1)) LIMIT 1`,
+        [normalEmail, normalEmail]
+    );
+    return rows[0] || null;
 }
