@@ -3,5 +3,6 @@
   "userName": "user@example.com",
   "request": {
     "userAttributes": { "email": "user@example.com" }
-  }
+  },
+  "response": {}
 }

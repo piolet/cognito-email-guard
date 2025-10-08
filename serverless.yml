@@ -61,8 +61,8 @@ functions:
   userMigration:
     handler: src/triggers/userMigration.handler
     description: Migration à la volée des utilisateurs (auth/forgot)
-    memorySize: 256
-    timeout: 5
+    memorySize: 2048
+    timeout: 15
 
 resources:
   Resources:

@@ -12,7 +12,6 @@
     "@aws-sdk/client-cognito-identity-provider": "^3.624.0",
     "@aws-sdk/client-ssm": "^3.893.0",
     "@planetscale/database": "^1.19.0",
-    "argon2": "^0.44.0",
     "bcryptjs": "^3.0.2",
     "html-minifier-terser": "^7.2.0",
     "mysql2": "^3.11.3"

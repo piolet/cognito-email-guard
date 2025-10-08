@@ -1,8 +1,8 @@
 {
   "triggerSource": "UserMigration_Authentication",
-  "userName": "user@example.com",
+  "userName": "piolet91@gmail.com",
   "request": {
-    "userAttributes": { "email": "user@example.com" },
-    "password": "motdepasse_saisi"
-  }
+    "password": "test"
+  },
+  "response": {}
 }

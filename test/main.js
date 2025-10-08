@@ -12,8 +12,8 @@ import {
 const amplifyConfig = {
     Auth: {
         Cognito: {
-            userPoolId: "eu-west-3_p6Ohktpw3", // ton User Pool ID
-            userPoolClientId: '6c5ivp9rttl45ga4tjl5sbsfnl',
+            userPoolId: "eu-west-3_4BacGSrqU", // ton User Pool ID
+            userPoolClientId: '6f4slbdfishgmv4kc1hj15etjv',
             region: 'eu-west-3'
         }
     }

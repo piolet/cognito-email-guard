@@ -35,7 +35,7 @@ export type UserRow = RowDataPacket & {
     usr_id: number;
     usr_email: string;
     usr_roles: string;      // JSON string (ex: ["ROLE_USER"])
-    usr_password: string;   // hash bcrypt/argon2
+    usr_password: string;   // hash bcrypt
     usr_first_name: string;
     usr_last_name: string;
     usr_phone?: string | null;
