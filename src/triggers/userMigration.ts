@@ -20,7 +20,9 @@ function buildUserAttributes(row: UserRow) {
         email_verified: "true",
         given_name: row.usr_first_name ?? "",
         family_name: row.usr_last_name ?? "",
-        ...(row.usr_phone ? { phone_number: row.usr_phone } : {}),
+        ...(row.usr_phone
+            ? { phone_number: row.usr_phone, phone_number_verified: "true" }
+            : {}),
         "custom:usr_id": String(row.usr_id),
         "custom:firstName": row.usr_first_name ?? "",
         "custom:lastName": row.usr_last_name ?? "",
