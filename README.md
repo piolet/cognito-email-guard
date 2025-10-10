@@ -16,3 +16,15 @@ npx serverless invoke local -f userMigration --path events/userMigration.json
 
 #### astuce pour voir les logs
 NODE_OPTIONS="--inspect" npx serverless invoke local -f preSignUp --path events/preSignUp.json
+
+## pour stocker les templates email dans ssm
+HEUSTACH_API_KEY=ma-clef && node script/publish-template.mjs --prefix cognito-email-guard/dev/message
+
+Les différents codes sont : 
+ - cognito-sign-up
+ - cognito-admin-create-user
+ - cognito-authentication
+ - cognito-forgot-password
+ - cognito-resend-code
+ - cognito-update-user-attribute
+ - cognito-verify-user-attribute

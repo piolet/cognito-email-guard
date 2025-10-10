@@ -1,72 +1,12 @@
 <script lang="ts">
-    import { authStore } from "$lib/store/authStore";
-
+    import { authStore } from '$lib/store/authStore';
     import { Amplify, type ResourcesConfig } from 'aws-amplify';
-    import {
-        type SignUpInput,
-        signUp,
-        confirmSignUp,
-        signIn,
-        fetchAuthSession,
-        signOut,
-        resendSignUpCode
-    } from 'aws-amplify/auth';
-    import {goto} from "$app/navigation";
+    import { goto } from '$app/navigation';
 
-    function log(msg, ...args) {
-        output.textContent += msg + ' ' + args.map(a => (typeof a === 'string' ? a : JSON.stringify(a))).join(' ') + '\n';
-    }
-
-    const onLogin = async (e: Event) => {
-        e.preventDefault()
-        const data = new FormData(e.target as HTMLFormElement);
-        const email = data.get('email') as string;
-        const password = data.get('password') as string;
-
-        const {success} = await authStore.login(email, password);
-        console.log(email, password, success);
-
-        if (success) {
-            const urlParams = new URLSearchParams(window.location.search);
-            const redirectTo = urlParams.get('redirectTo') || '/';
-
-            log('Login succeeded')
-            console.log('Redirecting to', redirectTo);
-            await goto(redirectTo)
-            console.log('Redirected');
-        } else {
-            log('Login failed')
-        }
-        // try {
-        //     const input: SignUpInput = {
-        //         username: email,     // côté Amplify, "username" = identifiant ; on met l'email
-        //         password,
-        //         options: {
-        //             authFlowType: 'USER_PASSWORD_AUTH',   // 👈 important pour User Migration
-        //             userAttributes: { email } // important si ton pool vérifie l'email
-        //         }
-        //     };
-        //     const res = await signIn(input);
-        //     log('Connexion OK. Étape suivante:', res.nextStep);
-        //
-        //     // get params from URL redirectTo
-        //     const urlParams = new URLSearchParams(window.location.search);
-        //     const redirectTo = urlParams.get('redirectTo') || '/';
-        //
-        //     console.log('Redirecting to', redirectTo);
-        //     await goto(redirectTo)
-        //     console.log('Redirected');
-        // } catch (err) {
-        //     console.log('erreur', err);
-        //     log('Erreur connexion:', { message: err?.message });
-        // }
-    }
-
-    // ⚠️ Remplace par tes valeurs
     const amplifyConfig: ResourcesConfig = {
         Auth: {
             Cognito: {
-                userPoolId: "eu-west-3_4BacGSrqU", // ton User Pool ID
+                userPoolId: 'eu-west-3_4BacGSrqU',
                 userPoolClientId: '6f4slbdfishgmv4kc1hj15etjv',
                 region: 'eu-west-3'
             }
@@ -74,105 +14,187 @@
     } as ResourcesConfig;
     Amplify.configure(amplifyConfig);
 
-    let output: HTMLPreElement
-    // const userPool = new CognitoUserPool(poolData);
+    let email = '';
+    let password = '';
+    let loading = false;
+    let error = '';
 
-    // Login
-    // document.getElementById("login-form")
-    //     .addEventListener("submit", async (e) => {
-    //         e.preventDefault()
-    //         const email = document.getElementById("email").value;
-    //         const password = document.getElementById("password").value;
-    //
-    //         console.log(email, password);
-    //
-    //         try {
-    //             const res = await signIn({
-    //                 username: email,
-    //                 password,
-    //                 options: {
-    //                     authFlowType: 'USER_PASSWORD_AUTH'   // 👈 important pour User Migration
-    //                 }
-    //             });
-    //             log('Connexion OK. Étape suivante:', res.nextStep);
-    //         } catch (err) {
-    //             console.log('erreur', err);
-    //             log('Erreur connexion:', { message: err?.message });
-    //         }
-    //
-    //         // const authDetails = new AuthenticationDetails({
-    //         //     Username: email,
-    //         //     Password: password
-    //         // });
-    //
-    //         // const user = new CognitoUser({ Username: email, Pool: userPool });
-    //         //
-    //         // user.authenticateUser(authDetails, {
-    //         //     onSuccess: (result) => {
-    //         //         log("Connexion OK");
-    //         //         log("ID Token: " + result.getIdToken().getJwtToken());
-    //         //     },
-    //         //     onFailure: (err) => {
-    //         //         log("Erreur login: " + (err.message || JSON.stringify(err)));
-    //         //     }
-    //         // });
-    //     });
-    //
-    // // Signup
-    // document.getElementById("signup-form")
-    //     .addEventListener("submit", async (e) => {
-    //         e.preventDefault();
-    //         const email = document.getElementById("signup-email").value;
-    //         const password = document.getElementById("signup-password").value;
-    //
-    //
-    //         console.log(email, password);
-    //         try {
-    //             const res = await signUp({
-    //                 username: email,     // côté Amplify, "username" = identifiant ; on met l'email
-    //                 password,
-    //                 options: {
-    //                     userAttributes: { email } // important si ton pool vérifie l'email
-    //                 }
-    //             });
-    //             log('Inscription OK. Étape suivante:', res.nextStep);
-    //         } catch (err) {
-    //             console.log('erreur', err);
-    //             log('Erreur inscription:', { message: err?.message });
-    //         }
-    //         // userPool.signUp(email, password, [], null, (err, result) => {
-    //         //     if (err) {
-    //         //         log("Erreur signup: " + (err.message || JSON.stringify(err)));
-    //         //         return;
-    //         //     }
-    //         //     log("Inscription OK: " + result.user.getUsername());
-    //         // });
-    //     });
-    //
-    // document.getElementById('resend-form')
-    //     .addEventListener('submit', async (e) => {
-    //         e.preventDefault();
-    //         const email = document.getElementById('rs-email').value.trim();
-    //         try {
-    //             const res = await resendSignUpCode({ username: email });
-    //             log('Code renvoyé avec succès:', res);
-    //         } catch (err) {
-    //             log('Erreur renvoi code:', { message: err?.message });
-    //         }
-    //     });
+    async function onLogin(e: Event) {
+        e.preventDefault();
+        loading = true;
+        error = '';
+
+        const { success, error: loginError } = await authStore.login(email, password);
+
+        if (success) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const redirectTo = urlParams.get('redirectTo') || '/';
+
+            console.log('Login succeeded, redirecting to', redirectTo);
+            await goto(redirectTo);
+        } else {
+            error = loginError || 'Échec de la connexion';
+            loading = false;
+        }
+    }
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<div class="container">
+    <h1>Connexion</h1>
 
-<h1>Login Cognito</h1>
+    {#if error}
+        <div class="error">{error}</div>
+    {/if}
 
-<form onsubmit={onLogin}>
-    <label for="email">Email :</label>
-    <input type="email" name="email" required><br>
-    <label for="password">Mot de passe :</label>
-    <input type="password" name="password" required><br>
-    <button type="submit">Se connecter</button>
-</form>
+    <form on:submit={onLogin}>
+        <div class="field">
+            <label for="email">Email</label>
+            <input
+                    id="email"
+                    type="email"
+                    bind:value={email}
+                    placeholder="votre@email.com"
+                    required
+                    disabled={loading}
+            />
+        </div>
 
-<pre bind:this={output} id="output"></pre>
+        <div class="field">
+            <label for="password">Mot de passe</label>
+            <input
+                    id="password"
+                    type="password"
+                    bind:value={password}
+                    placeholder="••••••••"
+                    required
+                    disabled={loading}
+            />
+        </div>
+
+        <div class="forgot-password">
+            <a href="/lost-login">Mot de passe oublié ?</a>
+        </div>
+
+        <button type="submit" disabled={loading}>
+            {loading ? 'Connexion...' : 'Se connecter'}
+        </button>
+    </form>
+
+    <div class="signup-link">
+        Pas encore de compte ? <a href="/signup">S'inscrire</a>
+    </div>
+</div>
+
+<style>
+    .container {
+        max-width: 450px;
+        margin: 50px auto;
+        padding: 30px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        margin: 0 0 25px 0;
+        font-size: 24px;
+        color: #333;
+        text-align: center;
+    }
+
+    .error {
+        background: #f8d7da;
+        color: #721c24;
+        padding: 12px 15px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        border: 1px solid #f5c6cb;
+    }
+
+    .field {
+        margin-bottom: 18px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 500;
+        color: #333;
+        font-size: 14px;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 15px;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: #0066cc;
+    }
+
+    input:disabled {
+        background: #f5f5f5;
+        cursor: not-allowed;
+    }
+
+    .forgot-password {
+        text-align: right;
+        margin-bottom: 20px;
+    }
+
+    .forgot-password a {
+        color: #0066cc;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .forgot-password a:hover {
+        text-decoration: underline;
+    }
+
+    button[type='submit'] {
+        width: 100%;
+        padding: 12px;
+        background: #0066cc;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        transition: background 0.2s;
+    }
+
+    button[type='submit']:hover:not(:disabled) {
+        background: #0052a3;
+    }
+
+    button[type='submit']:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+    }
+
+    .signup-link {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 14px;
+        color: #666;
+    }
+
+    .signup-link a {
+        color: #0066cc;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .signup-link a:hover {
+        text-decoration: underline;
+    }
+</style>

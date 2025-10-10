@@ -12,9 +12,26 @@ type Manifest = {
     updatedAt: string;
 };
 
-let cache: { version: string; template:  {html: string, text: string, subject: string, to: string, from: string} } | null = null;
+let cache: { emailId: string; template:  {html: string, text: string, subject: string, to: string, from: string} } | null = null;
 
-export async function loadTemplate(manifestPath: string): Promise< {html: string, text: string, subject: string, to: string, from: string}> {
+export async function loadTemplate(prefix: string, emailId: string): Promise< {html: string, text: string, subject: string, to: string, from: string}> {
+    const manifestPath = `/${prefix}/${emailId}`
+
+    if (cache && cache.emailId === emailId) return cache.template;
+    // 1) Manifest
+    const manParam = await ssm.send(new GetParameterCommand({
+        Name: manifestPath, WithDecryption: true
+    }));
+    if (!manParam.Parameter?.Value) throw new Error("Param vide");
+    const gz = Buffer.from(manParam.Parameter?.Value, "base64");
+    const buf = zlib.gunzipSync(gz);
+    const text = buf.toString("utf8");
+
+    const template = JSON.parse(text);
+    cache = { emailId, template };
+    return template;
+}
+async function loadTemplate2(manifestPath: string): Promise< {html: string, text: string, subject: string, to: string, from: string}> {
     // 1) Manifest
     const manParam = await ssm.send(new GetParameterCommand({
         Name: manifestPath, WithDecryption: true
@@ -23,7 +40,7 @@ export async function loadTemplate(manifestPath: string): Promise< {html: string
     const manifest: Manifest = JSON.parse(manParam.Parameter.Value);
 
     // Si déjà en cache pour cette version → retourne
-    if (cache && cache.version === manifest.version) return cache.template;
+    if (cache && cache.emailId === manifest.version) return cache.template;
 
     // 2) Lire les parts en batch (10 max par appel)
     const names: string[] = [];
@@ -59,6 +76,6 @@ export async function loadTemplate(manifestPath: string): Promise< {html: string
     const template: {html: string, text: string, subject: string, to: string, from: string} = JSON.parse(text);
 
     // 4) Cache mémoire (container-scoped)
-    cache = { version: manifest.version, template };
+    cache = { emailId: manifest.version, template };
     return template;
 }

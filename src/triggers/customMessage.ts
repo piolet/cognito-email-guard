@@ -18,9 +18,9 @@ const BRAND = process.env.DEFAULT_BRAND || "Heustach";
 async function getParam(key: string) {
     try {
         // const name = `${NAMESPACE}/${key}`;
-        const name = `/cognito-email-guard/${STAGE}/message/update-email-code`;
-        const result = await loadTemplate(`${name}/manifest`);
-        console.log(`Load template ${key} from ${name} => ${result}`);
+        const name = `/cognito-email-guard/${STAGE}/message/${key}`;
+        const result = await loadTemplate(`cognito-email-guard/${STAGE}/message`, key);
+        console.log(`Load template ${key} from ${name} =>`, result);
         return result;
         // const out = await ssm.send(new GetParameterCommand({ Name: name, WithDecryption: false }));
         // return out.Parameter?.Value || "";
@@ -40,31 +40,42 @@ export const handler = async (event: any) => {
     const email = event.request.userAttributes?.email || "";
     const username = event.userName || "";
 
+    console.log("CustomMessage event:", { trigger, code, link, email, username });
     // détermine le jeu de templates
-    // let base: { subjectKey: TemplateKeys; htmlKey: TemplateKeys; textKey: TemplateKeys };
-    let template: { html: string, text: string, subject: string, to: string, from: string } | null = null
+    let emailId: string | null = null;
     switch (trigger) {
         case "CustomMessage_SignUp":
-            // base = { subjectKey: "signup.subject", htmlKey: "signup.html", textKey: "signup.text" };
-            // break;
+            emailId = 'cognito-sign-up'
+            break;
         case "CustomMessage_ResendCode":
-            // base = { subjectKey: "resend.subject", htmlKey: "resend.html", textKey: "resend.text" };
-            // break;
+            emailId = 'cognito-resend-code'
+            break;
         case "CustomMessage_ForgotPassword":
-            // base = { subjectKey: "forgot.subject", htmlKey: "forgot.html", textKey: "forgot.text" };
-            // break;
+            emailId = 'cognito-forgot-password'
+            break;
         case "CustomMessage_VerifyUserAttribute":
-            // base = { subjectKey: "verifyattr.subject", htmlKey: "verifyattr.html", textKey: "verifyattr.text" };
-            // break;
+            emailId = 'cognito-verify-user-attribute'
+            break;
         case "CustomMessage_AdminCreateUser":
-            // base = { subjectKey: "admincreate.subject", htmlKey: "admincreate.html", textKey: "admincreate.text" };
-            // break;
-        default:
+            emailId = 'cognito-admin-create-user'
+            break;
+        case "CustomMessage_Authentication":
+            emailId = 'cognito-authentication'
+            break;
+        case "CustomMessage_UpdateUserAttribute":
+            emailId = 'cognito-update-user-attribute'
+            break;
+        // default:
             // fallback général → réutilise signup
             // base = { subjectKey: "signup.subject", htmlKey: "signup.html", textKey: "signup.text" };
-            template = await getParam(`cognito-email-guard/${STAGE}/message`)
     }
 
+    if (!emailId) {
+        throw new Error(`Unsupported trigger source: ${trigger}`);
+    }
+    const template: { html: string, text: string, subject: string, to: string, from: string } | null = await getParam(emailId)
+
+    console.log("Using template:", emailId, template);
     // charge les templates (SSM → modifiables sans redeploy)
     // const [subjectTpl, htmlTpl, textTpl] = await Promise.all([
     //     getParam(base.subjectKey),

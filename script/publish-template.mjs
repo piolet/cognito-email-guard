@@ -1,5 +1,4 @@
 import { SSMClient, PutParameterCommand } from "@aws-sdk/client-ssm";
-import crypto from "crypto";
 import zlib from "zlib";
 import { minify as minifyHtml } from "html-minifier-terser";
 
@@ -33,20 +32,16 @@ const args = Object.fromEntries(
 
 const stage = args.stage || 'dev';                     // ex: dev
 const prefix = args.prefix;                     // ex: myapp/templates/email
-const messageId = args["message-id"];              // ex: email-registration
 const url = args.url || 'https://email-formatter.heustach.fr';
 const authEnvVar = args["auth-env"] || "HEUSTACH_API_KEY";
-const chunkSize = parseInt(args["chunk-size"] || "3500", 10);
-const version = args.version || String(Date.now());
 const type = args.secure ? "SecureString" : "String";
 const kmsId = args["kms-id"] || null;
 const region = process.env.AWS_REGION || args.region || "eu-west-3";
 const doMinify = args["no-minify"] ? false : true;
 
-if (!prefix || !messageId || !url) {
-    console.error("Usage: --prefix <ssm/path> --message-id <id> --url <endpoint> [--method POST|GET] [--secure] [--kms-id ...]");
+if (!prefix || !url) {
+    console.error("Usage: --prefix <ssm/path> --url <endpoint> [--method POST|GET] [--secure] [--kms-id ...]");
     console.error("prefix", prefix);
-    console.error("messageId", messageId);
     console.error("url", url);
     process.exit(1);
 }
@@ -57,7 +52,7 @@ if (!bearer) {
 }
 
 // ---- call API
-async function fetchTemplate() {
+async function fetchTemplate(emailId) {
     const headers = { "content-type": "application/json" };
     if (bearer) headers["authorization"] = `Bearer ${bearer}`;
 
@@ -76,10 +71,10 @@ async function fetchTemplate() {
         }
     }
 
-    console.log(`Appel API ${baseUrl} ${stage} (messageId=${messageId})`);
+    console.log(`Appel API ${baseUrl} ${stage} (emailId=${emailId})`);
 
     const body = JSON.stringify({
-        emailId: messageId,
+        emailId,
         content: {
             code: "{####}",
         }
@@ -109,9 +104,8 @@ async function putParam(name, value) {
     await ssm.send(cmd);
 }
 
-// ---- main
-(async () => {
-    const {html, ...rest } = await fetchTemplate();
+async function putMessage(emailId) {
+    const {html, ...rest } = await fetchTemplate(emailId);
 
     if (!html || html.length < 20)
         throw new Error("Template HTML vide ou trop court");
@@ -134,40 +128,31 @@ async function putParam(name, value) {
     // gzip + base64
     const gz = zlib.gzipSync(Buffer.from(JSON.stringify({html: htmlToZip, ...rest}), "utf8"));
     const b64 = gz.toString("base64");
-    const sha256 = crypto.createHash("sha256").update(b64).digest("hex");
 
-    // split
-    const parts = [];
-    for (let i = 0; i < b64.length; i += chunkSize) {
-        parts.push(b64.slice(i, i + chunkSize));
+    const basePath = `/${prefix}/${emailId}`;
+    console.log(`Upload vers SSM sous ${basePath}`);
+
+    if (b64.length > 4000)
+        throw new Error(`Template trop grand (${b64.length} chars) > 4000`);
+
+    await putParam(basePath, b64);
+    console.log(`✓ ${basePath} (${b64.length})`);
+}
+// ---- main
+(async () => {
+    const emailIds = [
+        'cognito-sign-up',
+        'cognito-admin-create-user',
+        'cognito-authentication',
+        'cognito-forgot-password',
+        'cognito-resend-code',
+        'cognito-update-user-attribute',
+        'cognito-verify-user-attribute',
+    ]
+    for (const emailId of emailIds) {
+        await putMessage(emailId);
     }
-    if (parts.length === 0)
-        throw new Error("Aucun chunk généré");
-
-    const basePath = `/${prefix}/${messageId}`;
-    console.log(`Upload vers SSM sous ${basePath} (${parts.length} chunks)`);
-
-    for (let i = 0; i < parts.length; i++) {
-        const key = `${basePath}/parts/part-${String(i + 1).padStart(5, "0")}`;
-        const chunk = parts[i];
-        if (chunk.length > 4000)
-            throw new Error(`Chunk ${i + 1} trop grand (${chunk.length} chars) > 4000 — réduis chunk-size`);
-
-        await putParam(key, chunk);
-        console.log(`✓ ${key} (${chunk.length})`);
-    }
-
-    const manifest = {
-        prefix: basePath,
-        version,
-        numParts: parts.length,
-        encoding: "base64+gzip",
-        sha256,
-        updatedAt: new Date().toISOString(),
-        source: { url, messageId }
-    };
-    await putParam(`${basePath}/manifest`, JSON.stringify(manifest));
-    console.log(`✔ Manifest: ${basePath}/manifest`);
+    console.log("Tous les messages publiés avec succès.");
 })().catch((e) => {
     console.error(e);
     process.exit(1);

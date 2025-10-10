@@ -75,6 +75,44 @@ function createAuthStore() {
             } catch (error) {
                 console.error('Logout error:', error);
             }
+        },
+
+        async requestPasswordReset(username: string) {
+            try {
+                const { resetPassword } = await import('aws-amplify/auth');
+                const output = await resetPassword({ username });
+
+                return {
+                    success: true,
+                    codeDelivery: output.nextStep.codeDeliveryDetails
+                };
+            } catch (error: any) {
+                console.error('Password reset request error:', error);
+                return {
+                    success: false,
+                    error: error.message || 'Erreur lors de la demande'
+                };
+            }
+        },
+
+        // Réinitialisation du mot de passe - Étape 2 : Confirmer avec le code
+        async confirmPasswordReset(username: string, code: string, newPassword: string) {
+            try {
+                const { confirmResetPassword } = await import('aws-amplify/auth');
+                await confirmResetPassword({
+                    username,
+                    confirmationCode: code,
+                    newPassword
+                });
+
+                return { success: true };
+            } catch (error: any) {
+                console.error('Password reset confirmation error:', error);
+                return {
+                    success: false,
+                    error: error.message || 'Erreur lors de la confirmation'
+                };
+            }
         }
     };
 }
