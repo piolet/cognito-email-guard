@@ -52,7 +52,7 @@ if (!bearer) {
 }
 
 // ---- call API
-async function fetchTemplate(emailId) {
+async function fetchTemplate(emailId, attribute = '') {
     const headers = { "content-type": "application/json" };
     if (bearer) headers["authorization"] = `Bearer ${bearer}`;
 
@@ -78,7 +78,7 @@ async function fetchTemplate(emailId) {
         content: {
             code: "{####}",
             username: "{username}",
-            attribute: ???
+            attribute
         }
     });
     const res = await fetch(`${baseUrl}api/format`, { method: 'POST', headers, body });
@@ -106,8 +106,8 @@ async function putParam(name, value) {
     await ssm.send(cmd);
 }
 
-async function putMessage(emailId) {
-    const {html, ...rest } = await fetchTemplate(emailId);
+async function putMessage(emailId, attribute = '') {
+    const {html, ...rest } = await fetchTemplate(emailId, attribute);
 
     if (!html || html.length < 20)
         throw new Error("Template HTML vide ou trop court");
@@ -131,7 +131,7 @@ async function putMessage(emailId) {
     const gz = zlib.gzipSync(Buffer.from(JSON.stringify({html: htmlToZip, ...rest}), "utf8"));
     const b64 = gz.toString("base64");
 
-    const basePath = `/${prefix}/${emailId}`;
+    const basePath = `/${prefix}/${emailId}${attribute ? `-${attribute}` : ''}`;
     console.log(`Upload vers SSM sous ${basePath}`);
 
     if (b64.length > 4000)
@@ -152,6 +152,14 @@ async function putMessage(emailId) {
         'cognito-verify-user-attribute',
     ]
     for (const emailId of emailIds) {
+        // tester si emailId fini par -attribute
+        const isAttribute = emailId.endsWith('-attribute');
+        if (isAttribute) {
+            // dans ce cas, appeler putMessage deux fois, une fois avec attribute=email et une fois avec attribute=phone_number
+            await putMessage(emailId, 'email');
+            await putMessage(emailId, 'phone-number');
+            continue;
+        }
         await putMessage(emailId);
     }
     console.log("Tous les messages publiés avec succès.");

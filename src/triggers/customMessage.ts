@@ -53,17 +53,17 @@ export const handler = async (event: any) => {
         case "CustomMessage_ForgotPassword":
             emailId = 'cognito-forgot-password'
             break;
-        case "CustomMessage_VerifyUserAttribute":
-            emailId = 'cognito-verify-user-attribute'
-            break;
         case "CustomMessage_AdminCreateUser":
             emailId = 'cognito-admin-create-user'
             break;
         case "CustomMessage_Authentication":
             emailId = 'cognito-authentication'
             break;
+        case "CustomMessage_VerifyUserAttribute":
+            emailId = `cognito-verify-user-attribute-${email ? 'email' : 'phone-number'}`
+            break;
         case "CustomMessage_UpdateUserAttribute":
-            emailId = 'cognito-update-user-attribute'
+            emailId = `cognito-update-user-attribute-${email ? 'email' : 'phone-number'}`
             break;
         // default:
             // fallback général → réutilise signup
