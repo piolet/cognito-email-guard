@@ -77,6 +77,8 @@ async function fetchTemplate(emailId) {
         emailId,
         content: {
             code: "{####}",
+            username: "{username}",
+            attribute: ???
         }
     });
     const res = await fetch(`${baseUrl}api/format`, { method: 'POST', headers, body });
