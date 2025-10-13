@@ -77,7 +77,8 @@ async function fetchTemplate(emailId, attribute = '') {
         emailId,
         content: {
             code: "{####}",
-            username: "{username}",
+            to: "{{EMAIL}}",
+            username: "{{USERNAME}}",
             attribute
         }
     });
