@@ -81,6 +81,7 @@ async function fetchTemplate(emailId, attribute = '') {
             attribute
         }
     });
+    console.log('body', body, `${baseUrl}api/format`);
     const res = await fetch(`${baseUrl}api/format`, { method: 'POST', headers, body });
     if (!res.ok) {
         const t = await res.text().catch(() => "");

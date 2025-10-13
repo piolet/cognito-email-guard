@@ -76,6 +76,15 @@ export async function loadTemplate(emailId) {
         'cognito-verify-user-attribute',
     ]
     for (const emailId of emailIds) {
+        const isAttribute = emailId.endsWith('-attribute');
+        if (isAttribute) {
+            const template1 = await loadTemplate(`${emailId}-email`);
+            console.log(emailId + '-email', template1);
+            const template2 = await loadTemplate(`${emailId}-phone-number`);
+            console.log(emailId + '-phone-number', template2);
+            continue;
+        }
+
         const template = await loadTemplate(emailId);
         console.log(emailId, template);
     }

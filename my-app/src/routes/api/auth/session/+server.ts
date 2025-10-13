@@ -1,6 +1,12 @@
 // src/routes/api/auth/session/+server.js
 import { json } from '@sveltejs/kit';
 
+type CookieOptions = {
+    path: string;
+    httpOnly: boolean;
+    secure: boolean;
+    sameSite: 'lax' | 'strict' | 'none';
+}
 /**
  * POST - Stocker les tokens dans des cookies httpOnly
  * @type {import('./$types').RequestHandler}
@@ -23,7 +29,7 @@ export async function POST({ request, cookies }) {
             httpOnly: true, // Inaccessible au JavaScript client (protection XSS)
             secure: process.env.NODE_ENV === 'production', // HTTPS uniquement en prod
             sameSite: 'lax' // Protection CSRF
-        };
+        } as CookieOptions;
 
         // Stocker l'access token (courte durée - 1 heure)
         cookies.set('accessToken', accessToken, {
