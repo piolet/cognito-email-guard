@@ -5,7 +5,8 @@
 		children?: Snippet
 	}
 
-	let { children }: Props = $props()
+	let { data, children }: Props = $props()
+    const { places } = data
 </script>
 
 <svelte:head>
@@ -14,6 +15,7 @@
 
 <h1>Compte privé</h1>
 {@render children?.()}
+<pre>{JSON.stringify(places, null, 2)}</pre>
 <style>
 	form {
 		display: none;
