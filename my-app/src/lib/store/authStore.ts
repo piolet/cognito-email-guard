@@ -3,12 +3,15 @@ import { writable } from 'svelte/store';
 import { signIn, signOut, getCurrentUser, type GetCurrentUserOutput } from 'aws-amplify/auth';
 import { goto } from '$app/navigation';
 import { syncTokensToCookies, clearTokensFromCookies } from '$lib/utils/authSync';
+import {configureAmplify} from "$lib/config/amplifyConfig";
 
 function createAuthStore() {
     const { subscribe, set, update } = writable<{user: GetCurrentUserOutput | null, loading: boolean}>({
         user: null,
         loading: true
     });
+
+    configureAmplify()
 
     return {
         subscribe,
@@ -65,11 +68,14 @@ function createAuthStore() {
         // Déconnexion
         async logout() {
             try {
+                console.log('Logging out...');
                 await signOut();
 
+                console.log('Clearing tokens from cookies...');
                 // Supprimer les cookies
                 await clearTokensFromCookies();
 
+                console.log('Resetting auth store...');
                 set({ user: null, loading: false });
                 await goto('/');
             } catch (error) {

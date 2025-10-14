@@ -1,19 +1,6 @@
 <script lang="ts">
-    import { Amplify, type ResourcesConfig } from 'aws-amplify';
     import { resetPassword, confirmResetPassword } from 'aws-amplify/auth';
     import { goto } from '$app/navigation';
-
-    // Configuration Amplify
-    const amplifyConfig: ResourcesConfig = {
-        Auth: {
-            Cognito: {
-                userPoolId: 'eu-west-3_4BacGSrqU',
-                userPoolClientId: '6f4slbdfishgmv4kc1hj15etjv',
-                region: 'eu-west-3'
-            }
-        }
-    } as ResourcesConfig;
-    Amplify.configure(amplifyConfig);
 
     // États du formulaire
     let step: 'request' | 'confirm' = 'request';

@@ -144,7 +144,7 @@ export async function handle({ event, resolve }) {
     console.log('👤 User connecté:', !!event.locals.user);
 
     if (!event.route.id?.startsWith('/(private)')) {
-        console.log('✅ ACCÈS AUTORISÉ pour:', event.locals.user.email);
+        console.log('✅ ACCÈS AUTORISÉ pour:', event.locals.user?.email);
         return resolve(event);
     }
     if (!event.locals.user) {

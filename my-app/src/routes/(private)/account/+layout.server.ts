@@ -4,10 +4,10 @@ import { PlaceService} from "$lib/services/place-service";
 
 const placeService = new PlaceService('http://api.heustach.loc/', 'ma-clef')
 export const load = async (event: ServerLoadEvent) => {
-	const { locals } = event
+	const { locals, cookies } = event
+    let idToken = event.cookies.get('idToken');
 
-
-    const places = await placeService.fetchAllByUser(29, {fetch: event.fetch, locals})
+    // const places = await placeService.fetchAllByUser(29, {fetch: event.fetch, locals})
 
 	// if (!locals.user) {
 	// 	redirect(302, '/login')
@@ -15,6 +15,8 @@ export const load = async (event: ServerLoadEvent) => {
 
 	return {
         places: [],
+        user: locals.user,
+        idToken,
 		// token: locals.user.token
 	}
 }

@@ -6,7 +6,9 @@
 	}
 
 	let { data, children }: Props = $props()
-    const { places } = data
+    const { places, user } = data
+
+    let idToken = $state(data.idToken)
 </script>
 
 <svelte:head>
@@ -16,6 +18,7 @@
 <h1>Compte privé</h1>
 {@render children?.()}
 <pre>{JSON.stringify(places, null, 2)}</pre>
+<input bind:value={idToken} type="text"/>
 <style>
 	form {
 		display: none;
