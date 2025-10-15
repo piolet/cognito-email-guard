@@ -1,6 +1,7 @@
 import type {DBClient, ParsedDbUrl} from "./types";
 import {PlanetScaleClient} from "./planetscale-client";
 import {Mysql2Client} from "./mysql-client";
+import { DATABASE_URL } from "../config";
 
 /** Parse DATABASE_URL de forme mysql://user:pass@host:port/db */
 function parseDbUrl(urlStr?: string): ParsedDbUrl | null {
@@ -22,7 +23,7 @@ export function isPlanetScaleHost(host?: string) {
 }
 
 export function createDbClient(): DBClient {
-    const fromUrl = parseDbUrl(process.env.DATABASE_URL);
+    const fromUrl = parseDbUrl(DATABASE_URL);
     const driver = (process.env.DB_DRIVER || "").toLowerCase(); // 'pscale' | 'mysql' | ''
     const isPlanetScale = driver === "pscale" || isPlanetScaleHost(fromUrl?.host);
 

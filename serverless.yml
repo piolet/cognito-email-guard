@@ -12,11 +12,6 @@ provider:
   stage: ${opt:stage, 'dev'}
   environment:
     STAGE: ${sls:stage}
-    DATABASE_URL: ${env:DATABASE_URL, ssm:/heustach-${sls:stage}/database-url}
-#    DB_PORT: ${env:DB_PORT, '3306'}
-#    DB_USER: ${env:DB_USER}
-#    DB_PASSWORD: ${env:DB_PASSWORD}
-#    DB_NAME: ${env:DB_NAME}
   iam:
     role:
       statements:
@@ -33,6 +28,12 @@ provider:
           Resource:
 #            - arn:aws:ssm:${self:provider.region}:${aws:accountId}:*
             - arn:aws:ssm:${self:provider.region}:${aws:accountId}:parameter/cognito-email-guard/${sls:stage}/message/*
+        - Effect: Allow
+          Action:
+            - cognito-idp:AdminUpdateUserAttributes
+          # (facultatif) si tu veux utiliser aussi les groupes :
+          # - cognito-idp:AdminAddUserToGroup
+          Resource: !GetAtt UserPool.Arn
 #      statements:
 #        # Autoriser Cognito Update côté admin pour l’endpoint de changement d'email
 #        - Effect: Allow
@@ -53,16 +54,29 @@ functions:
     description: Ajoute des attributs personnalisés dans le token JWT
     memorySize: 256
     timeout: 5
+    environment:
+      DATABASE_URL: ${env:DATABASE_URL, ssm:/heustach-${sls:stage}/database-url}
   preSignUp:
     handler: src/triggers/preSignUp.handler
     description: Vérifie l'unicité de l'adresse e-mail avant inscription (spam email)
     memorySize: 256
     timeout: 5
+    environment:
+      DATABASE_URL: ${env:DATABASE_URL, ssm:/heustach-${sls:stage}/database-url}
   userMigration:
     handler: src/triggers/userMigration.handler
     description: Migration à la volée des utilisateurs (auth/forgot)
     memorySize: 2048
     timeout: 15
+    environment:
+      DATABASE_URL: ${env:DATABASE_URL, ssm:/heustach-${sls:stage}/database-url}
+  postConfirmation:
+    handler: src/triggers/postConfirmation.handler
+    memorySize: 256
+    timeout: 10
+    environment:
+      DATABASE_URL: ${env:DATABASE_URL, ssm:/heustach-${sls:stage}/database-url}
+      API_URL: https://api.${self:custom.domain}
 
 resources:
   Resources:
@@ -87,10 +101,11 @@ resources:
             AttributeDataType: String
             Mutable: true
         LambdaConfig:
-          PreSignUp: !GetAtt PreSignUpLambdaFunction.Arn  # nom logique auto-généré: <FunctionName>LambdaFunction
+          PreSignUp: !GetAtt PreSignUpLambdaFunction.Arn
           PreTokenGeneration: !GetAtt PreTokenGenLambdaFunction.Arn
           CustomMessage: !GetAtt CustomMessageLambdaFunction.Arn
           UserMigration: !GetAtt UserMigrationLambdaFunction.Arn
+          PostConfirmation: !GetAtt PostConfirmationLambdaFunction.Arn
         EmailConfiguration:
           # Active l'envoi via ton compte SES (prérequis: domaine/adresse vérifiés dans SES)
           EmailSendingAccount: DEVELOPER
@@ -138,6 +153,13 @@ resources:
       Type: AWS::Lambda::Permission
       Properties:
         FunctionName: !GetAtt UserMigrationLambdaFunction.Arn
+        Action: lambda:InvokeFunction
+        Principal: cognito-idp.amazonaws.com
+        SourceArn: !GetAtt UserPool.Arn
+    PostConfirmationPermission:
+      Type: AWS::Lambda::Permission
+      Properties:
+        FunctionName: !GetAtt PostConfirmationLambdaFunction.Arn
         Action: lambda:InvokeFunction
         Principal: cognito-idp.amazonaws.com
         SourceArn: !GetAtt UserPool.Arn

@@ -46,7 +46,7 @@ export async function handle({ event, resolve }) {
                     id: parseInt(payload.sub) || payload.sub,
                     email: payload.email,
                     sub: payload.sub,
-                    token: accessToken, // ⭐ Le token pour vos API calls
+                    token: idToken, // ⭐ Le token pour vos API calls
                     username: payload['cognito:username'],
                     roles: payload['cognito:groups'] || []
                 };
@@ -116,7 +116,7 @@ export async function handle({ event, resolve }) {
                 id: parseInt(newPayload.sub) || newPayload.sub,
                 email: newPayload.email,
                 sub: newPayload.sub,
-                token: accessToken, // ⭐ Le token pour vos API calls
+                token: idToken, // ⭐ Le token pour vos API calls
                 username: newPayload['cognito:username'],
                 roles: newPayload['cognito:groups'] || []
             };

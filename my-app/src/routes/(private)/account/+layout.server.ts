@@ -7,14 +7,19 @@ export const load = async (event: ServerLoadEvent) => {
 	const { locals, cookies } = event
     let idToken = event.cookies.get('idToken');
 
-    // const places = await placeService.fetchAllByUser(29, {fetch: event.fetch, locals})
+    let places = []
+    try {
+        places = (await placeService.fetchAllByUser(16, {fetch: event.fetch, locals})).places
+    } catch (error) {
+        console.error('Error fetching places:', error);
+    }
 
 	// if (!locals.user) {
 	// 	redirect(302, '/login')
 	// }
 
 	return {
-        places: [],
+        places,
         user: locals.user,
         idToken,
 		// token: locals.user.token

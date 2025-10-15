@@ -194,6 +194,7 @@ export abstract class BaseService<T extends { id?: number | string }> {
 			'Content-Type': merge ? 'application/merge-patch+json' : 'application/json'
 		}
 		const token = locals.user?.token || ''
+        console.log('base service getHeaders', {locals, token})
 		if (!forceUnauthenticated && token) {
 			headers['Authorization'] = `Bearer ${token}`
 		} else if (allowUnauthenticated) {
