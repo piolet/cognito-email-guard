@@ -11,6 +11,7 @@ pnpm run deploy --stage prod
 
 ## pour tester en local
 npx serverless invoke local -f preSignUp --path events/preSignUp.json
+npx serverless invoke local -f postConfirmation --path events/postConfirmation.json
 npx serverless invoke local -f customMessage --path events/customMessage.json
 npx serverless invoke local -f userMigration --path events/userMigration.json
 

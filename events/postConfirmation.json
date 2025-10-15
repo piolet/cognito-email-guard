@@ -2,26 +2,24 @@
   "version": "1",
   "region": "eu-west-3",
   "userPoolId": "eu-west-3_4BacGSrqU",
-  "userName": "610940fe-5091-7095-2b35-13d60f73928e",
+  "userName": "61e9202e-90d1-70d6-5f65-895b9cb6c0e2",
   "callerContext": {
     "awsSdkVersion": "aws-sdk-unknown-unknown",
     "clientId": "6f4slbdfishgmv4kc1hj15etjv"
   },
-  "triggerSource": "PreSignUp_SignUp",
+  "triggerSource": "PostConfirmation_ConfirmSignUp",
   "request": {
     "userAttributes": {
-      "custom:userType": "customer",
+      "custom:userType": "merchant",
+      "sub": "61e9202e-90d1-70d6-5f65-895b9cb6c0e2",
+      "email_verified": "true",
+      "cognito:user_status": "CONFIRMED",
       "given_name": "test",
       "family_name": "test",
       "email": "pedro-test-.coucou@gmail.com",
       "custom:cguAccepted": "true",
       "custom:newsletterSubscribed": "true"
-    },
-    "validationData": null
+    }
   },
-  "response": {
-    "autoConfirmUser": false,
-    "autoVerifyEmail": false,
-    "autoVerifyPhone": false
-  }
+  "response": {}
 }

@@ -7,18 +7,19 @@
     configureAmplify();
 
     // États du formulaire
-    let step: 'signup' | 'confirm' = 'signup';
-    let email = '';
-    let password = '';
-    let confirmPassword = '';
-    let firstName = '';
-    let lastName = '';
+    let step: 'signup' | 'confirm' = $state('signup');
+    let email = $state('pedro-test-.coucou@gmail.com');
+    let password = $state('One2three');
+    let confirmPassword = $state('One2three');
+    let firstName = $state('test');
+    let lastName = $state('test');
     let userType: 'customer' | 'merchant' = $state('customer'); // Type d'utilisateur
     let cgu = $state(false); // Acceptation des CGU
-    let confirmationCode = '';
-    let loading = false;
-    let error = '';
-    let success = '';
+    let newsletter = $state(false); // Acceptation des CGU
+    let confirmationCode = $state('');
+    let loading = $state(false);
+    let error = $state('');
+    let success = $state('');
 
     /**
      * Étape 1 : Inscription
@@ -52,7 +53,8 @@
                         given_name: firstName,
                         family_name: lastName,
                         'custom:userType': userType, // Attribut custom pour le type d'utilisateur
-                        'custom:cguAccepted': cgu.toString() // Attribut custom pour CGU
+                        'custom:cguAccepted': cgu.toString(), // Attribut custom pour CGU
+                        'custom:newsletterSubscribed': newsletter.toString() // Attribut custom pour newsletter
                     },
                     // Auto sign-in après confirmation
                     autoSignIn: true
@@ -231,17 +233,29 @@
                 </div>
             </div>
 
-            <!-- ajouter une check box pour accepter les CGU ? -->
             <div class="row">
                 <div class="field">
                     <label>
                         <input
                                 type="checkbox"
-                                required
+                                required={false}
                                 bind:checked={cgu}
                                 disabled={loading}
                         />
                         J'accepte les <a href="/terms" target="_blank">Conditions Générales d'Utilisation</a>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <label>
+                        <input
+                                type="checkbox"
+                                required={false}
+                                bind:checked={newsletter}
+                                disabled={loading}
+                        />
+                        J'accepte de recevoir des newsletter
                     </label>
                 </div>
             </div>

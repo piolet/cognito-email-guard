@@ -18,6 +18,7 @@ export const handler: (
         event.request.userAttributes?.email_verified && event.userName; // garde-fou
     // récupérer l'attribut cgu_accepted si besoin
 
+    console.log("PreSignUp event", JSON.stringify(event));
     const cguAccepted = event.request.userAttributes?.['custom:cguAccepted'] === 'true';
 
     if (!cguAccepted) {

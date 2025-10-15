@@ -33,7 +33,7 @@ provider:
             - cognito-idp:AdminUpdateUserAttributes
           # (facultatif) si tu veux utiliser aussi les groupes :
           # - cognito-idp:AdminAddUserToGroup
-          Resource: !GetAtt UserPool.Arn
+          Resource: arn:aws:cognito-idp:${aws:region}:${aws:accountId}:userpool/*
 #      statements:
 #        # Autoriser Cognito Update côté admin pour l’endpoint de changement d'email
 #        - Effect: Allow
@@ -98,6 +98,18 @@ resources:
             AttributeDataType: String
             Mutable: true
           - Name: lastName
+            AttributeDataType: String
+            Mutable: true
+          - Name: usrId
+            AttributeDataType: Number
+            Mutable: true
+          - Name: userType
+            AttributeDataType: String
+            Mutable: true
+          - Name: newsletterSubscribed
+            AttributeDataType: String
+            Mutable: true
+          - Name: cguAccepted
             AttributeDataType: String
             Mutable: true
         LambdaConfig:
@@ -175,13 +187,13 @@ resources:
 #          - given_name
 #          - family_name
 #          - phone_number
-#          - custom:usr_id
+#          - custom:usrId
 #          - custom:roles
 #          - custom:firstName
 #          - custom:lastName
 #        WriteAttributes:
 #          - email
-#          - custom:usr_id
+#          - custom:usrId
 #          - custom:roles
 #          - custom:firstName
 #          - custom:lastName

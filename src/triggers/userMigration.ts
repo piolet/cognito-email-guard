@@ -23,7 +23,7 @@ function buildUserAttributes(row: UserRow) {
         ...(row.usr_phone
             ? { phone_number: row.usr_phone, phone_number_verified: "true" }
             : {}),
-        "custom:usr_id": String(row.usr_id),
+        "custom:usrId": String(row.usr_id),
         "custom:firstName": row.usr_first_name ?? "",
         "custom:lastName": row.usr_last_name ?? "",
         "custom:roles": rolesToJson(row.usr_roles),

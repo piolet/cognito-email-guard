@@ -110,7 +110,7 @@ export const handler = async (event: any) => {
     Si vous n'êtes pas à l'origine de cette demande, ignorez ce message.
   `).trim();
 
-    console.log("Generated email:", template?.html, html)
+    console.log("Generated email:", template?.html, html, code)
     // alimente la réponse Cognito (pas besoin d'appeler SES ici)
     event.response.emailSubject = fill(subject, vars);
     event.response.emailMessage = fill(html, vars);     // HTML accepté
