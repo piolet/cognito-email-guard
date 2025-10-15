@@ -16,9 +16,19 @@ export const handler: (
     const email =
         event.request.userAttributes?.email ||
         event.request.userAttributes?.email_verified && event.userName; // garde-fou
+    // récupérer l'attribut cgu_accepted si besoin
+
+    const cguAccepted = event.request.userAttributes?.['custom:cguAccepted'] === 'true';
+
+    if (!cguAccepted) {
+        const err = new Error("CGU_ACCEPTANCE_REQUIRED");
+        err.name = "CguAcceptanceRequired";
+        callback(err, event);
+        return
+    }
 
     if (!email) {
-        const err =  new Error("EMAIL_REQUIRED");
+        const err = new Error("EMAIL_REQUIRED");
         err.name = "EmailRequired";
         callback(err, event);
         return

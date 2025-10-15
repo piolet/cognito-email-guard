@@ -13,6 +13,8 @@
     let confirmPassword = '';
     let firstName = '';
     let lastName = '';
+    let userType: 'customer' | 'merchant' = $state('customer'); // Type d'utilisateur
+    let cgu = $state(false); // Acceptation des CGU
     let confirmationCode = '';
     let loading = false;
     let error = '';
@@ -48,7 +50,9 @@
                     userAttributes: {
                         email,
                         given_name: firstName,
-                        family_name: lastName
+                        family_name: lastName,
+                        'custom:userType': userType, // Attribut custom pour le type d'utilisateur
+                        'custom:cguAccepted': cgu.toString() // Attribut custom pour CGU
                     },
                     // Auto sign-in après confirmation
                     autoSignIn: true
@@ -200,6 +204,49 @@
                     />
                 </div>
             </div>
+
+            <div class="row">
+                <div class="field">
+                    <label>
+                        <input
+                                type="radio"
+                                bind:group={userType}
+                                value="customer"
+                                disabled={loading}
+                                checked
+                        />
+                        Client
+                    </label>
+                </div>
+                <div class="field">
+                    <label style="margin-left: 20px;">
+                        <input
+                                type="radio"
+                                bind:group={userType}
+                                value="merchant"
+                                disabled={loading}
+                        />
+                        Commerçant
+                    </label>
+                </div>
+            </div>
+
+            <!-- ajouter une check box pour accepter les CGU ? -->
+            <div class="row">
+                <div class="field">
+                    <label>
+                        <input
+                                type="checkbox"
+                                required
+                                bind:checked={cgu}
+                                disabled={loading}
+                        />
+                        J'accepte les <a href="/terms" target="_blank">Conditions Générales d'Utilisation</a>
+                    </label>
+                </div>
+            </div>
+
+
 
             <div class="field">
                 <label for="email">Email</label>
