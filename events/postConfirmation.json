@@ -2,7 +2,7 @@
   "version": "1",
   "region": "eu-west-3",
   "userPoolId": "eu-west-3_4BacGSrqU",
-  "userName": "61e9202e-90d1-70d6-5f65-895b9cb6c0e2",
+  "userName": "61c980be-90c1-70e6-ec01-201e9d376e2b",
   "callerContext": {
     "awsSdkVersion": "aws-sdk-unknown-unknown",
     "clientId": "6f4slbdfishgmv4kc1hj15etjv"
@@ -10,13 +10,13 @@
   "triggerSource": "PostConfirmation_ConfirmSignUp",
   "request": {
     "userAttributes": {
-      "custom:userType": "merchant",
-      "sub": "61e9202e-90d1-70d6-5f65-895b9cb6c0e2",
+      "custom:userType": "customer",
+      "sub": "61c980be-90c1-70e6-ec01-201e9d376e2b",
       "email_verified": "true",
       "cognito:user_status": "CONFIRMED",
       "given_name": "test",
       "family_name": "test",
-      "email": "pedro-test-.coucou@gmail.com",
+      "email": "piolet91@gmail.com",
       "custom:cguAccepted": "true",
       "custom:newsletterSubscribed": "true"
     }

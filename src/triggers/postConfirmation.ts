@@ -67,7 +67,9 @@ export const handler: PostConfirmationTriggerHandler = async (event, context) =>
     //   "usr_roles": ["ROLE_USER", "ROLE_OWNER"]
     // }
 
-    let usrId: number = userResponse.usr_id;
+
+    console.log("✅ User registered in external API with ID:", userResponse);
+    let usrId: number = userResponse.id;
     let rolesJson: string = JSON.stringify(userResponse.usr_roles ?? ["ROLE_USER"]);
 
     // 2) pousse les attributs vers Cognito

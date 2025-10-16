@@ -8,7 +8,7 @@
 
     // États du formulaire
     let step: 'signup' | 'confirm' = $state('signup');
-    let email = $state('pedro-test-.coucou@gmail.com');
+    let email = $state('piolet91@gmail.com');
     let password = $state('One2three');
     let confirmPassword = $state('One2three');
     let firstName = $state('test');
@@ -72,7 +72,7 @@
                 setTimeout(() => goto('/'), 2000);
             }
         } catch (err: any) {
-            console.error('Signup error:', err);
+            console.error('Signup error:', err, err?.name, err?.code);
 
             // Messages d'erreur personnalisés
             if (err.name === 'UsernameExistsException') {
@@ -81,6 +81,8 @@
                 error = 'Le mot de passe ne respecte pas les critères requis';
             } else if (err.name === 'InvalidParameterException') {
                 error = 'Paramètres invalides. Vérifiez vos informations.';
+            } else if (err.message?.includes('CGU_ACCEPTANCE_REQUIRED')) {
+                error = 'Vous devez accepter les Conditions Générales d\'Utilisation pour vous inscrire.';
             } else {
                 error = err.message || 'Erreur lors de l\'inscription';
             }
