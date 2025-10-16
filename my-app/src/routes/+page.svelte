@@ -2,7 +2,7 @@
 
     import { Amplify, type ResourcesConfig } from 'aws-amplify';
     import {
-        type SignUpInput,
+        type SignInInput,
         signUp,
         confirmSignUp,
         signIn,
@@ -24,7 +24,7 @@
         console.log(email, password);
 
         try {
-            const input: SignUpInput = {
+            const input: SignInInput = {
                 username: email,     // côté Amplify, "username" = identifiant ; on met l'email
                 password,
                 options: {
