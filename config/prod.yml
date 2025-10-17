@@ -1,4 +1,5 @@
 email-domain: heustach.fr
+emoji: 🥸
 domain: heustach.fr
 protocol: https
 database-url: ${ssm:/heustach-prod/database-url}

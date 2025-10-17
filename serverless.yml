@@ -118,7 +118,7 @@ resources:
         EmailConfiguration:
           # Active l'envoi via ton compte SES (prérequis: domaine/adresse vérifiés dans SES)
           EmailSendingAccount: DEVELOPER
-          From: "Heustach 🥸 <no-reply@${self:custom.email-domain}>"
+          From: "Heustach {self:custom.emoji} <no-reply@${self:custom.email-domain}>"
           SourceArn: arn:aws:ses:${aws:region}:${aws:accountId}:identity/${self:custom.email-domain}
         SmsConfiguration:
           SnsCallerArn: !GetAtt CognitoSMSRole.Arn
