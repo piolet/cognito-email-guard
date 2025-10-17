@@ -1,24 +1,24 @@
 {
   "version": "1",
   "region": "eu-west-3",
-  "userPoolId": "eu-west-3_4BacGSrqU",
-  "userName": "61c980be-90c1-70e6-ec01-201e9d376e2b",
+  "userPoolId": "eu-west-3_DHxtmSTkC",
+  "userName": "91f9208e-50c1-7020-1917-c314c5ce92eb",
   "callerContext": {
     "awsSdkVersion": "aws-sdk-unknown-unknown",
-    "clientId": "6f4slbdfishgmv4kc1hj15etjv"
+    "clientId": "7riaqs3uni3tjhusfe3bdtsard"
   },
   "triggerSource": "PostConfirmation_ConfirmSignUp",
   "request": {
     "userAttributes": {
       "custom:userType": "customer",
-      "sub": "61c980be-90c1-70e6-ec01-201e9d376e2b",
+      "sub": "91f9208e-50c1-7020-1917-c314c5ce92eb",
       "email_verified": "true",
       "cognito:user_status": "CONFIRMED",
       "given_name": "test",
       "family_name": "test",
-      "email": "piolet91@gmail.com",
+      "email": "piolet91ab@gmail.com",
       "custom:cguAccepted": "true",
-      "custom:newsletterSubscribed": "true"
+      "custom:newsletterSubscribed": "false"
     }
   },
   "response": {}

@@ -60,7 +60,7 @@
         <div class="error">{error}</div>
     {/if}
 
-    <form on:submit={onLogin}>
+    <form onsubmit={onLogin}>
         <div class="field">
             <label for="email">Email</label>
             <input

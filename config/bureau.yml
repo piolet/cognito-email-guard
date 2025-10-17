@@ -1,7 +1,7 @@
 email-domain: heustach.fr
-domain: dev.heustach.fr
-protocol: https
-database-url: ${ssm:/heustach-dev/database-url}
+domain: heustach.loc
+protocol: http
+database-url: mysql://root:${env:DB_PASSWORD}@${env:DB_HOST}/heustach?sslmode=disable
 esbuild:
   bundle: true
   minify: true

@@ -1,5 +1,7 @@
 email-domain: heustach.fr
 domain: heustach.fr
+protocol: https
+database-url: ${ssm:/heustach-prod/database-url}
 esbuild:
   bundle: true
   minify: true

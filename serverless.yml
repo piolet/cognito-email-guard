@@ -55,28 +55,28 @@ functions:
     memorySize: 256
     timeout: 5
     environment:
-      DATABASE_URL: ${env:DATABASE_URL, ssm:/heustach-${sls:stage}/database-url}
+      DATABASE_URL: ${self:custom.database-url}
   preSignUp:
     handler: src/triggers/preSignUp.handler
     description: Vérifie l'unicité de l'adresse e-mail avant inscription (spam email)
     memorySize: 256
     timeout: 5
     environment:
-      DATABASE_URL: ${env:DATABASE_URL, ssm:/heustach-${sls:stage}/database-url}
+      DATABASE_URL: ${self:custom.database-url}
   userMigration:
     handler: src/triggers/userMigration.handler
     description: Migration à la volée des utilisateurs (auth/forgot)
     memorySize: 2048
     timeout: 15
     environment:
-      DATABASE_URL: ${env:DATABASE_URL, ssm:/heustach-${sls:stage}/database-url}
+      DATABASE_URL: ${self:custom.database-url}
   postConfirmation:
     handler: src/triggers/postConfirmation.handler
     memorySize: 256
     timeout: 10
     environment:
-      DATABASE_URL: ${env:DATABASE_URL, ssm:/heustach-${sls:stage}/database-url}
-      API_URL: https://api.${self:custom.domain}
+      DATABASE_URL: ${self:custom.database-url}
+      API_URL: ${self:custom.protocol}://api.${self:custom.domain}
 
 resources:
   Resources:
@@ -87,8 +87,8 @@ resources:
         UsernameAttributes: [ email ]
         AutoVerifiedAttributes: [ email, phone_number ]
         Schema:
-          - Name: usr_id
-            AttributeDataType: Number
+          - Name: id
+            AttributeDataType: String
             Mutable: true
           - Name: roles
             AttributeDataType: String
@@ -99,9 +99,6 @@ resources:
             Mutable: true
           - Name: lastName
             AttributeDataType: String
-            Mutable: true
-          - Name: usrId
-            AttributeDataType: Number
             Mutable: true
           - Name: userType
             AttributeDataType: String
@@ -217,13 +214,13 @@ resources:
 #          - given_name
 #          - family_name
 #          - phone_number
-#          - custom:usrId
+#          - custom:id
 #          - custom:roles
 #          - custom:firstName
 #          - custom:lastName
 #        WriteAttributes:
 #          - email
-#          - custom:usrId
+#          - custom:id
 #          - custom:roles
 #          - custom:firstName
 #          - custom:lastName

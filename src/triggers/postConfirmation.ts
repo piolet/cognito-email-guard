@@ -17,12 +17,12 @@ export const handler: PostConfirmationTriggerHandler = async (event, context) =>
     const lastName   = event.request.userAttributes?.family_name || "";
     const phone  = event.request.userAttributes?.phone_number || null;
     const userType   = event.request.userAttributes?.['custom:userType'] || 'customer';
-    const newsletter   = event.request.userAttributes?.['custom:newsletterSubscribed'] || 'false';
+    const newsletter   = event.request.userAttributes?.['custom:newsletterSubscribed'] === 'true' || false;
 
     console.log(`User ${username} (${email}) signed up as ${userType}`);
 
     // Idempotence : si déjà migré/créé avant, on ne refait rien
-    // (si tu avais déjà custom:usrId dans l’événement, tu pourrais court-circuiter)
+    // (si tu avais déjà custom:id dans l’événement, tu pourrais court-circuiter)
 
     const user = await findUserByEmail(email);
     if (user) {
@@ -37,7 +37,7 @@ export const handler: PostConfirmationTriggerHandler = async (event, context) =>
         firstName,
         lastName,
         phone,
-        newsletter: newsletter === 'true',
+        newsletter,
         password: 'invalid',
         lastConnectionAt: null
     };
@@ -47,8 +47,7 @@ export const handler: PostConfirmationTriggerHandler = async (event, context) =>
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${process.env.API_BEARER_TOKEN || ""}`, // si tu utilises une auth Bearer
-            "X-Internal-Key": process.env.API_INTERNAL_KEY || "", // clé d'auth interne optionnelle
+            "Authorization": `Bearer ${API_BEARER_TOKEN || ""}`, // si tu utilises une auth Bearer
         },
         body: JSON.stringify(body),
     });
@@ -78,8 +77,11 @@ export const handler: PostConfirmationTriggerHandler = async (event, context) =>
             UserPoolId: userPoolId,
             Username: username, // sub
             UserAttributes: [
-                { Name: "custom:usrId", Value: String(usrId) },
+                { Name: "custom:id", Value: String(usrId) },
                 { Name: "custom:roles",  Value: rolesJson },
+                { Name: "custom:userType", Value: "" },
+                { Name: "custom:newsletterSubscribed", Value: "" },
+                { Name: "custom:cguAccepted", Value: "" }
                 // garde ces lignes si tu es sûr des valeurs :
                 // { Name: "given_name", Value: firstName || "" },
                 // { Name: "family_name", Value: lastName || "" },

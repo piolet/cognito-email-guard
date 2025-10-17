@@ -23,7 +23,7 @@ function buildUserAttributes(row: UserRow) {
         ...(row.usr_phone
             ? { phone_number: row.usr_phone, phone_number_verified: "true" }
             : {}),
-        "custom:usrId": String(row.usr_id),
+        "custom:id": String(row.usr_id),
         "custom:firstName": row.usr_first_name ?? "",
         "custom:lastName": row.usr_last_name ?? "",
         "custom:roles": rolesToJson(row.usr_roles),
@@ -35,7 +35,7 @@ export const handler: UserMigrationTriggerHandler = async (
     context: Context
 ) => {
     context.callbackWaitsForEmptyEventLoop = false;
-    console.log("UserMigration event", event.triggerSource, event.userName, event.request?.password ? "with password" : "no password");
+    console.log("UserMigration event", event, event.request?.password ? "with password" : "no password");
     const { triggerSource, userName: email, request } = event;
     const row: UserRow | null = await findUserByEmail(email);
     console.log("Legacy user row for", email, row ? "found" : "not found");
@@ -58,5 +58,6 @@ export const handler: UserMigrationTriggerHandler = async (
     event.response.messageAction = "SUPPRESS";
     // Note: Cognito définira le mot de passe SAISI comme mot de passe du compte (=> l’utilisateur garde son mot de passe).
 
+    console.log("Response to Cognito:", JSON.stringify(event.response));
     return event;
 };

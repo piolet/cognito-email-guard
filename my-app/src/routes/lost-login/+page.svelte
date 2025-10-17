@@ -123,7 +123,7 @@
             Entrez votre adresse email pour recevoir un code de réinitialisation.
         </p>
 
-        <form on:submit={handleRequestReset}>
+        <form onsubmit={handleRequestReset}>
             <div class="field">
                 <label for="email">Email</label>
                 <input
@@ -151,7 +151,7 @@
             Entrez ce code et choisissez un nouveau mot de passe.
         </p>
 
-        <form on:submit={handleConfirmReset}>
+        <form onsubmit={handleConfirmReset}>
             <div class="field">
                 <label for="code">Code de vérification</label>
                 <input
@@ -199,7 +199,7 @@
         </form>
 
         <div class="links">
-            <button class="link-button" on:click={backToRequest} disabled={loading}>
+            <button class="link-button" onclick={backToRequest} disabled={loading}>
                 Renvoyer un code
             </button>
             <span class="separator">•</span>

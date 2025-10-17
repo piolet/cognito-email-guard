@@ -1,21 +1,21 @@
 {
   "version": "1",
   "region": "eu-west-3",
-  "userPoolId": "eu-west-3_4BacGSrqU",
-  "userName": "610940fe-5091-7095-2b35-13d60f73928e",
+  "userPoolId": "eu-west-3_DHxtmSTkC",
+  "userName": "b1d9606e-8071-703a-d482-51264fe71d31",
   "callerContext": {
     "awsSdkVersion": "aws-sdk-unknown-unknown",
-    "clientId": "6f4slbdfishgmv4kc1hj15etjv"
+    "clientId": "7riaqs3uni3tjhusfe3bdtsard"
   },
   "triggerSource": "PreSignUp_SignUp",
   "request": {
     "userAttributes": {
-      "custom:userType": "customer",
+      "cguAccepted": "true",
+      "newsletterSubscribed": "false",
+      "userType": "customer",
       "given_name": "test",
       "family_name": "test",
-      "email": "pedro-test-.coucou@gmail.com",
-      "custom:cguAccepted": "true",
-      "custom:newsletterSubscribed": "true"
+      "email": "piolet91ab@gmail.com"
     },
     "validationData": null
   },

@@ -182,7 +182,7 @@
 
     {#if step === 'signup'}
         <!-- Étape 1 : Formulaire d'inscription -->
-        <form on:submit={handleSignup}>
+        <form onsubmit={handleSignup}>
             <div class="row">
                 <div class="field">
                     <label for="firstName">Prénom</label>
@@ -318,7 +318,7 @@
             Entrez ce code pour activer votre compte.
         </p>
 
-        <form on:submit={handleConfirm}>
+        <form onsubmit={handleConfirm}>
             <div class="field">
                 <label for="confirmationCode">Code de confirmation</label>
                 <input
@@ -340,11 +340,11 @@
         </form>
 
         <div class="links">
-            <button class="link-button" on:click={handleResendCode} disabled={loading}>
+            <button class="link-button" onclick={handleResendCode} disabled={loading}>
                 Renvoyer le code
             </button>
             <span class="separator">•</span>
-            <button class="link-button" on:click={backToSignup} disabled={loading}>
+            <button class="link-button" onclick={backToSignup} disabled={loading}>
                 Modifier mes informations
             </button>
         </div>
