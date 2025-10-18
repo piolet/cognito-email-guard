@@ -9,9 +9,10 @@ export async function syncTokensToCookies() {
         const session = await fetchAuthSession();
 
         if (session.tokens) {
-            const tokens = {
+            const tokens: {accessToken: string | null, idToken: string | null, refreshToken: string | null} = {
                 accessToken: session.tokens.accessToken.toString(),
-                idToken: session.tokens.idToken.toString(),
+                idToken: session.tokens.idToken?.toString() || null,
+                refreshToken: null
             };
 
             // Extraire le refresh token du localStorage
