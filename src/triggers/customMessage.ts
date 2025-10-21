@@ -114,7 +114,7 @@ export const handler = async (event: any) => {
     // alimente la réponse Cognito (pas besoin d'appeler SES ici)
     event.response.emailSubject = fill(subject, vars);
     event.response.emailMessage = fill(html, vars);     // HTML accepté
-    event.response.smsMessage = `Code ${BRAND}: ${code}`; // si tu veux aussi un SMS
+    event.response.smsMessage = `Votre code de vérification ${BRAND} est ${code}`; // si tu veux aussi un SMS
 
     // Si tu veux forcer du plain-text, mets text en emailMessage
     // event.response.emailMessage = fill(text, vars);
