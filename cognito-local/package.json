@@ -1,0 +1,26 @@
+{
+  "name": "cognito-local",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Local AWS Cognito emulator wrapper for Heustach",
+  "scripts": {
+    "dev": "node ./scripts/start.js",
+    "start": "node ./scripts/start.js",
+    "stop": "node ./scripts/stop.js",
+    "clean": "rimraf ./.cognito/db",
+    "postinstall": "node ./scripts/postinstall.js"
+  },
+  "dependencies": {
+    "cognito-local": "^5.1.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "rimraf": "^6.1.2"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=9"
+  }
+}
+

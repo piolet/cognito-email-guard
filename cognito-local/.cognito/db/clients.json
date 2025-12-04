@@ -1,0 +1,25 @@
+{
+  "Clients": {
+    "6co4cw1sdybcml9yp77h5hx60": {
+      "ClientId": "6co4cw1sdybcml9yp77h5hx60",
+      "ClientName": "my-app-local",
+      "CreationDate": "2025-12-04T21:16:06.989Z",
+      "ExplicitAuthFlows": [
+        "ALLOW_REFRESH_TOKEN_AUTH",
+        "ALLOW_USER_PASSWORD_AUTH",
+        "ALLOW_USER_SRP_AUTH"
+      ],
+      "LastModifiedDate": "2025-12-04T21:16:06.989Z",
+      "PreventUserExistenceErrors": "ENABLED",
+      "SupportedIdentityProviders": [
+        "COGNITO"
+      ],
+      "TokenValidityUnits": {
+        "AccessToken": "hours",
+        "IdToken": "minutes",
+        "RefreshToken": "days"
+      },
+      "UserPoolId": "local_2hKjVCrT"
+    }
+  }
+}

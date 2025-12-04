@@ -4,7 +4,8 @@ import { CognitoIdentityProviderClient, InitiateAuthCommand } from '@aws-sdk/cli
 import { PUBLIC_COGNITO_CLIENT_ID, PUBLIC_AWS_REGION } from '$env/static/public'
 
 const cognitoClient = new CognitoIdentityProviderClient({
-    region: PUBLIC_AWS_REGION
+    region: PUBLIC_AWS_REGION,
+    endpoint: 'http://localhost:9229'
 });
 
 /** @type {import('@sveltejs/kit').Handle} */
@@ -72,7 +73,7 @@ export async function handle({ event, resolve }) {
             // Rafraîchir les tokens via AWS SDK
             const command = new InitiateAuthCommand({
                 AuthFlow: 'REFRESH_TOKEN_AUTH',
-                ClientId: '6f4slbdfishgmv4kc1hj15etjv',
+                ClientId: PUBLIC_COGNITO_CLIENT_ID,
                 AuthParameters: {
                     REFRESH_TOKEN: refreshToken
                 }
