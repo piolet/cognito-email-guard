@@ -1,6 +1,9 @@
 <script lang="ts">
     import { resetPassword, confirmResetPassword } from 'aws-amplify/auth';
     import { goto } from '$app/navigation';
+    import {configureAmplify} from "$lib/config/amplifyConfig";
+
+    configureAmplify();
 
     // États du formulaire
     let step: 'request' | 'confirm' = 'request';

@@ -3,6 +3,11 @@
 ## install
 pnpm i
 
+## build des triggers
+```bash
+pnpm tsc
+```
+
 ## deploy
 pnpm run deploy --stage dev
 

@@ -51,13 +51,12 @@
         }
       ],
       "Enabled": true,
-      "Password": "One2three",
+      "Password": "testtest",
       "RefreshTokens": [],
       "UserCreateDate": "2025-12-04T21:45:52.286Z",
-      "UserLastModifiedDate": "2025-12-04T21:45:52.286Z",
+      "UserLastModifiedDate": "2025-12-04T23:01:53.346Z",
       "Username": "182e800e-c58b-4995-96ac-07e7edbdfa06",
-      "UserStatus": "UNCONFIRMED",
-      "ConfirmationCode": "739554"
+      "UserStatus": "CONFIRMED"
     }
   },
   "Options": {

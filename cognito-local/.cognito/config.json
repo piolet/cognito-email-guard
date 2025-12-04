@@ -1,1 +1,17 @@
-{}
+{
+  "LambdaClient": {
+    "credentials": {
+      "accessKeyId": "local",
+      "secretAccessKey": "local"
+    },
+    "region": "eu-west-3",
+    "endpoint": "http://localhost:3002"
+  },
+  "TriggerFunctions": {
+    "CustomMessage": "cognito-email-guard-dev-customMessage",
+    "PostConfirmation": "cognito-email-guard-dev-postConfirmation",
+    "PreSignUp": "cognito-email-guard-dev-preSignUp",
+    "PreTokenGeneration": "cognito-email-guard-dev-preTokenGen",
+    "UserMigration": "cognito-email-guard-dev-userMigration"
+  }
+}
