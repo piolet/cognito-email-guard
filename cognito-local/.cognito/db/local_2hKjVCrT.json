@@ -19,83 +19,58 @@
       "UserLastModifiedDate": "2025-12-04T21:11:14.572Z",
       "RefreshTokens": []
     },
-    "182e800e-c58b-4995-96ac-07e7edbdfa06": {
+    "129fbf85-eae0-4352-a3c0-0e8e8da12eb7": {
       "Attributes": [
         {
-          "Name": "sub",
-          "Value": "182e800e-c58b-4995-96ac-07e7edbdfa06"
+          "Name": "custom:firstName",
+          "Value": "André"
+        },
+        {
+          "Name": "custom:id",
+          "Value": "29"
+        },
+        {
+          "Name": "custom:lastName",
+          "Value": "Guilberts"
+        },
+        {
+          "Name": "custom:roles",
+          "Value": "[\"ROLE_OWNER\",\"ROLE_USER\"]"
         },
         {
           "Name": "email",
           "Value": "piolet91@gmail.com"
         },
         {
-          "Name": "given_name",
-          "Value": "test"
-        },
-        {
-          "Name": "family_name",
-          "Value": "test"
-        },
-        {
-          "Name": "custom:userType",
-          "Value": "customer"
-        },
-        {
-          "Name": "custom:cguAccepted",
-          "Value": "false"
-        },
-        {
-          "Name": "custom:newsletterSubscribed",
-          "Value": "false"
-        }
-      ],
-      "Enabled": true,
-      "Password": "testtest",
-      "RefreshTokens": [],
-      "UserCreateDate": "2025-12-04T21:45:52.286Z",
-      "UserLastModifiedDate": "2025-12-04T23:01:53.346Z",
-      "Username": "182e800e-c58b-4995-96ac-07e7edbdfa06",
-      "UserStatus": "CONFIRMED"
-    },
-    "d7127552-c5ab-41ab-9604-67ddfc37d481": {
-      "Attributes": [
-        {
-          "Name": "sub",
-          "Value": "d7127552-c5ab-41ab-9604-67ddfc37d481"
-        },
-        {
-          "Name": "email",
-          "Value": "piolet912@gmail.com"
-        },
-        {
-          "Name": "given_name",
-          "Value": "test"
-        },
-        {
-          "Name": "family_name",
-          "Value": "test"
-        },
-        {
-          "Name": "custom:userType",
-          "Value": "customer"
-        },
-        {
-          "Name": "custom:cguAccepted",
+          "Name": "email_verified",
           "Value": "true"
         },
         {
-          "Name": "custom:newsletterSubscribed",
+          "Name": "family_name",
+          "Value": "Guilberts"
+        },
+        {
+          "Name": "given_name",
+          "Value": "André"
+        },
+        {
+          "Name": "phone_number",
+          "Value": "+33611935500"
+        },
+        {
+          "Name": "phone_number_verified",
           "Value": "true"
         }
       ],
       "Enabled": true,
-      "Password": "One2three",
-      "RefreshTokens": [],
-      "UserCreateDate": "2025-12-05T15:07:07.394Z",
-      "UserLastModifiedDate": "2025-12-05T15:07:18.257Z",
-      "Username": "d7127552-c5ab-41ab-9604-67ddfc37d481",
-      "UserStatus": "CONFIRMED"
+      "Password": "test",
+      "UserCreateDate": "2025-12-05T21:17:03.412Z",
+      "UserLastModifiedDate": "2025-12-05T21:17:03.412Z",
+      "Username": "129fbf85-eae0-4352-a3c0-0e8e8da12eb7",
+      "UserStatus": "CONFIRMED",
+      "RefreshTokens": [
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiMTI5ZmJmODUtZWFlMC00MzUyLWEzYzAtMGU4ZThkYTEyZWI3IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjQ5Njk0MjMsImp0aSI6IjI0NDAyNGRkLTBiYTUtNDBmNC05MmQyLWNjZTMwYTA5NmRmNSIsImV4cCI6MTc2NTU3NDIyMywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.WLZYvW1Mn8748GpyJwPhDeKcNFA4fZlLatUENz1DZdhAq3EdUCe5lFd8f-izqhCwocttxaCJ_04-9AtmJ1_r5ulWjQozmM-0u4X9BidqoLUkmkxAGwRVM6LxHzHBKNujQDApIVW03-tSGHxDlT8jzSRtuPAs5PfrX4r3VDQF7H236QbA6CvZGNpeHOsee3CpJTLjve8QbfXOQvccFXoCXmjfwxHSIHyJclr2WpQ9z-oY0D9FllW10wS7IVMlsdWUs8EnyheIWY04lW4YmjS6pTLDTpyF6iAaPh7n1p5qpConJyuRPiedj-a02fjME8n_PkJ4ZNFbSoEv5YtKIA3EYg"
+      ]
     }
   },
   "Options": {

@@ -1,8 +1,9 @@
 import type { ServerLoadEvent } from '@sveltejs/kit'
+import {PUBLIC_API_URL, PUBLIC_API_KEY} from '$env/static/public';
 import { redirect } from '@sveltejs/kit'
 import { PlaceService} from "$lib/services/place-service";
 
-const placeService = new PlaceService('http://api.heustach.loc/', 'ma-clef')
+const placeService = new PlaceService(PUBLIC_API_URL, PUBLIC_API_KEY)
 export const load = async (event: ServerLoadEvent) => {
 	const { locals, cookies } = event
     let idToken = event.cookies.get('idToken');
