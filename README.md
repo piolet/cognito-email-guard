@@ -1,11 +1,22 @@
 # cognito-email-guard
 
+## Dashboard local Cognito
+- cognito-local (basé sur jagregory/cognito-local) n'offre pas d'interface graphique intégrée pour visualiser les utilisateurs.
+- Un sous-projet `dashboard/` (SvelteKit) permet désormais de lister et administrer les users du pool local via l'API Cognito local.
+- Pour démarrer:
+```bash
+cd dashboard
+pnpm install
+pnpm dev
+```
+
 ## install
 pnpm i
 
-## build des triggers
+## Gestion des triggers lambda pour Cognito
 ```bash
 pnpm tsc
+pnpm dev
 ```
 
 ## deploy

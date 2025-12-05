@@ -57,6 +57,45 @@
       "UserLastModifiedDate": "2025-12-04T23:01:53.346Z",
       "Username": "182e800e-c58b-4995-96ac-07e7edbdfa06",
       "UserStatus": "CONFIRMED"
+    },
+    "d7127552-c5ab-41ab-9604-67ddfc37d481": {
+      "Attributes": [
+        {
+          "Name": "sub",
+          "Value": "d7127552-c5ab-41ab-9604-67ddfc37d481"
+        },
+        {
+          "Name": "email",
+          "Value": "piolet912@gmail.com"
+        },
+        {
+          "Name": "given_name",
+          "Value": "test"
+        },
+        {
+          "Name": "family_name",
+          "Value": "test"
+        },
+        {
+          "Name": "custom:userType",
+          "Value": "customer"
+        },
+        {
+          "Name": "custom:cguAccepted",
+          "Value": "true"
+        },
+        {
+          "Name": "custom:newsletterSubscribed",
+          "Value": "true"
+        }
+      ],
+      "Enabled": true,
+      "Password": "One2three",
+      "RefreshTokens": [],
+      "UserCreateDate": "2025-12-05T15:07:07.394Z",
+      "UserLastModifiedDate": "2025-12-05T15:07:18.257Z",
+      "Username": "d7127552-c5ab-41ab-9604-67ddfc37d481",
+      "UserStatus": "CONFIRMED"
     }
   },
   "Options": {
