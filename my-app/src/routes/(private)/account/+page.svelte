@@ -5,6 +5,7 @@
     import { CognitoIdentityProviderClient, GetUserAttributeVerificationCodeCommand } from '@aws-sdk/client-cognito-identity-provider';
     import { PUBLIC_AWS_REGION } from '$env/static/public';
     import { authStore } from '$lib/store/authStore';
+    import { get } from 'svelte/store';
 
     // Configuration Amplify (idempotent)
     configureAmplify();
@@ -45,15 +46,17 @@
     let phoneStep: 'edit' | 'verify' = $state('edit');
     let phoneCode = $state('');
 
-    onMount(async () => {
+    async function loadAttributes() {
         try {
+            const session = await fetchAuthSession();
+            if (!session.tokens) {
+                throw new Error('Session expirée, merci de vous reconnecter.');
+            }
             const attrs = await fetchUserAttributes();
             firstName = attrs.given_name || '';
             lastName = attrs.family_name || '';
             email = attrs.email || '';
             phone = attrs.phone_number || '';
-
-            // Pré-remplir les champs d'édition
             emailInput = email;
             phoneInput = phone;
         } catch (err: any) {
@@ -61,6 +64,30 @@
             globalError = err?.message || 'Impossible de charger vos informations.';
         } finally {
             loadingProfile = false;
+        }
+    }
+
+    onMount(() => {
+        const state = get(authStore);
+        if (!state.initialized) {
+            const unsubscribe = authStore.subscribe(s => {
+                if (!s.initialized) return;
+                unsubscribe();
+                if (s.user) {
+                    loadAttributes();
+                } else {
+                    loadingProfile = false;
+                    globalError = 'Session expirée, merci de vous reconnecter.';
+                }
+            });
+            return;
+        }
+
+        if (state.user) {
+            loadAttributes();
+        } else {
+            loadingProfile = false;
+            globalError = 'Session expirée, merci de vous reconnecter.';
         }
     });
 

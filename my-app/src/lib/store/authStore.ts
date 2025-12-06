@@ -6,61 +6,81 @@ import { syncTokensToCookies, clearTokensFromCookies } from '$lib/utils/authSync
 import {configureAmplify} from "$lib/config/amplifyConfig";
 
 function createAuthStore() {
-    const { subscribe, set, update } = writable<{user: GetCurrentUserOutput | null, loading: boolean}>({
-        user: null,
-        loading: true
-    });
+    const { subscribe, set, update } = writable<{ user: GetCurrentUserOutput | null; loading: boolean; initialized: boolean }>(
+        {
+            user: null,
+            loading: true,
+            initialized: false
+        }
+    );
 
-    configureAmplify()
+    configureAmplify();
+
+    const setState = (next: { user: GetCurrentUserOutput | null; loading: boolean; initialized?: boolean }) => {
+        set({ ...next, initialized: next.initialized ?? true });
+    };
 
     return {
         subscribe,
 
         // Initialiser l'état d'authentification
         async init() {
+            console.log('[authStore] init → start');
             try {
                 const user = await getCurrentUser();
+                console.log('[authStore] getCurrentUser →', user ? user.userId : 'null');
 
                 if (user) {
-                    // Synchroniser les tokens vers les cookies
                     await syncTokensToCookies();
-                    set({ user, loading: false });
+                    console.log('[authStore] tokens synchronisés dans les cookies');
+                    setState({ user, loading: false, initialized: true });
                 } else {
-                    set({ user: null, loading: false });
+                    console.log('[authStore] aucun utilisateur courant');
+                    setState({ user: null, loading: false, initialized: true });
                 }
-            } catch (error) {
-                console.error('Auth init error:', error);
-                set({ user: null, loading: false });
+            } catch (error: any) {
+                console.error('[authStore] init error:', error);
+                const unauthenticated = error?.name === 'UserNotAuthenticatedException';
+                if (unauthenticated) {
+                    console.warn('[authStore] init → aucune session active');
+                }
+                setState({ user: null, loading: false, initialized: true });
             }
         },
 
         // Connexion
         async login(username: string, password: string) {
+            console.log('[authStore] login →', username);
             try {
-                update(state => ({ ...state, loading: true }));
+                update((state) => ({ ...state, loading: true }));
 
                 const { isSignedIn } = await signIn({
                     username,
                     password,
                     options: {
-                        authFlowType: 'USER_PASSWORD_AUTH',   // 👈 important pour User Migration
-                        userAttributes: { email: username } // important si ton pool vérifie l'email
+                        authFlowType: 'USER_PASSWORD_AUTH',
+                        userAttributes: { email: username }
                     }
                 });
+                console.log('[authStore] signIn result →', { isSignedIn });
 
                 if (isSignedIn) {
                     const user = await getCurrentUser();
+                    console.log('[authStore] user après signIn →', user?.userId);
 
-                    // Synchroniser les tokens vers les cookies
                     await syncTokensToCookies();
+                    console.log('[authStore] tokens synchronisés après login');
 
-                    set({ user, loading: false });
+                    setState({ user, loading: false, initialized: true });
                     return { success: true };
                 }
 
+                console.warn('[authStore] signIn non complété');
+                setState({ user: null, loading: false, initialized: true });
                 return { success: false, error: 'Connexion échouée' };
             } catch (error: any) {
-                set({ user: null, loading: false });
+                console.error('[authStore] login error:', error);
+                setState({ user: null, loading: false, initialized: true });
                 return { success: false, error: error.message };
             }
         },
@@ -72,11 +92,10 @@ function createAuthStore() {
                 await signOut();
 
                 console.log('Clearing tokens from cookies...');
-                // Supprimer les cookies
                 await clearTokensFromCookies();
 
                 console.log('Resetting auth store...');
-                set({ user: null, loading: false });
+                setState({ user: null, loading: false, initialized: true });
                 await goto('/');
             } catch (error) {
                 console.error('Logout error:', error);

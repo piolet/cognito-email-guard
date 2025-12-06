@@ -36,6 +36,7 @@ export async function handle({ event, resolve }) {
     if (accessToken && idToken) {
         try {
             const payload = JSON.parse(atob(idToken.split('.')[1]));
+            console.log('🧾 Payload décodé:', payload);
             isExpired = payload.exp * 1000 <= Date.now();
 
             if (isExpired) {
@@ -68,7 +69,7 @@ export async function handle({ event, resolve }) {
     // Tenter de rafraîchir les tokens si nécessaire
     if (needsRefresh && refreshToken) {
         try {
-            console.log('🔄 Rafraîchissement des tokens...', PUBLIC_COGNITO_CLIENT_ID);
+            console.log('🔄 Rafraîchissement des tokens...', { clientId: PUBLIC_COGNITO_CLIENT_ID });
 
             // Rafraîchir les tokens via AWS SDK
             const command = new InitiateAuthCommand({
@@ -135,16 +136,17 @@ export async function handle({ event, resolve }) {
         }
     } else if (!refreshToken && (isExpired || (!accessToken && !idToken))) {
         // Pas de refresh token et tokens expirés/manquants -> nettoyer
-        console.log('🧹 Nettoyage des tokens expirés sans refresh token');
+        console.log('🧹 Nettoyage: pas de refresh token disponible');
         event.cookies.delete('accessToken', { path: '/' });
         event.cookies.delete('idToken', { path: '/' });
     }
 
     // Protéger les routes privées
-    console.log('🔐 Vérification route privée:', event.route.id?.startsWith('/(private)'));
+    console.log('🔐 Vérification route privée:', event.route.id?.includes('(private)'), 'id:', event.route.id);
     console.log('👤 User connecté:', !!event.locals.user);
 
-    if (!event.route.id?.startsWith('/(private)')) {
+    const isPrivateRoute = event.route.id?.includes('(private)');
+    if (!isPrivateRoute) {
         console.log('✅ ACCÈS AUTORISÉ pour:', event.locals.user?.email);
         return resolve(event);
     }

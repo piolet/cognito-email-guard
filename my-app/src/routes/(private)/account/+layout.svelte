@@ -1,5 +1,8 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte'
+    import { onMount } from 'svelte';
+    import { authStore } from '$lib/store/authStore';
+
 	interface Props {
 		data: any
 		children?: Snippet
@@ -9,6 +12,9 @@
     const { places, user } = data
 
     let idToken = $state(data.idToken)
+    onMount(() => {
+        authStore.init();
+    });
 </script>
 
 <svelte:head>

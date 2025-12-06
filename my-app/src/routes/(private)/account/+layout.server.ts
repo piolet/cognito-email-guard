@@ -10,7 +10,7 @@ export const load = async (event: ServerLoadEvent) => {
 
     let places = []
     try {
-        places = (await placeService.fetchAllByUser(16, {fetch: event.fetch, locals})).places
+        places = (await placeService.fetchAllByUser(29, {fetch: event.fetch, locals})).places
     } catch (error) {
         console.error('Error fetching places:', error);
     }

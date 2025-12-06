@@ -13,5 +13,12 @@
     "PreSignUp": "cognito-email-guard-dev-preSignUp",
     "PreTokenGeneration": "cognito-email-guard-dev-preTokenGen",
     "UserMigration": "cognito-email-guard-dev-userMigration"
+  },
+  "TokenConfig": {
+    "IssuerDomain": "https://cognito-idp.eu-west-3.amazonaws.com/local_2hKjVCrT"
+  },
+  "ServerConfig": {
+    "hostname": "127.0.0.1",
+    "port": 9229
   }
 }
