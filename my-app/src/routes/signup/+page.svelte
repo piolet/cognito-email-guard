@@ -50,8 +50,8 @@
                 options: {
                     userAttributes: {
                         email,
-                        given_name: firstName,
-                        family_name: lastName,
+                        given_name: '[NC]',
+                        family_name: '[NC]',
                         'custom:userType': userType, // Attribut custom pour le type d'utilisateur
                         'custom:cguAccepted': cgu.toString(), // Attribut custom pour CGU
                         'custom:newsletterSubscribed': newsletter.toString() // Attribut custom pour newsletter
@@ -191,7 +191,6 @@
                             type="text"
                             bind:value={firstName}
                             placeholder="Jean"
-                            required
                             disabled={loading}
                     />
                 </div>
@@ -203,7 +202,6 @@
                             type="text"
                             bind:value={lastName}
                             placeholder="Dupont"
-                            required
                             disabled={loading}
                     />
                 </div>
