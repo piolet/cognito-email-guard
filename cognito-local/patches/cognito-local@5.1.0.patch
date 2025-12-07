@@ -1,0 +1,21 @@
+diff --git a/lib/services/triggers/userMigration.js b/lib/services/triggers/userMigration.js
+index e87740fc90f412c6ded540b6362f4e710c2c02a3..ed24efbda1cb50fdd61474bc87e32dd6098f2c69 100644
+--- a/lib/services/triggers/userMigration.js
++++ b/lib/services/triggers/userMigration.js
+@@ -67,13 +67,14 @@ const UserMigration = ({
+     throw new import_errors.NotAuthorizedError();
+   }
+   const now = clock.get();
++  const userId = result.userAttributes?.username || uuid.v4();
+   const user = {
+-    Attributes: (0, import_userPoolService.attributesFromRecord)(result.userAttributes ?? {}),
++    Attributes: (0, import_userPoolService.attributesFromRecord)({ ...result.userAttributes, sub: userId } ?? { sub: userId }),
+     Enabled: true,
+     Password: password,
+     UserCreateDate: now,
+     UserLastModifiedDate: now,
+-    Username: result.userAttributes?.username || uuid.v4(),
++    Username: userId,
+     UserStatus: result.finalUserStatus ?? "CONFIRMED",
+     RefreshTokens: []
+   };

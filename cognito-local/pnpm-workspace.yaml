@@ -1,0 +1,2 @@
+patchedDependencies:
+  cognito-local@5.1.0: patches/cognito-local@5.1.0.patch
