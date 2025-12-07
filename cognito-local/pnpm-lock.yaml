@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   cognito-local@5.1.0:
-    hash: ed5edda1a58a957394f5ce2ccfe3583113a5b2995113f351f08c6e618c2938f3
+    hash: 5b16e2517b15c0d2f68fad9ef2f3963d8b2b01f261b3cdc5c5673bad22236d8e
     path: patches/cognito-local@5.1.0.patch
 
 importers:
@@ -15,7 +15,7 @@ importers:
     dependencies:
       cognito-local:
         specifier: ^5.1.0
-        version: 5.1.0(patch_hash=ed5edda1a58a957394f5ce2ccfe3583113a5b2995113f351f08c6e618c2938f3)
+        version: 5.1.0(patch_hash=5b16e2517b15c0d2f68fad9ef2f3963d8b2b01f261b3cdc5c5673bad22236d8e)
       dotenv:
         specifier: ^16.4.5
         version: 16.6.1
@@ -1054,7 +1054,7 @@ snapshots:
 
   cli-boxes@2.2.1: {}
 
-  cognito-local@5.1.0(patch_hash=ed5edda1a58a957394f5ce2ccfe3583113a5b2995113f351f08c6e618c2938f3):
+  cognito-local@5.1.0(patch_hash=5b16e2517b15c0d2f68fad9ef2f3963d8b2b01f261b3cdc5c5673bad22236d8e):
     dependencies:
       '@aws-crypto/client-node': 3.2.2
       aws-sdk: 2.1692.0
