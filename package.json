@@ -33,5 +33,5 @@
       "esbuild"
     ]
   },
-  "packageManager": "pnpm@10.17.0+sha256.bd9ec5417641391e0acb3912b2912bd5b0385407a82da94744a7407b567fdb4f"
+  "packageManager": "pnpm@10.24.0+sha512.01ff8ae71b4419903b65c60fb2dc9d34cf8bb6e06d03bde112ef38f7a34d6904c424ba66bea5cdcf12890230bf39f9580473140ed9c946fef328b6e5238a345a"
 }
