@@ -19,19 +19,23 @@
       "UserLastModifiedDate": "2025-12-04T21:11:14.572Z",
       "RefreshTokens": []
     },
-    "cf4fc766-3ae6-45b8-aee5-358a18261972": {
+    "3dc58d49-123e-41a3-a57a-37f3ed72dbb3": {
       "Attributes": [
         {
           "Name": "custom:firstName",
-          "Value": "Célina"
+          "Value": "Bernard"
         },
         {
           "Name": "custom:id",
-          "Value": "16"
+          "Value": "32"
         },
         {
           "Name": "custom:lastName",
-          "Value": "Collin"
+          "Value": "Bianca"
+        },
+        {
+          "Name": "custom:newsletter",
+          "Value": "0"
         },
         {
           "Name": "custom:roles",
@@ -47,15 +51,15 @@
         },
         {
           "Name": "family_name",
-          "Value": "Collin"
+          "Value": "Bianca"
         },
         {
           "Name": "given_name",
-          "Value": "Célina"
+          "Value": "Bernard"
         },
         {
           "Name": "phone_number",
-          "Value": "+33611935500"
+          "Value": "+3223741122"
         },
         {
           "Name": "phone_number_verified",
@@ -63,18 +67,17 @@
         },
         {
           "Name": "sub",
-          "Value": "cf4fc766-3ae6-45b8-aee5-358a18261972"
+          "Value": "3dc58d49-123e-41a3-a57a-37f3ed72dbb3"
         }
       ],
       "Enabled": true,
       "Password": "test",
-      "UserCreateDate": "2025-12-08T11:59:48.123Z",
-      "UserLastModifiedDate": "2025-12-08T11:59:48.123Z",
-      "Username": "cf4fc766-3ae6-45b8-aee5-358a18261972",
+      "UserCreateDate": "2025-12-08T20:56:28.233Z",
+      "UserLastModifiedDate": "2025-12-08T20:56:28.233Z",
+      "Username": "3dc58d49-123e-41a3-a57a-37f3ed72dbb3",
       "UserStatus": "CONFIRMED",
       "RefreshTokens": [
-        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiY2Y0ZmM3NjYtM2FlNi00NWI4LWFlZTUtMzU4YTE4MjYxOTcyIiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjUxOTUxODgsImp0aSI6IjU1MGNjNjkwLWY5MWMtNDczMi04YzQxLTg5NWJkNDExZWRiYSIsImV4cCI6MTc2NTc5OTk4OCwiaXNzIjoiaHR0cHM6Ly9jb2duaXRvLWlkcC5ldS13ZXN0LTMuYW1hem9uYXdzLmNvbS9sb2NhbF8yaEtqVkNyVC9sb2NhbF8yaEtqVkNyVCJ9.VL6n1z3vqkPNyn1kk7X6KJfeTqALiugofkXO0StXkWGIQ1pAKEwVE8rt912Ewm96bB20tkpIp0rtFCXXFhSrKx2TPxr2RnKAVPOV_4YyyQ6hIzAVAeImU1dbUj4OVhk3jwjcTZvseSfCZvqx6_6Pk6UMAsRh2KBB2xzPL7aoFWo4O-xUd7DA_ovkM6Z_65EMEhdvm51-4fZhfE5Ehn0VbUVQaFsu_EEC4G-EkZMw9yM3uJj0bUDzcOwDYT0LeYCTRF_U6BGJgUa44dNMXHiMmddKhGxUYA6PduUO8lnYnj7LG82LRSSSD9MeuD2DeI1G34Lfsghxw9-XeDdAB-2G_w",
-        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiY2Y0ZmM3NjYtM2FlNi00NWI4LWFlZTUtMzU4YTE4MjYxOTcyIiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjUxOTUzNTcsImp0aSI6IjBjNGFkMjYyLThhZDktNDJkZS05ODE0LTk0YjUzMDRkNTIzOSIsImV4cCI6MTc2NTgwMDE1NywiaXNzIjoiaHR0cHM6Ly9jb2duaXRvLWlkcC5ldS13ZXN0LTMuYW1hem9uYXdzLmNvbS9sb2NhbF8yaEtqVkNyVC9sb2NhbF8yaEtqVkNyVCJ9.TioX2_xajLY4omCyqcMemRoqwD63X8Bq9senIhuJGjf91ouYxEAoNBvEFTJN17aHRN6CZpO_a-wLn23lRXSb2WPRqkeywzu7ZkMSmUmOuPw8v4TxGqWiK4n-nnppRMDKQtuSCQCPZn6K1amfgqirWctWQOPZn5hKSsa4t9A93IyypzrL4kPZBYkHdClplNVN_B3f5WCw8VlViTqE8uHSonjfuFIBfidXjaR_HDHmyN1N14C7nw3uLLrpp8B1qU3fKghOk9LuYzg0_TBJYQdnIcmm8oRzCqU-gdrcnidNtqcTXxasANZrF0mrbpiPmYQyp2Ivo1fTdq8Vc0kBa6DXEA"
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiM2RjNThkNDktMTIzZS00MWEzLWE1N2EtMzdmM2VkNzJkYmIzIiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjUyMjczODgsImp0aSI6ImMyNmU4Y2FiLWUwZjctNGNmOS04ODhmLWYzZjFjMDYxOGE1NSIsImV4cCI6MTc2NTgzMjE4OCwiaXNzIjoiaHR0cHM6Ly9jb2duaXRvLWlkcC5ldS13ZXN0LTMuYW1hem9uYXdzLmNvbS9sb2NhbF8yaEtqVkNyVC9sb2NhbF8yaEtqVkNyVCJ9.YJ4lfttFJpJoLSrURmnd6oGQtISte_dONJYUzbmEzGR1vI_QmxtPejGFRWVTReYyWhqZJlfdWv2fmOgpMAavI_umudFX9bjZawjYXb-Vrp9BPO01-qorBd4_EYFsFTshbuucFYJ0pY1fafTFPkFPJnOUf4AA7Inih6PUoolsNP2rQGFQf2SAdmndj-Mvo61JzI2pUvfaIZUFepbm2gZiy_kHnGvLrlhNWWzYn1UttawR5pQWwZwZ5LK01K0iVa6eFst8Vlym20h1vQT4s7pCvB9E2666JNfilgjghtewrXxioEA1T2Lp08ywYoqvQtyDT4vgmRl_igKsLow5gLG5Ow"
       ]
     }
   },

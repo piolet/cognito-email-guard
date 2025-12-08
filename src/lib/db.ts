@@ -44,7 +44,7 @@ export type UserRow = RowDataPacket & {
 export async function findUserByEmail(normalEmail: string): Promise<UserRow | null> {
     console.log(`findUserByEmail: normalEmail=${normalEmail}`);
     const rows = await dbExecute<UserRow[]>(
-        `SELECT usr_id, usr_email, usr_roles, usr_password, usr_first_name, usr_last_name, usr_phone FROM heustach.usr_user WHERE usr_email_normal = concat_ws('@', substring_index(substring_index(?, '@', 1), '+', 1), substring_index(?, '@', -1)) LIMIT 1`,
+        `SELECT usr_id, usr_email, usr_roles, usr_password, usr_first_name, usr_last_name, usr_phone, usr_newsletter FROM heustach.usr_user WHERE usr_email_normal = concat_ws('@', substring_index(substring_index(?, '@', 1), '+', 1), substring_index(?, '@', -1)) LIMIT 1`,
         [normalEmail, normalEmail]
     );
     return rows[0] || null;

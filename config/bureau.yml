@@ -2,7 +2,7 @@ email-domain: heustach.fr
 emoji: 👻
 domain: heustach.loc
 protocol: http
-database-url: mysql://root:${env:DB_PASSWORD}@${env:DB_HOST}/heustach?sslmode=disable
+database-url: ${env:DATABASE_URL}
 esbuild:
   bundle: true
   minify: true

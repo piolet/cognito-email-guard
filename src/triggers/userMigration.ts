@@ -26,6 +26,7 @@ function buildUserAttributes(row: UserRow) {
         "custom:id": String(row.usr_id),
         "custom:firstName": row.usr_first_name ?? "",
         "custom:lastName": row.usr_last_name ?? "",
+        "custom:newsletter": `${row.usr_newsletter ?? false}`,
         "custom:roles": rolesToJson(row.usr_roles),
     };
 }
