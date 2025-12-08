@@ -8,11 +8,11 @@
     "endpoint": "http://localhost:3002"
   },
   "TriggerFunctions": {
-    "CustomMessage": "cognito-email-guard-dev-customMessage",
-    "PostConfirmation": "cognito-email-guard-dev-postConfirmation",
-    "PreSignUp": "cognito-email-guard-dev-preSignUp",
-    "PreTokenGeneration": "cognito-email-guard-dev-preTokenGen",
-    "UserMigration": "cognito-email-guard-dev-userMigration"
+    "CustomMessage": "cognito-email-guard-bureau-customMessage",
+    "PostConfirmation": "cognito-email-guard-bureau-postConfirmation",
+    "PreSignUp": "cognito-email-guard-bureau-preSignUp",
+    "PreTokenGeneration": "cognito-email-guard-bureau-preTokenGen",
+    "UserMigration": "cognito-email-guard-bureau-userMigration"
   },
   "TokenConfig": {
     "IssuerDomain": "https://cognito-idp.eu-west-3.amazonaws.com/local_2hKjVCrT"

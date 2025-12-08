@@ -6,7 +6,7 @@
   "scripts": {
     "deploy": "serverless deploy",
     "remove": "serverless remove",
-    "dev": "tsc & serverless offline"
+    "dev": "tsc & serverless offline --stage bureau"
   },
   "dependencies": {
     "@aws-sdk/client-cognito-identity-provider": "^3.624.0",
