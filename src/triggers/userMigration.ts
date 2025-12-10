@@ -5,10 +5,13 @@ import { findUserByEmail, type UserRow } from "../lib/db";
 import { verifyPassword } from "../lib/verify-password";
 
 function rolesToJson(roles: unknown): string {
+    console.log("rolesToJson: input=", roles);
     if (!roles) return '["ROLE_USER"]';
     try {
         const parsed = typeof roles === "string" ? JSON.parse(roles) : roles;
-        return JSON.stringify(Array.isArray(parsed) ? parsed : ["ROLE_USER"]);
+        const newRoles = Array.isArray(parsed) ? parsed : ["ROLE_USER"];
+        if (newRoles.length === 0) newRoles.push("ROLE_USER");
+        return JSON.stringify(newRoles);
     } catch {
         return '["ROLE_USER"]';
     }

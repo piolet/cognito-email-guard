@@ -10,14 +10,14 @@ export const handler: PostConfirmationTriggerHandler = async (event, context) =>
     context.callbackWaitsForEmptyEventLoop = false;
 
     console.log("PostConfirmation event", JSON.stringify(event))
-    const userPoolId = event.userPoolId;
-    const username   = event.userName; // sub (UUID Cognito)
-    const email      = (event.request.userAttributes?.email || "").trim();
-    const firstName  = event.request.userAttributes?.given_name || event.request.userAttributes?.name || "";
-    const lastName   = event.request.userAttributes?.family_name || "";
-    const phone  = event.request.userAttributes?.phone_number || null;
-    const userType   = event.request.userAttributes?.['custom:userType'] || 'customer';
-    const newsletter   = event.request.userAttributes?.['custom:newsletterSubscribed'] === 'true' || false;
+    const userPoolId    = event.userPoolId;
+    const username      = event.userName; // sub (UUID Cognito)
+    const email         = (event.request.userAttributes?.email || "").trim();
+    const firstName     = event.request.userAttributes?.given_name || event.request.userAttributes?.name || "";
+    const lastName      = event.request.userAttributes?.family_name || "";
+    const phone     = event.request.userAttributes?.phone_number || null;
+    const userType      = event.request.userAttributes?.['custom:userType'] || 'customer';
+    const newsletter  = event.request.userAttributes?.['custom:newsletterSubscribed'] === 'true' || false;
 
     console.log(`User ${username} (${email}) signed up as ${userType}`);
 
