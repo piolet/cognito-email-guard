@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import { configureAmplify } from '$lib/config/amplifyConfig';
-    import { fetchUserAttributes, updateUserAttributes, confirmUserAttribute, fetchAuthSession } from 'aws-amplify/auth';
+    import { fetchUserAttributes, updateUserAttributes, confirmUserAttribute, fetchAuthSession, updatePassword } from 'aws-amplify/auth';
     import { CognitoIdentityProviderClient, GetUserAttributeVerificationCodeCommand } from '@aws-sdk/client-cognito-identity-provider';
     import { PUBLIC_AWS_REGION } from '$env/static/public';
     import { authStore } from '$lib/store/authStore';
@@ -45,6 +45,14 @@
     let phoneSuccess = $state('');
     let phoneStep: 'edit' | 'verify' = $state('edit');
     let phoneCode = $state('');
+
+    // Formulaire Mot de passe
+    let currentPassword = $state('');
+    let newPassword = $state('');
+    let confirmPassword = $state('');
+    let passwordLoading = $state(false);
+    let passwordError = $state('');
+    let passwordSuccess = $state('');
 
     async function loadAttributes() {
         try {
@@ -232,6 +240,57 @@
             phoneLoading = false;
         }
     }
+
+    async function handleUpdatePassword(e: Event) {
+        e.preventDefault();
+        passwordLoading = true;
+        passwordError = '';
+        passwordSuccess = '';
+
+        try {
+            // Validation
+            if (!currentPassword) {
+                passwordError = 'Veuillez saisir votre mot de passe actuel.';
+                return;
+            }
+            if (newPassword.length < 8) {
+                passwordError = 'Le nouveau mot de passe doit contenir au moins 8 caractères.';
+                return;
+            }
+            if (newPassword !== confirmPassword) {
+                passwordError = 'Les mots de passe ne correspondent pas.';
+                return;
+            }
+            if (currentPassword === newPassword) {
+                passwordError = 'Le nouveau mot de passe doit être différent de l\'ancien.';
+                return;
+            }
+
+            await updatePassword({
+                oldPassword: currentPassword,
+                newPassword: newPassword
+            });
+
+            passwordSuccess = 'Mot de passe mis à jour avec succès.';
+            // Réinitialiser les champs
+            currentPassword = '';
+            newPassword = '';
+            confirmPassword = '';
+        } catch (err: any) {
+            console.error('Update password error:', err);
+            if (err.name === 'NotAuthorizedException' || err.message.includes('Incorrect username or password')) {
+                passwordError = 'Mot de passe actuel incorrect.';
+            } else if (err.name === 'InvalidPasswordException') {
+                passwordError = 'Le nouveau mot de passe ne respecte pas les exigences de sécurité.';
+            } else if (err.name === 'LimitExceededException') {
+                passwordError = 'Trop de tentatives. Veuillez réessayer plus tard.';
+            } else {
+                passwordError = err?.message || 'Erreur lors de la mise à jour du mot de passe.';
+            }
+        } finally {
+            passwordLoading = false;
+        }
+    }
 </script>
 
 <div class="container">
@@ -319,6 +378,28 @@
                     </div>
                 </form>
             {/if}
+        </section>
+
+        <section class="card">
+            <h2>Mot de passe</h2>
+            {#if passwordSuccess}<div class="alert success">{passwordSuccess}</div>{/if}
+            {#if passwordError}<div class="alert error">{passwordError}</div>{/if}
+            <form onsubmit={handleUpdatePassword} class="form">
+                <div class="field">
+                    <label for="currentPassword">Mot de passe actuel</label>
+                    <input id="currentPassword" type="password" bind:value={currentPassword} required disabled={passwordLoading} autocomplete="current-password" />
+                </div>
+                <div class="field">
+                    <label for="newPassword">Nouveau mot de passe</label>
+                    <input id="newPassword" type="password" bind:value={newPassword} required disabled={passwordLoading} autocomplete="new-password" />
+                    <small>Minimum 8 caractères</small>
+                </div>
+                <div class="field">
+                    <label for="confirmPassword">Confirmer le nouveau mot de passe</label>
+                    <input id="confirmPassword" type="password" bind:value={confirmPassword} required disabled={passwordLoading} autocomplete="new-password" />
+                </div>
+                <button type="submit" disabled={passwordLoading}>{passwordLoading ? 'Mise à jour…' : 'Changer le mot de passe'}</button>
+            </form>
         </section>
 
         <div class="links">

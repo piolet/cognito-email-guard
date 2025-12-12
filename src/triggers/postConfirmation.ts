@@ -10,6 +10,15 @@ export const handler: PostConfirmationTriggerHandler = async (event, context) =>
     context.callbackWaitsForEmptyEventLoop = false;
 
     console.log("PostConfirmation event", JSON.stringify(event))
+    const notAllowedSources = [
+        'PostConfirmation_ConfirmForgotPassword'
+    ];
+
+    if (notAllowedSources.includes(event.triggerSource)) {
+        console.log(`Trigger source ${event.triggerSource} is not handled, skipping PostConfirmation.`);
+        return event;
+    }
+
     const userPoolId    = event.userPoolId;
     const username      = event.userName; // sub (UUID Cognito)
     const email         = (event.request.userAttributes?.email || "").trim();
