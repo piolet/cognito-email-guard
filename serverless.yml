@@ -103,7 +103,7 @@ resources:
           - Name: userType
             AttributeDataType: String
             Mutable: true
-          - Name: newsletterSubscribed
+          - Name: newsletter
             AttributeDataType: String
             Mutable: true
           - Name: cguAccepted

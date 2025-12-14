@@ -1,0 +1,473 @@
+{
+  "Users": {
+    "6a1cd0d5-4bfc-488a-b42a-347c37e83140": {
+      "Username": "6a1cd0d5-4bfc-488a-b42a-347c37e83140",
+      "Password": "Password123!",
+      "Attributes": [
+        {
+          "Name": "email",
+          "Value": "test@example.com"
+        },
+        {
+          "Name": "sub",
+          "Value": "6a1cd0d5-4bfc-488a-b42a-347c37e83140"
+        }
+      ],
+      "Enabled": true,
+      "UserStatus": "FORCE_CHANGE_PASSWORD",
+      "UserCreateDate": "2025-12-04T21:11:14.572Z",
+      "UserLastModifiedDate": "2025-12-04T21:11:14.572Z",
+      "RefreshTokens": []
+    },
+    "243eee73-cfe1-4723-bd66-49dbc8f8a369": {
+      "Attributes": [
+        {
+          "Name": "custom:firstName",
+          "Value": "Emmanuelle"
+        },
+        {
+          "Name": "custom:id",
+          "Value": "14"
+        },
+        {
+          "Name": "custom:lastName",
+          "Value": "Gaillard"
+        },
+        {
+          "Name": "custom:newsletter",
+          "Value": "true"
+        },
+        {
+          "Name": "custom:roles",
+          "Value": "[\"ROLE_USER\"]"
+        },
+        {
+          "Name": "email",
+          "Value": "user1@gmail.com"
+        },
+        {
+          "Name": "email_verified",
+          "Value": "true"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Gaillard"
+        },
+        {
+          "Name": "given_name",
+          "Value": "Emmanuelle"
+        },
+        {
+          "Name": "phone_number",
+          "Value": "+33611223344"
+        },
+        {
+          "Name": "phone_number_verified",
+          "Value": "true"
+        },
+        {
+          "Name": "sub",
+          "Value": "243eee73-cfe1-4723-bd66-49dbc8f8a369"
+        }
+      ],
+      "Enabled": true,
+      "Password": "test",
+      "UserCreateDate": "2025-12-10T20:06:01.255Z",
+      "UserLastModifiedDate": "2025-12-13T14:37:18.856Z",
+      "Username": "243eee73-cfe1-4723-bd66-49dbc8f8a369",
+      "UserStatus": "CONFIRMED",
+      "RefreshTokens": [
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiMjQzZWVlNzMtY2ZlMS00NzIzLWJkNjYtNDlkYmM4ZjhhMzY5IiwiZW1haWwiOiJ1c2VyMUBnbWFpbC5jb20iLCJpYXQiOjE3NjUzOTcxNjEsImp0aSI6ImIzN2RiYWViLWE5MTMtNDU5ZC04MjljLTZkM2JkYTU2YmJjMSIsImV4cCI6MTc2NjAwMTk2MSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.aSMPSHiwPVgG8H_jIOLxGsntNPvvqi3SXrqRWM5nzA45m7ezuj_HNFef2RZpQkxln0RW7DK-MwpJLSwGUiCixJDEDDpvsimpw5PReYavDhneGF8wQNoeYd892CY9T_QT16axFcbpHyqs4krownGT6CCgkN0-HE56pG_byeIOc6cFNp1-of9P3OuMPNWk8ZGO6dKRqVP2YQpbyDUiIk6E0UsUcnwtCPeYmKALhzd1BJ2b25hBK1csXiwRwOvCUBAu8Ixo7vZc_rJDOZgYXgwgDXwULmDE-jwpFVQ1zeZd2k2PpYcRZJRrFBrxB6siaUrVZEoXQ0I3xmYK_io-vWfMUg",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiMjQzZWVlNzMtY2ZlMS00NzIzLWJkNjYtNDlkYmM4ZjhhMzY5IiwiZW1haWwiOiJ1c2VyMUBnbWFpbC5jb20iLCJpYXQiOjE3NjU2MzQ4NTQsImp0aSI6IjBmNTZjMjllLTJlZjAtNDY2Ny04OWQ5LWM5NTVmMDk5NWNkZiIsImV4cCI6MTc2NjIzOTY1NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.zA2z4FmFdV2PChnglUcX4nwvlskQfDB2S9FyPhNUR6WFtrPRX7hVsVD6WPrW1OZPJig6e9BhjodLFqYq_kKes6Dyk5E-n_J9KNVup_Z_aSkmFUnIuhJ0ipHRC5RkrWzijTTGmGIQ_P_BMwgYgaS0wvNfxovOZo_JNQ45PZSBtRrfShjDpt2cmlA917U6seVe5x_cPo5a8w8bbp_YuNw2-Ase1ShuY_VwkRwuZ7fNVLAIi6ENVtleWPX4icLdWITDaR0uz_TQUop4rLAq6hm6zE40KznoATPhrH8ty81d_tsryZlvUiBu2XDcOGenVHPHelKvqyQDcYeyQua6WAr48Q"
+      ]
+    },
+    "8f84be23-0b03-4141-8a37-9ea4b622a2d5": {
+      "Attributes": [
+        {
+          "Name": "custom:firstName",
+          "Value": "Bernard"
+        },
+        {
+          "Name": "custom:id",
+          "Value": "32"
+        },
+        {
+          "Name": "custom:lastName",
+          "Value": "Bianca2"
+        },
+        {
+          "Name": "custom:newsletter",
+          "Value": "false"
+        },
+        {
+          "Name": "custom:roles",
+          "Value": "[\"ROLE_OWNER\",\"ROLE_USER\"]"
+        },
+        {
+          "Name": "email",
+          "Value": "piolet91@gmail.com"
+        },
+        {
+          "Name": "email_verified",
+          "Value": "true"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Bianca2"
+        },
+        {
+          "Name": "given_name",
+          "Value": "Bernard"
+        },
+        {
+          "Name": "phone_number",
+          "Value": "+33 6 11 22 33 45"
+        },
+        {
+          "Name": "phone_number_verified",
+          "Value": "true"
+        },
+        {
+          "Name": "sub",
+          "Value": "8f84be23-0b03-4141-8a37-9ea4b622a2d5"
+        }
+      ],
+      "Enabled": true,
+      "Password": "test",
+      "UserCreateDate": "2025-12-12T22:59:53.048Z",
+      "UserLastModifiedDate": "2025-12-13T14:40:40.343Z",
+      "Username": "8f84be23-0b03-4141-8a37-9ea4b622a2d5",
+      "UserStatus": "CONFIRMED",
+      "RefreshTokens": [
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGY4NGJlMjMtMGIwMy00MTQxLThhMzctOWVhNGI2MjJhMmQ1IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjU1ODAzOTMsImp0aSI6ImEwZGM2YjIyLTVlZDYtNDZmZi05ZmY0LWFjNzQyZDIwZmQzOSIsImV4cCI6MTc2NjE4NTE5MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.A5tYbu0hZ8XTIsP-8d5hVCxPuJ4QNzkMj2vftP8FsW6BPwsoTT4MUyXkOU3WNFNyoV524Y9GfJrEgPcakB8fCq-_GoacSLcRZIjoQ_yPtxfBFdECosTet3vqSO2jJz-WrSusnXNKTXf9v4ho2Mn4bmFGHY8sk0YhR2zdBY9y-AL64cWBV2aZF9_pVkmeOYn_hufpeB4ATfjpPwTqZvS9bTRfIQ5IQv686I9JcfcF2qVz4JH62Jr_P0En-GSVgJz9PpXw-8LElVabRScGWfhkz2ehc3dKGR7APL_Q6mc4S9_fQbmv1pB07_SUspn2mK2uxpbYxjw_mq9I06Snpqk33A",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGY4NGJlMjMtMGIwMy00MTQxLThhMzctOWVhNGI2MjJhMmQ1IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjU2MzY4MjksImp0aSI6ImQwM2M3YzhhLTUwZTQtNDUxYy1iNzY5LTdjOTgzNDY5NTg2ZCIsImV4cCI6MTc2NjI0MTYyOSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.VDCEaFnlHt0Yv0zoCpbkd2wIVoMZP6zDrl__qpgqXAj1x0ww37xvCLc6JoPM4cCN7ik4Lyrm2ah4uMw8YarVQMY2IL1OBKkmP4uFB7Ad5a4ODfiHwIi-K8TYprGv-NBqfAQ4pDtQHEmThGUZ5U-gVa33OFqrALtUmjObgSVDuPX1d9LIB6SneUKx-AX5cJ6vFayYswFq7867Wrw93v6zncZ4mM9qtsJtZ6-q1b5uMCchLM6U3bCEtC46JdQt-XI8gD7hkQ-ByBGep3W2zLCt4wMmN9q8JfJe8Oz5srOZ2N9jtczea_RJ7tAyb1cYi3zBoXuK5inr9eAaFTsiwxaEkQ"
+      ]
+    }
+  },
+  "Options": {
+    "Policies": {
+      "PasswordPolicy": {
+        "MinimumLength": 8,
+        "RequireUppercase": true,
+        "RequireLowercase": true,
+        "RequireNumbers": true,
+        "RequireSymbols": false,
+        "TemporaryPasswordValidityDays": 7
+      }
+    },
+    "LambdaConfig": {},
+    "SchemaAttributes": [
+      {
+        "Name": "sub",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": false,
+        "Required": true,
+        "StringAttributeConstraints": {
+          "MinLength": "1",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "name",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "given_name",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "family_name",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "middle_name",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "nickname",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "preferred_username",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "profile",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "picture",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "website",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "email",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": true,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "email_verified",
+        "AttributeDataType": "Boolean",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false
+      },
+      {
+        "Name": "gender",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "birthdate",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "10",
+          "MaxLength": "10"
+        }
+      },
+      {
+        "Name": "zoneinfo",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "locale",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "phone_number",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "phone_number_verified",
+        "AttributeDataType": "Boolean",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false
+      },
+      {
+        "Name": "address",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "updated_at",
+        "AttributeDataType": "Number",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "NumberAttributeConstraints": {
+          "MinValue": "0"
+        }
+      },
+      {
+        "Name": "custom:id",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "custom:roles",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "custom:firstName",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "custom:lastName",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "custom:userType",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "custom:newsletter",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "custom:cguAccepted",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      }
+    ],
+    "VerificationMessageTemplate": {
+      "DefaultEmailOption": "CONFIRM_WITH_CODE"
+    },
+    "MfaConfiguration": "OFF",
+    "EstimatedNumberOfUsers": 0,
+    "EmailConfiguration": {
+      "EmailSendingAccount": "COGNITO_DEFAULT"
+    },
+    "AdminCreateUserConfig": {
+      "AllowAdminCreateUserOnly": false,
+      "UnusedAccountValidityDays": 7
+    },
+    "UsernameAttributes": [
+      "email"
+    ],
+    "Arn": "arn:aws:cognito-idp:local:local:userpool/local_2hKjVCrT",
+    "AutoVerifiedAttributes": [
+      "email"
+    ],
+    "CreationDate": "2025-12-04T21:08:13.257Z",
+    "Id": "local_2hKjVCrT",
+    "LastModifiedDate": "2025-12-04T21:08:13.257Z",
+    "Name": "heustach-local"
+  }
+}

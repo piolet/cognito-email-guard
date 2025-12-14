@@ -26,7 +26,7 @@ export const handler: PostConfirmationTriggerHandler = async (event, context) =>
     const lastName      = event.request.userAttributes?.family_name || "";
     const phone     = event.request.userAttributes?.phone_number || null;
     const userType      = event.request.userAttributes?.['custom:userType'] || 'customer';
-    const newsletter  = event.request.userAttributes?.['custom:newsletterSubscribed'] === 'true' || false;
+    const newsletter  = event.request.userAttributes?.['custom:newsletter'] === 'true' || false;
 
     console.log(`User ${username} (${email}) signed up as ${userType}`);
 
@@ -89,7 +89,7 @@ export const handler: PostConfirmationTriggerHandler = async (event, context) =>
                 { Name: "custom:id", Value: String(usrId) },
                 { Name: "custom:roles",  Value: rolesJson },
                 { Name: "custom:userType", Value: "" },
-                { Name: "custom:newsletterSubscribed", Value: "" },
+                { Name: "custom:newsletter", Value: "" },
                 { Name: "custom:cguAccepted", Value: "" }
                 // garde ces lignes si tu es sûr des valeurs :
                 // { Name: "given_name", Value: firstName || "" },

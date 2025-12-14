@@ -54,7 +54,7 @@
                         family_name: '[NC]',
                         'custom:userType': userType, // Attribut custom pour le type d'utilisateur
                         'custom:cguAccepted': cgu.toString(), // Attribut custom pour CGU
-                        'custom:newsletterSubscribed': newsletter.toString() // Attribut custom pour newsletter
+                        'custom:newsletter': newsletter.toString() // Attribut custom pour newsletter
                     },
                     // Auto sign-in après confirmation
                     autoSignIn: true

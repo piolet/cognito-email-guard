@@ -25,6 +25,10 @@
     let email = $state('');
     let phone = $state('');
 
+    // Attributs personnalisés
+    let customLastName = $state('');
+    let newsletter = $state(false);
+
     // Formulaire Noms
     let namesLoading = $state(false);
     let namesError = $state('');
@@ -67,6 +71,10 @@
             phone = attrs.phone_number || '';
             emailInput = email;
             phoneInput = phone;
+
+            // Charger les attributs personnalisés
+            customLastName = attrs['custom:lastName'] || '';
+            newsletter = attrs['custom:newsletter'] === 'true' || attrs['custom:newsletter'] === '1';
         } catch (err: any) {
             console.error('Erreur fetchUserAttributes:', err);
             globalError = err?.message || 'Impossible de charger vos informations.';
@@ -108,13 +116,15 @@
             await updateUserAttributes({
                 userAttributes: {
                     given_name: firstName,
-                    family_name: lastName
+                    family_name: lastName,
+                    'custom:newsletter': newsletter ? 'true' : 'false',
+                    'custom:lastName': customLastName,
                 }
             });
-            namesSuccess = 'Nom et prénom mis à jour.';
+            namesSuccess = 'Informations mises à jour avec succès.';
         } catch (err: any) {
             console.error('Update names error:', err);
-            namesError = err?.message || 'Erreur lors de la mise à jour des noms.';
+            namesError = err?.message || 'Erreur lors de la mise à jour des informations.';
         } finally {
             namesLoading = false;
         }
@@ -318,6 +328,17 @@
                         <input id="lastName" type="text" bind:value={lastName} required disabled={namesLoading} />
                     </div>
                 </div>
+                <div class="field">
+                    <label for="customLastName">Nom d'usage (optionnel)</label>
+                    <input id="customLastName" type="text" bind:value={customLastName} disabled={namesLoading} placeholder="Si différent du nom de famille" />
+                    <small>Ce nom sera affiché à la place du nom de famille si renseigné</small>
+                </div>
+                <div class="field checkbox-field">
+                    <label>
+                        <input type="checkbox" bind:checked={newsletter} disabled={namesLoading} />
+                        <span>S'abonner à la newsletter</span>
+                    </label>
+                </div>
                 <button type="submit" disabled={namesLoading}>{namesLoading ? 'Enregistrement…' : 'Mettre à jour'}</button>
             </form>
         </section>
@@ -430,5 +451,8 @@
     .separator { margin: 0 8px; color: #999; }
     .link-button { background:none; border:none; color:#0066cc; cursor:pointer; padding:0; font-size:14px; }
     .link-button:hover { text-decoration: underline; }
+    .checkbox-field label { display: flex; align-items: center; cursor: pointer; }
+    .checkbox-field input[type="checkbox"] { width: auto; margin-right: 8px; cursor: pointer; }
+    .checkbox-field span { font-weight: 400; }
     @media (max-width: 600px) { .row { grid-template-columns: 1fr; } }
 </style>

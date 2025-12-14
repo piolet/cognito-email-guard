@@ -11,7 +11,7 @@
   "request": {
     "userAttributes": {
       "cguAccepted": "true",
-      "newsletterSubscribed": "false",
+      "newsletter": "false",
       "userType": "customer",
       "given_name": "test",
       "family_name": "test",
