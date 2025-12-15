@@ -28,19 +28,19 @@ export const handler: PreSignUpTriggerHandler = async (event, context, callback)
     const cguAccepted = event.request.userAttributes?.['custom:cguAccepted'] === 'true';
 
     console.log(`CGU accepted: ${cguAccepted} for triggerSource: ${triggerSource}`);
-    if (!cguAccepted && triggerSource === "PreSignUp_SignUp") {
-        const err = new Error("CGU_ACCEPTANCE_REQUIRED");
-        err.name = "CguAcceptanceRequired";
-        callback(err, event);
-        return
-    }
-
-    if (!email) {
-        const err = new Error("EMAIL_REQUIRED");
-        err.name = "EmailRequired";
-        callback(err, event);
-        return
-    }
+    // if (!cguAccepted && triggerSource === "PreSignUp_SignUp") {
+    //     const err = new Error("CGU_ACCEPTANCE_REQUIRED");
+    //     err.name = "CguAcceptanceRequired";
+    //     callback(err, event);
+    //     return
+    // }
+    //
+    // if (!email) {
+    //     const err = new Error("EMAIL_REQUIRED");
+    //     err.name = "EmailRequired";
+    //     callback(err, event);
+    //     return
+    // }
 
     if (triggerSource === "PreSignUp_SignUp") {
         const exists = await emailExists(email);
