@@ -25,10 +25,10 @@ export const handler: PostConfirmationTriggerHandler = async (event, context) =>
     const firstName     = event.request.userAttributes?.given_name || event.request.userAttributes?.name || "";
     const lastName      = event.request.userAttributes?.family_name || "";
     const phone     = event.request.userAttributes?.phone_number || null;
-    const userType      = event.request.userAttributes?.['custom:userType'] || 'customer';
-    const newsletter  = event.request.userAttributes?.['custom:newsletter'] === 'true' || false;
+    // const userType      = event.request.userAttributes?.['custom:userType'] || 'customer';
+    // const newsletter  = event.request.userAttributes?.['custom:newsletter'] === 'true' || false;
 
-    console.log(`User ${username} (${email}) signed up as ${userType}`);
+    // console.log(`User ${username} (${email}) signed up as ${userType}`);
 
     // Idempotence : si déjà migré/créé avant, on ne refait rien
     // (si tu avais déjà custom:id dans l’événement, tu pourrais court-circuiter)
@@ -42,11 +42,11 @@ export const handler: PostConfirmationTriggerHandler = async (event, context) =>
 
     const body = {
         email,
-        roles: userType === 'merchant' ? ['ROLE_OWNER'] : ['ROLE_USER'],
+        // roles: userType === 'merchant' ? ['ROLE_USER', 'ROLE_OWNER'] : ['ROLE_USER'],
         firstName,
         lastName,
         phone,
-        newsletter,
+        // newsletter,
         password: 'invalid',
         lastConnectionAt: null
     };

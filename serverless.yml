@@ -100,21 +100,21 @@ resources:
           - Name: lastName
             AttributeDataType: String
             Mutable: true
-          - Name: userType
-            AttributeDataType: String
-            Mutable: true
-          - Name: newsletter
-            AttributeDataType: String
-            Mutable: true
-          - Name: cguAccepted
-            AttributeDataType: String
-            Mutable: true
+#          - Name: userType
+#            AttributeDataType: String
+#            Mutable: true
+#          - Name: newsletter
+#            AttributeDataType: String
+#            Mutable: true
+#          - Name: cguAccepted
+#            AttributeDataType: String
+#            Mutable: true
         LambdaConfig:
           PreSignUp: !GetAtt PreSignUpLambdaFunction.Arn
           PreTokenGeneration: !GetAtt PreTokenGenLambdaFunction.Arn
           CustomMessage: !GetAtt CustomMessageLambdaFunction.Arn
           UserMigration: !GetAtt UserMigrationLambdaFunction.Arn
-          PostConfirmation: !GetAtt PostConfirmationLambdaFunction.Arn
+#          PostConfirmation: !GetAtt PostConfirmationLambdaFunction.Arn
         EmailConfiguration:
           # Active l'envoi via ton compte SES (prérequis: domaine/adresse vérifiés dans SES)
           EmailSendingAccount: DEVELOPER
@@ -195,13 +195,13 @@ resources:
         Action: lambda:InvokeFunction
         Principal: cognito-idp.amazonaws.com
         SourceArn: !GetAtt UserPool.Arn
-    PostConfirmationPermission:
-      Type: AWS::Lambda::Permission
-      Properties:
-        FunctionName: !GetAtt PostConfirmationLambdaFunction.Arn
-        Action: lambda:InvokeFunction
-        Principal: cognito-idp.amazonaws.com
-        SourceArn: !GetAtt UserPool.Arn
+#    PostConfirmationPermission:
+#      Type: AWS::Lambda::Permission
+#      Properties:
+#        FunctionName: !GetAtt PostConfirmationLambdaFunction.Arn
+#        Action: lambda:InvokeFunction
+#        Principal: cognito-idp.amazonaws.com
+#        SourceArn: !GetAtt UserPool.Arn
 
     UserPoolClient:
       Type: AWS::Cognito::UserPoolClient

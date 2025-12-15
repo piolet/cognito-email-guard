@@ -1,0 +1,720 @@
+{
+  "Users": {
+    "6a1cd0d5-4bfc-488a-b42a-347c37e83140": {
+      "Username": "6a1cd0d5-4bfc-488a-b42a-347c37e83140",
+      "Password": "Password123!",
+      "Attributes": [
+        {
+          "Name": "email",
+          "Value": "test@example.com"
+        },
+        {
+          "Name": "sub",
+          "Value": "6a1cd0d5-4bfc-488a-b42a-347c37e83140"
+        }
+      ],
+      "Enabled": true,
+      "UserStatus": "FORCE_CHANGE_PASSWORD",
+      "UserCreateDate": "2025-12-04T21:11:14.572Z",
+      "UserLastModifiedDate": "2025-12-04T21:11:14.572Z",
+      "RefreshTokens": []
+    },
+    "243eee73-cfe1-4723-bd66-49dbc8f8a369": {
+      "Attributes": [
+        {
+          "Name": "custom:firstName",
+          "Value": "Emmanuelle"
+        },
+        {
+          "Name": "custom:id",
+          "Value": "14"
+        },
+        {
+          "Name": "custom:lastName",
+          "Value": "Gaillard"
+        },
+        {
+          "Name": "custom:newsletter",
+          "Value": "true"
+        },
+        {
+          "Name": "custom:roles",
+          "Value": "[\"ROLE_USER\"]"
+        },
+        {
+          "Name": "email",
+          "Value": "user1@gmail.com"
+        },
+        {
+          "Name": "email_verified",
+          "Value": "true"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Gaillard"
+        },
+        {
+          "Name": "given_name",
+          "Value": "Emmanuelle"
+        },
+        {
+          "Name": "phone_number",
+          "Value": "+33611223344"
+        },
+        {
+          "Name": "phone_number_verified",
+          "Value": "true"
+        },
+        {
+          "Name": "sub",
+          "Value": "243eee73-cfe1-4723-bd66-49dbc8f8a369"
+        }
+      ],
+      "Enabled": true,
+      "Password": "test",
+      "UserCreateDate": "2025-12-10T20:06:01.255Z",
+      "UserLastModifiedDate": "2025-12-13T14:37:18.856Z",
+      "Username": "243eee73-cfe1-4723-bd66-49dbc8f8a369",
+      "UserStatus": "CONFIRMED",
+      "RefreshTokens": [
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiMjQzZWVlNzMtY2ZlMS00NzIzLWJkNjYtNDlkYmM4ZjhhMzY5IiwiZW1haWwiOiJ1c2VyMUBnbWFpbC5jb20iLCJpYXQiOjE3NjUzOTcxNjEsImp0aSI6ImIzN2RiYWViLWE5MTMtNDU5ZC04MjljLTZkM2JkYTU2YmJjMSIsImV4cCI6MTc2NjAwMTk2MSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.aSMPSHiwPVgG8H_jIOLxGsntNPvvqi3SXrqRWM5nzA45m7ezuj_HNFef2RZpQkxln0RW7DK-MwpJLSwGUiCixJDEDDpvsimpw5PReYavDhneGF8wQNoeYd892CY9T_QT16axFcbpHyqs4krownGT6CCgkN0-HE56pG_byeIOc6cFNp1-of9P3OuMPNWk8ZGO6dKRqVP2YQpbyDUiIk6E0UsUcnwtCPeYmKALhzd1BJ2b25hBK1csXiwRwOvCUBAu8Ixo7vZc_rJDOZgYXgwgDXwULmDE-jwpFVQ1zeZd2k2PpYcRZJRrFBrxB6siaUrVZEoXQ0I3xmYK_io-vWfMUg",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiMjQzZWVlNzMtY2ZlMS00NzIzLWJkNjYtNDlkYmM4ZjhhMzY5IiwiZW1haWwiOiJ1c2VyMUBnbWFpbC5jb20iLCJpYXQiOjE3NjU2MzQ4NTQsImp0aSI6IjBmNTZjMjllLTJlZjAtNDY2Ny04OWQ5LWM5NTVmMDk5NWNkZiIsImV4cCI6MTc2NjIzOTY1NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.zA2z4FmFdV2PChnglUcX4nwvlskQfDB2S9FyPhNUR6WFtrPRX7hVsVD6WPrW1OZPJig6e9BhjodLFqYq_kKes6Dyk5E-n_J9KNVup_Z_aSkmFUnIuhJ0ipHRC5RkrWzijTTGmGIQ_P_BMwgYgaS0wvNfxovOZo_JNQ45PZSBtRrfShjDpt2cmlA917U6seVe5x_cPo5a8w8bbp_YuNw2-Ase1ShuY_VwkRwuZ7fNVLAIi6ENVtleWPX4icLdWITDaR0uz_TQUop4rLAq6hm6zE40KznoATPhrH8ty81d_tsryZlvUiBu2XDcOGenVHPHelKvqyQDcYeyQua6WAr48Q"
+      ]
+    },
+    "8f84be23-0b03-4141-8a37-9ea4b622a2d5": {
+      "Attributes": [
+        {
+          "Name": "custom:firstName",
+          "Value": "Bernard"
+        },
+        {
+          "Name": "custom:id",
+          "Value": "32"
+        },
+        {
+          "Name": "custom:lastName",
+          "Value": "Bianca2"
+        },
+        {
+          "Name": "custom:newsletter",
+          "Value": "false"
+        },
+        {
+          "Name": "custom:roles",
+          "Value": "[\"ROLE_OWNER\",\"ROLE_USER\"]"
+        },
+        {
+          "Name": "email",
+          "Value": "piolet91@gmail.com"
+        },
+        {
+          "Name": "email_verified",
+          "Value": "true"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Bianca2"
+        },
+        {
+          "Name": "given_name",
+          "Value": "Bernard"
+        },
+        {
+          "Name": "phone_number",
+          "Value": "+33 6 11 22 33 45"
+        },
+        {
+          "Name": "phone_number_verified",
+          "Value": "true"
+        },
+        {
+          "Name": "sub",
+          "Value": "8f84be23-0b03-4141-8a37-9ea4b622a2d5"
+        }
+      ],
+      "Enabled": true,
+      "Password": "test",
+      "UserCreateDate": "2025-12-12T22:59:53.048Z",
+      "UserLastModifiedDate": "2025-12-13T14:40:40.343Z",
+      "Username": "8f84be23-0b03-4141-8a37-9ea4b622a2d5",
+      "UserStatus": "CONFIRMED",
+      "RefreshTokens": [
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGY4NGJlMjMtMGIwMy00MTQxLThhMzctOWVhNGI2MjJhMmQ1IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjU1ODAzOTMsImp0aSI6ImEwZGM2YjIyLTVlZDYtNDZmZi05ZmY0LWFjNzQyZDIwZmQzOSIsImV4cCI6MTc2NjE4NTE5MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.A5tYbu0hZ8XTIsP-8d5hVCxPuJ4QNzkMj2vftP8FsW6BPwsoTT4MUyXkOU3WNFNyoV524Y9GfJrEgPcakB8fCq-_GoacSLcRZIjoQ_yPtxfBFdECosTet3vqSO2jJz-WrSusnXNKTXf9v4ho2Mn4bmFGHY8sk0YhR2zdBY9y-AL64cWBV2aZF9_pVkmeOYn_hufpeB4ATfjpPwTqZvS9bTRfIQ5IQv686I9JcfcF2qVz4JH62Jr_P0En-GSVgJz9PpXw-8LElVabRScGWfhkz2ehc3dKGR7APL_Q6mc4S9_fQbmv1pB07_SUspn2mK2uxpbYxjw_mq9I06Snpqk33A",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGY4NGJlMjMtMGIwMy00MTQxLThhMzctOWVhNGI2MjJhMmQ1IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjU2MzY4MjksImp0aSI6ImQwM2M3YzhhLTUwZTQtNDUxYy1iNzY5LTdjOTgzNDY5NTg2ZCIsImV4cCI6MTc2NjI0MTYyOSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.VDCEaFnlHt0Yv0zoCpbkd2wIVoMZP6zDrl__qpgqXAj1x0ww37xvCLc6JoPM4cCN7ik4Lyrm2ah4uMw8YarVQMY2IL1OBKkmP4uFB7Ad5a4ODfiHwIi-K8TYprGv-NBqfAQ4pDtQHEmThGUZ5U-gVa33OFqrALtUmjObgSVDuPX1d9LIB6SneUKx-AX5cJ6vFayYswFq7867Wrw93v6zncZ4mM9qtsJtZ6-q1b5uMCchLM6U3bCEtC46JdQt-XI8gD7hkQ-ByBGep3W2zLCt4wMmN9q8JfJe8Oz5srOZ2N9jtczea_RJ7tAyb1cYi3zBoXuK5inr9eAaFTsiwxaEkQ",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGY4NGJlMjMtMGIwMy00MTQxLThhMzctOWVhNGI2MjJhMmQ1IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjU3Mjg4NjEsImp0aSI6IjJkYmNlMDg0LTkxYTAtNGUxOS1hMDEyLTliMzgxZmM0MjZiMiIsImV4cCI6MTc2NjMzMzY2MSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.heQtcrRYYOYYA_35tz0roIiiVtBVmB4xUvkzTI5oOmOurNBopfXrnRC7mKaty4drOVDjp79zK_BMXwRUHKN1vd0J9-SAo-sNkQMQHSOAQ4Js9En2o99Tukz8GCrBHCzsQpi7mmaV5aMChcCqeijGECmmkatGQxUzphAhU82KVQhBgBQu2H5LIFM1k8Y5n9lcIRnWSy3v_WlKH0JUMpyV3lXtxVAREjiVECsujlNil-3uu60rv3wCMbmbFd46hnfAQnSTe8goLT9xFOTEw6FinwBdaEM76K1BPHj8wzIpgQAYjqih3YdlGN8vPo9z4-7s0ONNAOdOMy4ImNW0U0bi1A",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGY4NGJlMjMtMGIwMy00MTQxLThhMzctOWVhNGI2MjJhMmQ1IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjU3Mjg5NDQsImp0aSI6ImU3NzUzOTJjLTk1OTgtNDQ5OS1iYjA5LWRiMmRhMGYwNmM1MiIsImV4cCI6MTc2NjMzMzc0NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.dQU4G80L_qCK4lEsKrePzDkS5eHJJLmdpK-vBVm8yh3OgpE7oNoj5GoZAsiFASKe7Jn_xAjhk9MBigv3Y8_Z4W2G0busXVn3mq1UfAXMSsvCwoukkMhpzox-SmCJkNGRiGyPeS-ThfNpSyTd5s2qC3_ZQT-Kh9SJkf4jovEcWeoINvMg8Ql2hZ8VDYFMLtQ21nXPsqQtRxayNTRd7I57zmQUl1kEgcWwypXRCGtt0sELly9_1Ij-sTu--OzqpUflqKOGk94BQwMpm741AhBJB6dL5-lb5b8USXLR-dDgRfzkXJhudjxzzjApNSwhpx-TDhOh1s8qqxOoRPROmybYTw",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGY4NGJlMjMtMGIwMy00MTQxLThhMzctOWVhNGI2MjJhMmQ1IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjU3MjkxMDgsImp0aSI6IjY5ZjE1ZjUyLTk1ODUtNGViNS04NjZkLTBjMjg0OTkzZjAxNSIsImV4cCI6MTc2NjMzMzkwOCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.EkX8Mp9xdMBQiQUbw3Hjre9Humtn42_C6GRCNDOYmurqrUx3w0DxDzMw9Toik7LZEyAyOvmuyHDU5cuxj4WDJbZawGZN3XJO8zG_GvxpPZVnazL_cj4nCv3QOS5CQuGsFZRTC3swDEfifszUiLEdL32tSLMzO-4Feoep1C-XiRMMgtlIEHl3oHp3z2mAJ6MtbJhlypwIUPvawUikeIEIxXKdeKLctSVTxCgri-2eGngr6jV3Wj5LcY1__1Y95UbIEDkZOyKyzs21Gbt9Q9PQQO9egT6n6-paTbDoJauTaf7pwQnaG6RMS3Dx2nM7s3BWOPsCMEB9d41RhZesiKKdwQ",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGY4NGJlMjMtMGIwMy00MTQxLThhMzctOWVhNGI2MjJhMmQ1IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjU3NDIzNjUsImp0aSI6ImE0ZTBlMzQwLTdiMTgtNDFiOS04YjQzLWE3MTA3YjMxNDE4ZCIsImV4cCI6MTc2NjM0NzE2NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.nXt19fmXZwseHxm4JVMBPzUkscCi1H73HZ6oxXCog1kqCVoisL7vCF5UwRGGeAueZeQTHLvhVq-Y2w-O5Tut3ZcbMWPyjBB14p-EBtY3gqhRefwL_vQdfsOGPKclALGbyabW5REQPJBck8esjbFFdSLzxd4hfCEWM-SIG2oPyIHNZzOF8ROSkv8rLqpjdWHQegWSWowSuMhSRS8KeUtEAiPNLUY3fRDFTyvu39l-JTLlLED062SCgLp5CWQj_K1wbFIcMZBFOzj7HPU1pH-OcTmm7eFhNz0fEboWZ-JM_Sea-92HYWulJJOk2_rdaZB1SmwAP1mcMSfWv4RsnqZnjw",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGY4NGJlMjMtMGIwMy00MTQxLThhMzctOWVhNGI2MjJhMmQ1IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjU3NDI0NzYsImp0aSI6ImRhM2I5NTJjLTQ3ZTgtNGVmYi05ZGRjLTRkMjVhZDg1OTI0NiIsImV4cCI6MTc2NjM0NzI3NiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.acB1QBaW7N2GWTFFfaW7iiLFs4iM3qR052gb3D9ev-L1mXWbuMlq1Ht9BN_k3TYn7kod2vSFU5nzTmkgFYkzPl91t2ijZQ5S-3TRoeCgKw75sjSgtZfR8o8Ss6hCqNlYJHX6kARjwf-SjnSc6S5THXhfIZzAHAil-9Wq5JaiPn3kbJdVBkiZh_rneMylETzt3fx5J0WvJPhOVhQaptuPwCVvFLTd7AWxnNnpHskLQTD9wFk7Dum9mU6XXO74Y5HFLtpNCVkB25bFLQJRb9VEl76YICAYfhJtaPkPmf2mjFHuMpT-7sxgp-k8YX2E37f6bnz4HYNoWRn8RgWnWHWmBw",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGY4NGJlMjMtMGIwMy00MTQxLThhMzctOWVhNGI2MjJhMmQ1IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjU3NDQ4NjQsImp0aSI6IjFhOTlmYjMzLWY0NGYtNGY2NS1iZDAxLTJjMzQxZjYxMmQyYiIsImV4cCI6MTc2NjM0OTY2NCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.YaNkPF2_KfNzbKfNLurB_9bpTZvK-a9SmwGgvW3hI9qE-w9iFDJEaJe8Q6pbwLKtu9D2EFabOrT8bKNVGHu6jEk2ncic2JejGkmYwjW56VK8ZWUesmKacr2jM86qIHQSLPTuNmOY2bMec2C94fa_49v2oeacL4s8r6sIK7G6NTucremqd8sfCnSDPcMiT4XQTW4RaQHiKJsQVGbjBnLa6Gty2T4rjgUTeejc6oAf_1MtGtgx-NYg8Fwi9zKEUKWOk0qYJ8S8N9aqCjlVWpczXDtEcSPTseURkTRduHoWFNO0Je4Y87pkVlTihkkL6wyRhRVGfGwVWCTaJdeXP95eZw",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGY4NGJlMjMtMGIwMy00MTQxLThhMzctOWVhNGI2MjJhMmQ1IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjU3NDQ5ODUsImp0aSI6IjBmNTY2ODQwLTc5NzUtNGE1NC1iYmJjLWViMDUwYTFjODBmOCIsImV4cCI6MTc2NjM0OTc4NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.Ep8uZuB5s6ZfRu9TFn93xzw8D1LmNH01caDTyNv4k8T_HiP-gLfebXXy_NOB2S43Nb2OJ3hj9Ck6YwdDvVlSV_-ysBOywQLytIwgCuvqNnavNNzv_eAnoKoO1bKJZfOogTa2KAJ2ougGehg4jiiuIHGseBVti5ANdFDevGNnLhlcvxvqtHDNu4fiMKsgaDFKEJb34XKkIzBbb3huNZCXINJcAlPexssy5HpXoXaUeUKwOoTMcUxalY3okswqDjbcHInzfjOnEeU_y6ZCbJz4BSNye91UYD1PO_RUnCESH_cbSYDbVPwFBT4e_gZNoRy92SVYm0BxQ7hpbKYoZ5DNAg",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGY4NGJlMjMtMGIwMy00MTQxLThhMzctOWVhNGI2MjJhMmQ1IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjU3NDUzMDYsImp0aSI6IjdlNzMyYzAzLTZjNTItNGJiMS05MWQ4LWUyNWVjZDEzZTNjOSIsImV4cCI6MTc2NjM1MDEwNiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.yEW8muOSP18g5aQipsjrkvzAxCkG4ga0QnbYP9T7ULIcUiEFvziuay54Zuny-Vs7719tEowhcSHWDpZYyVUm9bqxT6WDNVCqsFuEk2lRW7ChS1IDo66KKFsvE9qyAnICxH0mZR_ihkhAeCBM5wsGdDKdNSVZB5H2ha7QLKjBVYzs4_WyGDWvdtNQEvLnm2bG9YTcSlDbLgPd-xqLY5ZfCxdtAPdKL-7gTk9fmvO8n7c9_8dMgx2SUbzjWmFcCWvY5NwvRhbzKuxxFBtDti59gWd81l23JfwjezHsPWdI_yOYfu5Dco7UXXx38uSdwzXKRvSSeWEgmPU7ofbHgGinjg",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGY4NGJlMjMtMGIwMy00MTQxLThhMzctOWVhNGI2MjJhMmQ1IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjU3NDY3ODgsImp0aSI6ImI0MGIzMjNlLWI1MzUtNDA3Zi1hZDI4LWM1MTM1NzAyZTQ4OCIsImV4cCI6MTc2NjM1MTU4OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.Z3bExw29xaCglZS3GelnxHdmVWWG0Vr58BflmoaTZkLSepTVKZf5v45R2MRvGKq7CDH7ZPdRnb_vM7stgPdfu8YOnLrSD-E3318zRS23iZfiMcsvaRTIV2--fOVejC5uonZh8GAKQmdFVZwWO08WNxnuvKy1WEpWk_03XNZsgt_FBGc65HSY1XfcCsrTsNfXygIWFVyA-VOdKMEMqmzjoaZTo08tju_Um3HxJwgZIbkPdkXSrjNFMpQ4B_8GNv_-SHJxhl_hV8V9h0jkVvhF8HzzQ7IhbZEdn21vsdsWRy0Ed_NSzc4tMmc4mY-Mb-faz9GURCMDcgQCKsyO0E2T-w",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGY4NGJlMjMtMGIwMy00MTQxLThhMzctOWVhNGI2MjJhMmQ1IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjU3NDY5NjgsImp0aSI6IjQzNWZhOWJkLWNjN2EtNGU5NC1hYzQ4LTJkMjg5NGQ1ZmJjNyIsImV4cCI6MTc2NjM1MTc2OCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.OmvaI5tULo58akLR7bYIXSFKNvvWu9moGb_P4BmKamnMw92jFh7lvMccPUapbA93KORZG8AKSHAxC6Jd8Wk9m9e9WWo47IhvorKir0lSoFFARK2xFG2F8L_pAl4YeGfRIHHx40fn2xM26G6dM5NWItN5B5y2DiryaKPu9jZrbMAiceMaoP0RztTfvHEsBOhZ8_W6NvzvJnPhS7_Z5xM8s3JVp0urdkBHaIeEVURYx_8NZMMVzVhPhhoCdHXsChJG1IbEWXedMVgfnOdMqhmLDZDznW6JeCVzwNY0G7jQBiGvI3ns_HdF9OFt6kyHm-efPw_KgfgszcG3qvPQQWB85g",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGY4NGJlMjMtMGIwMy00MTQxLThhMzctOWVhNGI2MjJhMmQ1IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjU3NDcwMDMsImp0aSI6ImQ0YmE3OTdkLTE5OGYtNGQzZC04Y2Q1LTZmMzMxYzQyNjUwZCIsImV4cCI6MTc2NjM1MTgwMywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.y4SkufV2CijtdXdtaHo3x4_-P3oH3xeoRbpm9k9EshWWXmKIbD-jdYjuokEw6dc0g2xj4aU7mpByIpPiG90RD4lQoQpSA8wsmidpsBsEMSgX-uklep5owtLJok8wTnInWcqVnwJK8igZz5KMmZh5Na8x9sXJwWfIoqZJBNhr5DX8Uzuxlx9yDNhfx172jqln3NIF0c3Wb-bzKAP68iRmU6kAR7XceOcbGF3D7vcEnfLVBD5G3idL90IVMaHMTxn_iHV-dCXzwFSH71g3VpLAVSCLz0O7AVSllHI5Mrp3lYAv-Kbf083402iHl9MiRTDSSPiF6niMPgH1lo6qA1b2Wg",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGY4NGJlMjMtMGIwMy00MTQxLThhMzctOWVhNGI2MjJhMmQ1IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjU3NDg3NzAsImp0aSI6ImNmNDc4YWM5LTQyZDgtNGRjMC04ZGJjLTVhZGNjOTRhODA0ZCIsImV4cCI6MTc2NjM1MzU3MCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.PRGuQ_sX7x28_MwhUaeZZdSK81eJPfbgcpqXPLjXjHDE7qGaXx4Xij8qotitm7JLTTc9tIGgyS0qAWQmC0q0WFgZHwb2iqy4lv-bE99KCGetO5nV9nkZEvAPGK2BcvJ63CyT9867OzgcvHxPGOh879qI0RXVDMhlabAMDXDx29kjVXixPe6SSyNjMS9OC3FZtgTnFFN5ezQBbkKrVorXvTSXC6IX4UPS4ksOfGf9_1wygUJq3v7BDg5JP_TSy-lZrvuTSWPCuVyUTOxEwfEY5eFy9T-R5JEgvOVkRxzRtmucJa-5caxMzMq3spVVarwq9lv0l9wVap3jXA8UOJgAPw",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGY4NGJlMjMtMGIwMy00MTQxLThhMzctOWVhNGI2MjJhMmQ1IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjU3NDg4NTAsImp0aSI6IjYxYThlZjRkLTEzZTMtNDIxYy05YmY3LTExMzNlNDAyOTRiMiIsImV4cCI6MTc2NjM1MzY1MCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.J8a312pnH04w_06VKa6L8J0setH2x9hCgTiaFhs2T7ODjkVPFIcQMvcQzbEiy2mlz3WZFOc_kyzhqUNneKJZF3aCklnRFnZ7JEghNySXHZqVWbaUMbujhyAp-QpWuIL-Rs-6C3XSvhu4StYmiy0ZaG6II5xDMFmh5BTD_sj4UHuLbcawgWAwJu-yFNtdnQ0pTV350D_VV8cO6cPQf0nnsujLtkc786l-mxf-vx2E2AOeNtOMo9lSExmXPd6q2wVZub2OQmS0HySJi7L33Yzo4oXCuoLBqnt_E0gyeOgftpQmGkUjLAEgmQs-Dl5YUYzi3lIOzqPaIuGi04hr_m0YKw",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGY4NGJlMjMtMGIwMy00MTQxLThhMzctOWVhNGI2MjJhMmQ1IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjU3NDkwMDksImp0aSI6IjU0ZjJkNjM2LWE2ZjMtNGQwMy05OGE2LTRjMjlmODFlOGE4YiIsImV4cCI6MTc2NjM1MzgwOSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.Z1MYLOjabJbR8GLnOr3tZcDRSmEAiIOkR7HKmySLD8lDToab17tcj6Ispa-YD624qHs7Pzh9guiMQEAikV2-rZcEQnu_yWCo9OrRTVlaiJtGjiJhhamU9Nlof7lsuV2R--wqCpctP5hW__CE37jyXkdRhaQ4rjVbZAiNpozKseGF8unD0hhFtqSTsz9JOMwffZZ3V4XwI7Z5nvGEfocdOf30qrBtdN_27mJBNVPE89jfTCU_rlUp2X6PlMIOaJo1it2fTNIRcQDo7zzsHBpwsEBRWeBQUW5vc43TrKuLXDK6SpQJ7iacl-fESEV7Lg9WVRgy5P5HbS0R2HmI7luT6g",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGY4NGJlMjMtMGIwMy00MTQxLThhMzctOWVhNGI2MjJhMmQ1IiwiZW1haWwiOiJwaW9sZXQ5MUBnbWFpbC5jb20iLCJpYXQiOjE3NjU3NDkxODUsImp0aSI6IjUxOGU5YTQ1LTIwZDktNDJiMS1hNDIzLTJmMWRkNWJmNTQ1MiIsImV4cCI6MTc2NjM1Mzk4NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MjI5L2xvY2FsXzJoS2pWQ3JUIn0.m9-7S9EDpW8ryWu1HZU4oUvPFcwuKy9owZM0hN6H-j60KUsFX10J_uV5EyKh0XWsC6KXzs47sixeVdNyXkbXZVpndILTsLvgTlUiyafMIE1Xk9E4IUkHlQomj3yh6S3z69cN-xqy0V3J60ScSN_GkWNN_Ex1cIyPrjbevKFSW_dNVtW-gH6_uE5SpkxYJCc3uDjNt4UrC9kMp6gosVtvx1mod10cSVfoDbL1B6jsG6yadIpMO2nRmFYk9L0KJEej0L5eEp8CSfHRIjRUiEUjGZ6mvZK7w-vkufYATJvTUweUeIpZNBficO80IWpk_jHFo55NBySKpYaWMPuFg-CHRQ"
+      ]
+    },
+    "8dbf3918-7e56-4a30-83d9-f7fef740f9cb": {
+      "Attributes": [
+        {
+          "Name": "custom:firstName",
+          "Value": "Louis"
+        },
+        {
+          "Name": "custom:id",
+          "Value": "11"
+        },
+        {
+          "Name": "custom:lastName",
+          "Value": "Dijoux"
+        },
+        {
+          "Name": "custom:newsletter",
+          "Value": "0"
+        },
+        {
+          "Name": "custom:roles",
+          "Value": "[\"ROLE_ADMIN\",\"ROLE_BILLING\",\"ROLE_USER\",\"ROLE_WRITER\"]"
+        },
+        {
+          "Name": "email",
+          "Value": "piolet@piggums.fr"
+        },
+        {
+          "Name": "email_verified",
+          "Value": "true"
+        },
+        {
+          "Name": "family_name",
+          "Value": "Dijoux"
+        },
+        {
+          "Name": "given_name",
+          "Value": "Louis"
+        },
+        {
+          "Name": "sub",
+          "Value": "8dbf3918-7e56-4a30-83d9-f7fef740f9cb"
+        }
+      ],
+      "Enabled": true,
+      "Password": "test",
+      "UserCreateDate": "2025-12-14T21:53:49.286Z",
+      "UserLastModifiedDate": "2025-12-14T21:53:49.286Z",
+      "Username": "8dbf3918-7e56-4a30-83d9-f7fef740f9cb",
+      "UserStatus": "CONFIRMED",
+      "RefreshTokens": [
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiOGRiZjM5MTgtN2U1Ni00YTMwLTgzZDktZjdmZWY3NDBmOWNiIiwiZW1haWwiOiJwaW9sZXRAcGlnZ3Vtcy5mciIsImlhdCI6MTc2NTc0OTIyOSwianRpIjoiY2I5OWY5YTQtMWM4OC00MDM4LWJkMjMtZDMzNjI5YmJiMTMyIiwiZXhwIjoxNzY2MzU0MDI5LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjkyMjkvbG9jYWxfMmhLalZDclQifQ.yrSvG2QfTl0K0V3fNCxnh1Kjon2UYYhtqKCsPIqlbJ8l1ej7xrpcdf3bmHMbw_GOTGdZQ_a-DqsWtwwaS0mUUsqFMOmjkkMbdt73-WJcliptOCwqFlUh7y7MX2YXPY_nBvm2atGLCtzb5lN_hGUGhTfmZ876u_lXPhUG3NLcEdRUAcfPUmVUXQVFdaLLdIMl-B7E5lQzkaJvDabF7b8ZaJiv1k4QnTyPHmj8NcOgAaVUabtqFIAOmDt4dSV7hWo8PIBvHtv5la9AUoLPmcxsqKDMKDpXCeqvcFYiiBHB1n1ew402n-kZ62K0AoQ9huOvI_TtmK5APtfJ7sO6Ofjh8Q"
+      ]
+    },
+    "bccfb3a3-2685-4a21-a4c0-a7bb46035fc8": {
+      "Attributes": [
+        {
+          "Name": "sub",
+          "Value": "bccfb3a3-2685-4a21-a4c0-a7bb46035fc8"
+        },
+        {
+          "Name": "email",
+          "Value": "user11@gmail.com"
+        },
+        {
+          "Name": "given_name",
+          "Value": "[NC]"
+        },
+        {
+          "Name": "family_name",
+          "Value": "[NC]"
+        },
+        {
+          "Name": "custom:roles",
+          "Value": "[\"ROLE_USER\"]"
+        },
+        {
+          "Name": "custom:newsletter",
+          "Value": "true"
+        }
+      ],
+      "Enabled": true,
+      "Password": "testtest",
+      "RefreshTokens": [],
+      "UserCreateDate": "2025-12-15T19:09:47.458Z",
+      "UserLastModifiedDate": "2025-12-15T19:10:01.188Z",
+      "Username": "bccfb3a3-2685-4a21-a4c0-a7bb46035fc8",
+      "UserStatus": "CONFIRMED"
+    },
+    "b5b9e453-984f-4c63-8f15-31be6114e36a": {
+      "Attributes": [
+        {
+          "Name": "sub",
+          "Value": "b5b9e453-984f-4c63-8f15-31be6114e36a"
+        },
+        {
+          "Name": "email",
+          "Value": "user12@gmail.com"
+        },
+        {
+          "Name": "given_name",
+          "Value": "[NC]"
+        },
+        {
+          "Name": "family_name",
+          "Value": "[NC]"
+        },
+        {
+          "Name": "custom:roles",
+          "Value": "[\"ROLE_USER\"]"
+        },
+        {
+          "Name": "custom:newsletter",
+          "Value": "false"
+        }
+      ],
+      "Enabled": true,
+      "Password": "testtest",
+      "RefreshTokens": [],
+      "UserCreateDate": "2025-12-15T19:34:28.722Z",
+      "UserLastModifiedDate": "2025-12-15T19:35:05.449Z",
+      "Username": "b5b9e453-984f-4c63-8f15-31be6114e36a",
+      "UserStatus": "CONFIRMED"
+    },
+    "e641a150-71d3-4a67-8aa1-947f38b8518c": {
+      "Attributes": [
+        {
+          "Name": "sub",
+          "Value": "e641a150-71d3-4a67-8aa1-947f38b8518c"
+        },
+        {
+          "Name": "email",
+          "Value": "user13@gmail.com"
+        },
+        {
+          "Name": "given_name",
+          "Value": "[NC]"
+        },
+        {
+          "Name": "family_name",
+          "Value": "[NC]"
+        },
+        {
+          "Name": "custom:roles",
+          "Value": "[\"ROLE_USER\"]"
+        },
+        {
+          "Name": "custom:newsletter",
+          "Value": "false"
+        }
+      ],
+      "Enabled": true,
+      "Password": "testtest",
+      "RefreshTokens": [],
+      "UserCreateDate": "2025-12-15T19:38:47.270Z",
+      "UserLastModifiedDate": "2025-12-15T19:39:06.722Z",
+      "Username": "e641a150-71d3-4a67-8aa1-947f38b8518c",
+      "UserStatus": "CONFIRMED"
+    },
+    "14de9b84-044a-404d-87e7-f59bc3f4ae4d": {
+      "Attributes": [
+        {
+          "Name": "sub",
+          "Value": "14de9b84-044a-404d-87e7-f59bc3f4ae4d"
+        },
+        {
+          "Name": "email",
+          "Value": "user14@gmail.com"
+        },
+        {
+          "Name": "given_name",
+          "Value": "[NC]"
+        },
+        {
+          "Name": "family_name",
+          "Value": "[NC]"
+        },
+        {
+          "Name": "custom:roles",
+          "Value": "[\"ROLE_OWNER\",\"ROLE_USER\"]"
+        },
+        {
+          "Name": "custom:newsletter",
+          "Value": "true"
+        }
+      ],
+      "Enabled": true,
+      "Password": "testtest",
+      "RefreshTokens": [],
+      "UserCreateDate": "2025-12-15T19:44:08.953Z",
+      "UserLastModifiedDate": "2025-12-15T19:44:20.358Z",
+      "Username": "14de9b84-044a-404d-87e7-f59bc3f4ae4d",
+      "UserStatus": "CONFIRMED"
+    },
+    "a8067629-c381-4a40-8c8a-7120f05484ee": {
+      "Attributes": [
+        {
+          "Name": "sub",
+          "Value": "a8067629-c381-4a40-8c8a-7120f05484ee"
+        },
+        {
+          "Name": "email",
+          "Value": "user15@gmail.com"
+        },
+        {
+          "Name": "given_name",
+          "Value": "[NC]"
+        },
+        {
+          "Name": "family_name",
+          "Value": "[NC]"
+        },
+        {
+          "Name": "custom:roles",
+          "Value": "[\"ROLE_OWNER\",\"ROLE_USER\"]"
+        },
+        {
+          "Name": "custom:newsletter",
+          "Value": "true"
+        }
+      ],
+      "Enabled": true,
+      "Password": "testtest",
+      "RefreshTokens": [
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiYTgwNjc2MjktYzM4MS00YTQwLThjOGEtNzEyMGYwNTQ4NGVlIiwiZW1haWwiOiJ1c2VyMTVAZ21haWwuY29tIiwiaWF0IjoxNzY1ODI4MjQ0LCJqdGkiOiI0NWE3OTZmNS1kOGJjLTQ0M2QtOGQzNy05YTlkZmVjNGM0YzQiLCJleHAiOjE3NjY0MzMwNDQsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTIyOS9sb2NhbF8yaEtqVkNyVCJ9.WQc6IwKSeILTWs9nAdmzesBLJ9DsTrm9qTioK486DifNPvSSvC0N_C3V7gJYXVhxhSDjLKAonnny1Z1DGeTEeEgCgYzz9bxHnOPIIqDkGVz2ckmedQb89p6p1v4UCoXRA23j0z-Uzom-pxy8xZRabT3O1-oV0XfSJXoTGDiSTTpzBjhq5-qWULk3jGq7Rg1TWqqIJ8i7J4RiO5BxV00QluLQzqMyn6pVjRNr1h3q1XHIt2ymSgFUOKvSOAurxXZ6s1kioaVjoiPGGi2zxPDdJBlpz8P96gSmgNl2VRMU7UY8_rxF7Y8ADAYtXoR27M9KJyJtyZDrG6rTudleKWrV-Q",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiYTgwNjc2MjktYzM4MS00YTQwLThjOGEtNzEyMGYwNTQ4NGVlIiwiZW1haWwiOiJ1c2VyMTVAZ21haWwuY29tIiwiaWF0IjoxNzY1ODI4MjgxLCJqdGkiOiJkMWEwMTUwYi1kNWY1LTQ3ZTAtOGIzMy1hMzljMTY0MWIzMjAiLCJleHAiOjE3NjY0MzMwODEsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTIyOS9sb2NhbF8yaEtqVkNyVCJ9.PgOzyDeFdS7dI_8eUuA_rjmLbeR93cls5nj1psgR4eTDnSUPd26DkmQmE6bD4kyi0MXt83ZuWzrexqg7DxWJlOHE7aYe08pZWYsUCED0WAsDud2yWVjLubIScQFHIdUjWKbMaKrQ6zKgQhjAA9Qqt-KaKaDDZVkdL7DOUPo-fnO97mbGUrOtonc0J5SqIHQWVmfhMPiAMYiSzJ8HUPawEORuFHuBJNu-Vi--jqbPMD8cDZsQnrjM73_FANREJdEUD8Zn2ERsmQEgJvj_Nbs0dXvE_Dgeo0M0Vt-MoI2GtFSk4MBLnKXl38OTNg1hRqUbDa6pdpDMLjGiBOS28BAjLA",
+        "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2duaXRvOnVzZXJuYW1lIjoiYTgwNjc2MjktYzM4MS00YTQwLThjOGEtNzEyMGYwNTQ4NGVlIiwiZW1haWwiOiJ1c2VyMTVAZ21haWwuY29tIiwiaWF0IjoxNzY1ODI4NDk5LCJqdGkiOiJhNWI0MDVjYS00MTNiLTQwODctOGRlMS0zZDNkYmNkMjM0ZDEiLCJleHAiOjE3NjY0MzMyOTksImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTIyOS9sb2NhbF8yaEtqVkNyVCJ9.mepYzs-XZEdX8FeyIFZU6EA1HjWyzywHpBaHS4yhwfR-KMHCbHrrk6C2LbB83GUc7VGlvhw97RYbNwnK6JiRubBpYkPqEoS9_MDfnBDtxMv5cWL-QQ1zIeLg9aOjZ314p7K7Y2Infs9IYAc0on_e89Vo93DKsJtkR91LcLZqXER0Sk-eTHcg9GWoupKHdIJFa9cUDRLMRne7LWIrT7tl_8ntDm5YSB4ZyNJcAjYVPBogBfvwdoJ5U6PzbkBH-GNBFXmScSdDb-pqCm0mortPyvc3pksWe3cN7Z98lxujQvCw-NDhFbyQeOWbR-n9YTg5VcCKYaH7RPl376P_P52-BQ"
+      ],
+      "UserCreateDate": "2025-12-15T19:49:02.821Z",
+      "UserLastModifiedDate": "2025-12-15T19:50:12.422Z",
+      "Username": "a8067629-c381-4a40-8c8a-7120f05484ee",
+      "UserStatus": "CONFIRMED"
+    }
+  },
+  "Options": {
+    "Policies": {
+      "PasswordPolicy": {
+        "MinimumLength": 8,
+        "RequireUppercase": true,
+        "RequireLowercase": true,
+        "RequireNumbers": true,
+        "RequireSymbols": false,
+        "TemporaryPasswordValidityDays": 7
+      }
+    },
+    "LambdaConfig": {},
+    "SchemaAttributes": [
+      {
+        "Name": "sub",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": false,
+        "Required": true,
+        "StringAttributeConstraints": {
+          "MinLength": "1",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "name",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "given_name",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "family_name",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "middle_name",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "nickname",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "preferred_username",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "profile",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "picture",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "website",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "email",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": true,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "email_verified",
+        "AttributeDataType": "Boolean",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false
+      },
+      {
+        "Name": "gender",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "birthdate",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "10",
+          "MaxLength": "10"
+        }
+      },
+      {
+        "Name": "zoneinfo",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "locale",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "phone_number",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "phone_number_verified",
+        "AttributeDataType": "Boolean",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false
+      },
+      {
+        "Name": "address",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "updated_at",
+        "AttributeDataType": "Number",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "NumberAttributeConstraints": {
+          "MinValue": "0"
+        }
+      },
+      {
+        "Name": "custom:id",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "custom:roles",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "custom:firstName",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "custom:lastName",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "custom:userType",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "custom:newsletter",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      },
+      {
+        "Name": "custom:cguAccepted",
+        "AttributeDataType": "String",
+        "DeveloperOnlyAttribute": false,
+        "Mutable": true,
+        "Required": false,
+        "StringAttributeConstraints": {
+          "MinLength": "0",
+          "MaxLength": "2048"
+        }
+      }
+    ],
+    "VerificationMessageTemplate": {
+      "DefaultEmailOption": "CONFIRM_WITH_CODE"
+    },
+    "MfaConfiguration": "OFF",
+    "EstimatedNumberOfUsers": 0,
+    "EmailConfiguration": {
+      "EmailSendingAccount": "COGNITO_DEFAULT"
+    },
+    "AdminCreateUserConfig": {
+      "AllowAdminCreateUserOnly": false,
+      "UnusedAccountValidityDays": 7
+    },
+    "UsernameAttributes": [
+      "email"
+    ],
+    "Arn": "arn:aws:cognito-idp:local:local:userpool/local_2hKjVCrT",
+    "AutoVerifiedAttributes": [
+      "email"
+    ],
+    "CreationDate": "2025-12-04T21:08:13.257Z",
+    "Id": "local_2hKjVCrT",
+    "LastModifiedDate": "2025-12-04T21:08:13.257Z",
+    "Name": "heustach-local"
+  }
+}
