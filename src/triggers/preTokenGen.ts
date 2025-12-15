@@ -16,6 +16,8 @@ export const handler: PreTokenGenerationTriggerHandler = async (event: PreTokenG
         [email.toLowerCase()]
     );
 
+    console.log("PreTokenGen: found rows =", rows);
+
     let id = "";
     let rolesArray: string[] = ["ROLE_USER"];
     if (rows.length) {
@@ -26,6 +28,7 @@ export const handler: PreTokenGenerationTriggerHandler = async (event: PreTokenG
         } catch {}
     }
 
+    event.request.userAttributes = {...event.request.userAttributes, id}
     const claims = {
         // Tes clés EXACTES (strings uniquement dans PreTokenGen)
         id,                                 // "11"
@@ -43,6 +46,7 @@ export const handler: PreTokenGenerationTriggerHandler = async (event: PreTokenG
         ...claims
     };
 
+    console.log("PreTokenGen: final claims =", event);
     // Facultatif : si tu utilises des Groupes Cognito mais veux forcer le set
     // event.response.claimsOverrideDetails.groupOverrideDetails = {
     //   groupsToOverride: rolesArray

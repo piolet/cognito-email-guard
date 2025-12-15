@@ -70,13 +70,13 @@ functions:
     timeout: 15
     environment:
       DATABASE_URL: ${self:custom.database-url}
-  postConfirmation:
-    handler: src/triggers/postConfirmation.handler
-    memorySize: 256
-    timeout: 10
-    environment:
-      DATABASE_URL: ${self:custom.database-url}
-      API_URL: ${self:custom.protocol}://api.${self:custom.domain}
+#  postConfirmation:
+#    handler: src/triggers/postConfirmation.handler
+#    memorySize: 256
+#    timeout: 10
+#    environment:
+#      DATABASE_URL: ${self:custom.database-url}
+#      API_URL: ${self:custom.protocol}://api.${self:custom.domain}
 
 resources:
   Resources:
